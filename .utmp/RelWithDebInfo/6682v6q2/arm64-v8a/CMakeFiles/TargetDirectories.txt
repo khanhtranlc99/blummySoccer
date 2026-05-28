@@ -1,0 +1,5 @@
+D:/UnityProject/BlumySoccer/.utmp/RelWithDebInfo/6682v6q2/arm64-v8a/CMakeFiles/edit_cache.dir
+D:/UnityProject/BlumySoccer/.utmp/RelWithDebInfo/6682v6q2/arm64-v8a/CMakeFiles/rebuild_cache.dir
+D:/UnityProject/BlumySoccer/.utmp/RelWithDebInfo/6682v6q2/arm64-v8a/FramePacing/CMakeFiles/swappywrapper.dir
+D:/UnityProject/BlumySoccer/.utmp/RelWithDebInfo/6682v6q2/arm64-v8a/FramePacing/CMakeFiles/edit_cache.dir
+D:/UnityProject/BlumySoccer/.utmp/RelWithDebInfo/6682v6q2/arm64-v8a/FramePacing/CMakeFiles/rebuild_cache.dir

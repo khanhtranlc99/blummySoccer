@@ -1,0 +1,348 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e52a655cf7e2a94693f1629819c8d78, type: 3}
+  m_Name: CharectorData 3
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes: []
+  idCharector: 3
+  gender: 3
+  maxHealth: 0
+  powerPoint: 0
+  criticalRate: 0
+  dataItemAccs:
+  - idAcc: 0
+    idByType: 0
+    nameAcc: cap_01
+    typeAccessories: grp_Hair_Cap
+    price: 10
+    levelSale: 0
+  - idAcc: 1
+    idByType: 1
+    nameAcc: cap_02
+    typeAccessories: grp_Hair_Cap
+    price: 10
+    levelSale: 0
+  - idAcc: 2
+    idByType: 2
+    nameAcc: cap_03
+    typeAccessories: grp_Hair_Cap
+    price: 10
+    levelSale: 0
+  - idAcc: 3
+    idByType: 3
+    nameAcc: cap_04
+    typeAccessories: grp_Hair_Cap
+    price: 10
+    levelSale: 0
+  - idAcc: 4
+    idByType: 0
+    nameAcc: shoes_05
+    typeAccessories: grp_Shoes
+    price: 15
+    levelSale: 4
+  - idAcc: 5
+    idByType: 1
+    nameAcc: shoes_06
+    typeAccessories: grp_Shoes
+    price: 15
+    levelSale: 4
+  - idAcc: 6
+    idByType: 2
+    nameAcc: shoes_07
+    typeAccessories: grp_Shoes
+    price: 15
+    levelSale: 4
+  - idAcc: 7
+    idByType: 3
+    nameAcc: shoes_08
+    typeAccessories: grp_Shoes
+    price: 15
+    levelSale: 4
+  - idAcc: 8
+    idByType: 0
+    nameAcc: gloves_09
+    typeAccessories: grp_Gloves
+    price: 30
+    levelSale: 10
+  - idAcc: 9
+    idByType: 4
+    nameAcc: hair_10
+    typeAccessories: grp_Hair_Cap
+    price: 10
+    levelSale: 0
+  - idAcc: 10
+    idByType: 5
+    nameAcc: hair_11
+    typeAccessories: grp_Hair_Cap
+    price: 10
+    levelSale: 0
+  - idAcc: 11
+    idByType: 6
+    nameAcc: hair_12
+    typeAccessories: grp_Hair_Cap
+    price: 10
+    levelSale: 0
+  - idAcc: 12
+    idByType: 1
+    nameAcc: outfit_13
+    typeAccessories: grp_Outfit
+    price: 15
+    levelSale: 0
+  - idAcc: 13
+    idByType: 2
+    nameAcc: outfit_14
+    typeAccessories: grp_Outfit
+    price: 15
+    levelSale: 0
+  - idAcc: 14
+    idByType: 3
+    nameAcc: outfit_15
+    typeAccessories: grp_Outfit
+    price: 15
+    levelSale: 0
+  - idAcc: 15
+    idByType: 1
+    nameAcc: gloves_16
+    typeAccessories: grp_Gloves
+    price: 30
+    levelSale: 10
+  - idAcc: 16
+    idByType: 2
+    nameAcc: gloves_17
+    typeAccessories: grp_Gloves
+    price: 30
+    levelSale: 10
+  - idAcc: 17
+    idByType: 3
+    nameAcc: gloves_18
+    typeAccessories: grp_Gloves
+    price: 30
+    levelSale: 10
+  - idAcc: 18
+    idByType: 0
+    nameAcc: kneecap_19
+    typeAccessories: grp_Kneecap
+    price: 30
+    levelSale: 13
+  - idAcc: 19
+    idByType: 1
+    nameAcc: kneecap_20
+    typeAccessories: grp_Kneecap
+    price: 30
+    levelSale: 13
+  - idAcc: 20
+    idByType: 2
+    nameAcc: kneecap_21
+    typeAccessories: grp_Kneecap
+    price: 30
+    levelSale: 13
+  - idAcc: 21
+    idByType: 3
+    nameAcc: kneecap_22
+    typeAccessories: grp_Kneecap
+    price: 30
+    levelSale: 13
+  - idAcc: 22
+    idByType: 0
+    nameAcc: headphone_23
+    typeAccessories: grp_Headphone
+    price: 15
+    levelSale: 0
+  - idAcc: 23
+    idByType: 1
+    nameAcc: headphone_24
+    typeAccessories: grp_Headphone
+    price: 15
+    levelSale: 0
+  - idAcc: 24
+    idByType: 2
+    nameAcc: headphone_25
+    typeAccessories: grp_Headphone
+    price: 15
+    levelSale: 0
+  - idAcc: 25
+    idByType: 3
+    nameAcc: headphone_26
+    typeAccessories: grp_Headphone
+    price: 15
+    levelSale: 0
+  - idAcc: 26
+    idByType: 0
+    nameAcc: sportwatch_27
+    typeAccessories: grp_Sportwatch
+    price: 30
+    levelSale: 7
+  - idAcc: 27
+    idByType: 1
+    nameAcc: sportwatch_28
+    typeAccessories: grp_Sportwatch
+    price: 30
+    levelSale: 7
+  - idAcc: 28
+    idByType: 2
+    nameAcc: sportwatch_29
+    typeAccessories: grp_Sportwatch
+    price: 30
+    levelSale: 7
+  - idAcc: 29
+    idByType: 3
+    nameAcc: sportwatch_30
+    typeAccessories: grp_Sportwatch
+    price: 30
+    levelSale: 7
+  lsObjectType:
+  - typeObjectInBody: 0
+    lsIdAndObjectAssets:
+    - idAsset: 9
+      strAsset: hair_10
+      objectAsset: {fileID: 0}
+      responsiVector: {x: 0, y: 0, z: 0}
+    - idAsset: 10
+      strAsset: hair_11
+      objectAsset: {fileID: 0}
+      responsiVector: {x: 0, y: 0, z: 0}
+    - idAsset: 11
+      strAsset: hair_12
+      objectAsset: {fileID: 0}
+      responsiVector: {x: 0, y: 0, z: 0}
+  - typeObjectInBody: 1
+    lsIdAndObjectAssets:
+    - idAsset: 12
+      strAsset: outfit_13
+      objectAsset: {fileID: 0}
+      responsiVector: {x: 0, y: 0, z: 0}
+    - idAsset: 13
+      strAsset: outfit_14
+      objectAsset: {fileID: 0}
+      responsiVector: {x: 0, y: 0, z: 0}
+    - idAsset: 14
+      strAsset: outfit_15
+      objectAsset: {fileID: 0}
+      responsiVector: {x: 0, y: 0, z: 0}
+  - typeObjectInBody: 2
+    lsIdAndObjectAssets:
+    - idAsset: 8
+      strAsset: gloves_09
+      objectAsset: {fileID: 0}
+      responsiVector: {x: 0, y: 0, z: 0}
+    - idAsset: 15
+      strAsset: gloves_16
+      objectAsset: {fileID: 0}
+      responsiVector: {x: 0, y: 0, z: 0}
+    - idAsset: 16
+      strAsset: gloves_17
+      objectAsset: {fileID: 0}
+      responsiVector: {x: 0, y: 0, z: 0}
+    - idAsset: 17
+      strAsset: gloves_18
+      objectAsset: {fileID: 0}
+      responsiVector: {x: 0, y: 0, z: 0}
+  - typeObjectInBody: 3
+    lsIdAndObjectAssets:
+    - idAsset: 0
+      strAsset: cap_01
+      objectAsset: {fileID: 0}
+      responsiVector: {x: 0, y: 0, z: 0}
+    - idAsset: 1
+      strAsset: cap_02
+      objectAsset: {fileID: 0}
+      responsiVector: {x: 0, y: 0, z: 0}
+    - idAsset: 2
+      strAsset: cap_03
+      objectAsset: {fileID: 0}
+      responsiVector: {x: 0, y: 0, z: 0}
+    - idAsset: 3
+      strAsset: cap_04
+      objectAsset: {fileID: 0}
+      responsiVector: {x: 0, y: 0, z: 0}
+  - typeObjectInBody: 4
+    lsIdAndObjectAssets:
+    - idAsset: 4
+      strAsset: shoes_05
+      objectAsset: {fileID: 0}
+      responsiVector: {x: 0, y: 0, z: 0}
+    - idAsset: 5
+      strAsset: shoes_06
+      objectAsset: {fileID: 0}
+      responsiVector: {x: 0, y: 0, z: 0}
+    - idAsset: 6
+      strAsset: shoes_07
+      objectAsset: {fileID: 0}
+      responsiVector: {x: 0, y: 0, z: 0}
+    - idAsset: 7
+      strAsset: shoes_08
+      objectAsset: {fileID: 0}
+      responsiVector: {x: 0, y: 0, z: 0}
+  - typeObjectInBody: 5
+    lsIdAndObjectAssets: []
+  - typeObjectInBody: 6
+    lsIdAndObjectAssets:
+    - idAsset: 22
+      strAsset: headphone_23
+      objectAsset: {fileID: 0}
+      responsiVector: {x: 0, y: 0, z: 0}
+    - idAsset: 23
+      strAsset: headphone_24
+      objectAsset: {fileID: 0}
+      responsiVector: {x: 0, y: 0, z: 0}
+    - idAsset: 24
+      strAsset: headphone_25
+      objectAsset: {fileID: 0}
+      responsiVector: {x: 0, y: 0, z: 0}
+    - idAsset: 25
+      strAsset: headphone_26
+      objectAsset: {fileID: 0}
+      responsiVector: {x: 0, y: 0, z: 0}
+  - typeObjectInBody: 7
+    lsIdAndObjectAssets:
+    - idAsset: 18
+      strAsset: kneecap_19
+      objectAsset: {fileID: 0}
+      responsiVector: {x: 0, y: 0, z: 0}
+    - idAsset: 19
+      strAsset: kneecap_20
+      objectAsset: {fileID: 0}
+      responsiVector: {x: 0, y: 0, z: 0}
+    - idAsset: 20
+      strAsset: kneecap_21
+      objectAsset: {fileID: 0}
+      responsiVector: {x: 0, y: 0, z: 0}
+    - idAsset: 21
+      strAsset: kneecap_22
+      objectAsset: {fileID: 0}
+      responsiVector: {x: 0, y: 0, z: 0}
+  - typeObjectInBody: 8
+    lsIdAndObjectAssets:
+    - idAsset: 26
+      strAsset: sportwatch_27
+      objectAsset: {fileID: 0}
+      responsiVector: {x: 0, y: 0, z: 0}
+    - idAsset: 27
+      strAsset: sportwatch_28
+      objectAsset: {fileID: 0}
+      responsiVector: {x: 0, y: 0, z: 0}
+    - idAsset: 28
+      strAsset: sportwatch_29
+      objectAsset: {fileID: 0}
+      responsiVector: {x: 0, y: 0, z: 0}
+    - idAsset: 29
+      strAsset: sportwatch_30
+      objectAsset: {fileID: 0}
+      responsiVector: {x: 0, y: 0, z: 0}

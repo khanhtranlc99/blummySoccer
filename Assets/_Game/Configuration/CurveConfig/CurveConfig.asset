@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 880cbe33fbb413a47b7f9803577b2da2, type: 3}
+  m_Name: CurveConfig
+  m_EditorClassIdentifier: 
+  ListCurves:
+  - {fileID: 11400000, guid: c648f282908bc314c9b88c2307db2e6b, type: 2}
+  - {fileID: 11400000, guid: 4852e3ab2d73e7f418446b1cba983cba, type: 2}
+  - {fileID: 11400000, guid: 95c3b90d4eb7d6f40bf4529a1d8429ae, type: 2}
+  - {fileID: 11400000, guid: 06f448ea1a6795a409c9596b0b259a28, type: 2}

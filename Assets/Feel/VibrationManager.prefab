@@ -1,0 +1,65 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &2542119872699738274
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1251387700230517585}
+  - component: {fileID: 3221017468037040350}
+  m_Layer: 0
+  m_Name: VibrationManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1251387700230517585
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2542119872699738274}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3221017468037040350
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2542119872699738274}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 20050ef0a591c6142a47a96792f43931, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ListDatas:
+  - _type: 1
+    Clip: {fileID: -8404250095460277587, guid: a5cce830c10d94e848fc3ddac976fbf2, type: 3}
+  - _type: 2
+    Clip: {fileID: -8404250095460277587, guid: 6ba7f34892e4048be87810ea8621b3df, type: 3}
+  - _type: 3
+    Clip: {fileID: -8404250095460277587, guid: 21b5c105f373e476c93ac1a61c2a671f, type: 3}
+  - _type: 4
+    Clip: {fileID: -8404250095460277587, guid: 4c1fed00d51304ffbbcd07464f90b37d, type: 3}
+  - _type: 5
+    Clip: {fileID: -8404250095460277587, guid: bc8515b2736d340359b4c718c4f565ed, type: 3}
+  - _type: 6
+    Clip: {fileID: -8404250095460277587, guid: db702dc4cff314785bbc5a16becaaeb1, type: 3}
+  - _type: 7
+    Clip: {fileID: -8404250095460277587, guid: 5a367fd990b07468bb3bd4c42368b7fa, type: 3}
+  - _type: 8
+    Clip: {fileID: -8404250095460277587, guid: 9c40e0330eb2346cb90e006681c4feb0, type: 3}
+  - _type: 9
+    Clip: {fileID: -8404250095460277587, guid: a90fad83145944657936507a7a1c4ff6, type: 3}
