@@ -33,14 +33,14 @@ public class Winbox : BaseBox
     }
     public void InitState()
     {
-        GameController.Instance.admobAds.HandleShowMerec();
+       // GameController.Instance.admobAds.HandleShowMerec();
         UIManager.Instance.pfb_Gameplay.HandleStopAllCorutin();
 
 
     }
     private void HandleNext()
     {
-        GameController.Instance.admobAds.HandleHideMerec();
+      //  GameController.Instance.admobAds.HandleHideMerec();
         GlobalAudioPlayer.PlaySFX(eAudioType.CLICK);
  
 

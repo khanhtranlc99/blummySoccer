@@ -37,20 +37,20 @@ public static class FirebaseManager
         Constraints.Add(ConstraintExclusive);
         LogEvent(EventName, ParameterName, ParameterValue);
     }
-    public static void FirebaseTrackRevenue(MaxSdkBase.AdInfo impressionData)
-    {
-        double revenue = impressionData.Revenue;
-        var impressionParameters = new[] {
-              new Parameter("ad_platform", "AppLovin"),
-              new Parameter("ad_source", impressionData.NetworkName),
-              new Parameter("ad_unit_name", impressionData.AdUnitIdentifier),
-              new Parameter("ad_format", impressionData.AdFormat),
-              new Parameter("value", revenue),
-              new Parameter("currency", "USD"), // All AppLovin revenue is sent in USD
-            };
-        FirebaseAnalytics.LogEvent("ad_impression", impressionParameters);
-        FirebaseAnalytics.LogEvent("ad_max", impressionParameters);
-    }
+    // public static void FirebaseTrackRevenue(MaxSdkBase.AdInfo impressionData)
+    // {
+    //     double revenue = impressionData.Revenue;
+    //     var impressionParameters = new[] {
+    //           new Parameter("ad_platform", "AppLovin"),
+    //           new Parameter("ad_source", impressionData.NetworkName),
+    //           new Parameter("ad_unit_name", impressionData.AdUnitIdentifier),
+    //           new Parameter("ad_format", impressionData.AdFormat),
+    //           new Parameter("value", revenue),
+    //           new Parameter("currency", "USD"), // All AppLovin revenue is sent in USD
+    //         };
+    //     FirebaseAnalytics.LogEvent("ad_impression", impressionParameters);
+    //     FirebaseAnalytics.LogEvent("ad_max", impressionParameters);
+    // }
     //public static void FirebaseTrackRevenue(AdValue arg2, AdsType adstype, string _adUnitId)
     //{
     //    // Chỉ chia cho 1000000f nếu giá trị doanh thu là micro-units

@@ -47,7 +47,7 @@ namespace MoonlightFramework
             //    DontDestroyOnLoad(this.gameObject);
             //}
             dictAdsNetwork = new Dictionary<AdsNetwork, BaseAds>();
-            dictAdsNetwork.Add(AdsNetwork.Max, new MaxController());
+          //  dictAdsNetwork.Add(AdsNetwork.Max, new MaxController());
             //dictAdsNetwork.Add(AdsNetwork.Admob, new AdmobController());
 #if UNITY_ANDROID || UNITY_EDITOR
             InitAds(AdsNetwork.Max);

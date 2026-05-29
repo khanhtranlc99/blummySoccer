@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Events;
-using static MaxSdkBase;
+// using static MaxSdkBase;
 using Newtonsoft.Json.Linq;
 //using com.adjust.sdk;
 
@@ -42,31 +42,31 @@ public class AdmobAds : MonoBehaviour
 #endif
     public void Init()
     {
-        coutOpenAdsLoad = 0;
-        lockShowOpenAppAds = false;
-        canShowOpenAppAds = false;
-        wasShowOpenAppAdsInGame = false;
-        IsMRecReady = false;
-        countdownAds = 10000;
-        countdownAdsOpenAppAds = 1000;
-        #region Applovin Ads
-        CheckResetCaping();
-        MaxSdkCallbacks.OnSdkInitializedEvent += (MaxSdkBase.SdkConfiguration sdkConfiguration) =>
-        {
-            InitializeBannerAds();
-            InitInterstitial();
-            InitRewardVideo();
-            InitializeMRecAds();
-            //InitializeOpenAppAds();
+        // coutOpenAdsLoad = 0;
+        // lockShowOpenAppAds = false;
+        // canShowOpenAppAds = false;
+        // wasShowOpenAppAdsInGame = false;
+        // IsMRecReady = false;
+        // countdownAds = 10000;
+        // countdownAdsOpenAppAds = 1000;
+        // #region Applovin Ads
+        // CheckResetCaping();
+        // MaxSdkCallbacks.OnSdkInitializedEvent += (MaxSdkBase.SdkConfiguration sdkConfiguration) =>
+        // {
+        //     InitializeBannerAds();
+        //     InitInterstitial();
+        //     InitRewardVideo();
+        //     InitializeMRecAds();
+        //     //InitializeOpenAppAds();
 
-            // MaxSdk.ShowMediationDebugger();
-        };
-        MaxSdk.SetVerboseLogging(true);
-        MaxSdk.SetSdkKey(MaxSdkKey);
-        MaxSdk.InitializeSdk();
-        #endregion
-        _isInited = true;
-        //Debug.LogError("AppOpenId" + AppOpenId);
+        //     // MaxSdk.ShowMediationDebugger();
+        // };
+        // MaxSdk.SetVerboseLogging(true);
+        // MaxSdk.SetSdkKey(MaxSdkKey);
+        // MaxSdk.InitializeSdk();
+        // #endregion
+        // _isInited = true;
+        // //Debug.LogError("AppOpenId" + AppOpenId);
     }
 
     #region Interstitial
@@ -121,22 +121,23 @@ public class AdmobAds : MonoBehaviour
 
     public bool IsLoadedInterstitial()
     {
-        return MaxSdk.IsInterstitialReady(InterstitialAdUnitId);
+       // return MaxSdk.IsInterstitialReady(InterstitialAdUnitId);
+       return true;
     }
 
     private void InitInterstitial()
     {
-        MaxSdkCallbacks.Interstitial.OnAdLoadedEvent += OnInterstitialLoadedEvent;
-        MaxSdkCallbacks.Interstitial.OnAdLoadFailedEvent += OnInterstitialFailedEvent;
-        MaxSdkCallbacks.Interstitial.OnAdDisplayFailedEvent += InterstitialFailedToDisplayEvent;
-        MaxSdkCallbacks.Interstitial.OnAdHiddenEvent += OnInterstitialHiddenEvent;
-        MaxSdkCallbacks.Interstitial.OnAdClickedEvent += MaxSdkCallbacks_OnInterstitialClickedEvent;
-        MaxSdkCallbacks.Interstitial.OnAdDisplayedEvent += MaxSdkCallbacks_OnInterstitialDisplayedEvent;
+        // MaxSdkCallbacks.Interstitial.OnAdLoadedEvent += OnInterstitialLoadedEvent;
+        // MaxSdkCallbacks.Interstitial.OnAdLoadFailedEvent += OnInterstitialFailedEvent;
+        // MaxSdkCallbacks.Interstitial.OnAdDisplayFailedEvent += InterstitialFailedToDisplayEvent;
+        // MaxSdkCallbacks.Interstitial.OnAdHiddenEvent += OnInterstitialHiddenEvent;
+        // MaxSdkCallbacks.Interstitial.OnAdClickedEvent += MaxSdkCallbacks_OnInterstitialClickedEvent;
+        // MaxSdkCallbacks.Interstitial.OnAdDisplayedEvent += MaxSdkCallbacks_OnInterstitialDisplayedEvent;
 
-        RequestInterstitial();
+        // RequestInterstitial();
 
-        MaxSdkCallbacks.Interstitial.OnAdRevenuePaidEvent += OnAdRevenuePaidEvent;
-        // MaxSdkCallbacks.
+        // MaxSdkCallbacks.Interstitial.OnAdRevenuePaidEvent += OnAdRevenuePaidEvent;
+        // // MaxSdkCallbacks.
 
     }
 
@@ -150,74 +151,74 @@ public class AdmobAds : MonoBehaviour
         //}
 
 
-        if (isShowImmediatly)
-        {
+    //     if (isShowImmediatly)
+    //     {
           
-            ShowInterstitialHandle(isShowImmediatly, actionWatchLog, actionIniterClose, level);
-        }
-        else
-        {
+    //         ShowInterstitialHandle(isShowImmediatly, actionWatchLog, actionIniterClose, level);
+    //     }
+    //     else
+    //     {
            
 
-            if (PlayerPrefs.GetInt("CurrentLevel") >= RemoteConfigController.GetFloatConfig("level_start_show_initstial", 1))
-            {
+    //         if (PlayerPrefs.GetInt("CurrentLevel") >= RemoteConfigController.GetFloatConfig("level_start_show_initstial", 1))
+    //         {
 
              
-                if (countdownAds > RemoteConfigController.GetFloatConfig("Inter_time", 55))
-                {
-                    ShowInterstitialHandle(isShowImmediatly, actionWatchLog, actionIniterClose, level);
+    //             if (countdownAds > RemoteConfigController.GetFloatConfig("Inter_time", 55))
+    //             {
+    //                 ShowInterstitialHandle(isShowImmediatly, actionWatchLog, actionIniterClose, level);
 
                
-                }
-                else
-                {
-                    if (actionIniterClose != null)
-                        actionIniterClose();
-                }
-            }
-            else
-            {
-                if (actionIniterClose != null)
-                    actionIniterClose();
-            }
-        }
+    //             }
+    //             else
+    //             {
+    //                 if (actionIniterClose != null)
+    //                     actionIniterClose();
+    //             }
+    //         }
+    //         else
+    //         {
+    //             if (actionIniterClose != null)
+    //                 actionIniterClose();
+    //         }
+    //     }
 
-    }
+    // }
 
-    private void ShowInterstitialHandle(bool isShowImmediatly = false, string actionWatchLog = "other", UnityAction actionIniterClose = null, string level = null)
-    {
-        lockShowOpenAppAds = true;
-        if (IsLoadedInterstitial())
-        {
-            this.actionInterstitialClose = actionIniterClose;
-            MaxSdk.ShowInterstitial(InterstitialAdUnitId, actionWatchLog);
+    // private void ShowInterstitialHandle(bool isShowImmediatly = false, string actionWatchLog = "other", UnityAction actionIniterClose = null, string level = null)
+    // {
+    //     lockShowOpenAppAds = true;
+    //     if (IsLoadedInterstitial())
+    //     {
+    //         this.actionInterstitialClose = actionIniterClose;
+    //         MaxSdk.ShowInterstitial(InterstitialAdUnitId, actionWatchLog);
 
-            if (!isShowImmediatly)
-                countdownAds = 0;
+    //         if (!isShowImmediatly)
+    //             countdownAds = 0;
 
-            //GameController.Instance.AnalyticsController.LogInterShow(actionWatchLog);
-            GameController.Instance.AnalyticsController.LogInterShow();
-            //UseProfile.NumberOfAdsInDay = UseProfile.NumberOfAdsInDay + 1;
-            //UseProfile.NumberOfAdsInPlay = UseProfile.NumberOfAdsInPlay + 1;
+    //         //GameController.Instance.AnalyticsController.LogInterShow(actionWatchLog);
+    //         GameController.Instance.AnalyticsController.LogInterShow();
+    //         //UseProfile.NumberOfAdsInDay = UseProfile.NumberOfAdsInDay + 1;
+    //         //UseProfile.NumberOfAdsInPlay = UseProfile.NumberOfAdsInPlay + 1;
 
-        }
-        else
-        {
-            if (actionIniterClose != null)
-                actionIniterClose();
-            RequestInterstitial();
+    //     }
+    //     else
+    //     {
+    //         if (actionIniterClose != null)
+    //             actionIniterClose();
+    //         RequestInterstitial();
 
-        }
+    //     }
 
     }
 
     private void RequestInterstitial()
     {
-        if (_isLoading) return;
+        // if (_isLoading) return;
 
-        MaxSdk.LoadInterstitial(InterstitialAdUnitId);
-        GameController.Instance.AnalyticsController.LogInterLoad();
-        _isLoading = true;
+        // MaxSdk.LoadInterstitial(InterstitialAdUnitId);
+        // GameController.Instance.AnalyticsController.LogInterLoad();
+        // _isLoading = true;
     }
 
     #endregion
@@ -248,71 +249,71 @@ public class AdmobAds : MonoBehaviour
         InitializeRewardedAds();
     }
 
-    public bool IsLoadedVideoReward()
-    {
-        var result = MaxSdk.IsRewardedAdReady(RewardedAdUnitId);
-        if (!result)
-        {
-            RequestInterstitial();
-        }
-        return result;
-    }
+    // public bool IsLoadedVideoReward()
+    // {
+        // var result = MaxSdk.IsRewardedAdReady(RewardedAdUnitId);
+        // if (!result)
+        // {
+        //     RequestInterstitial();
+        // }
+        // return result;
+  //  }
 
-    public bool IsLoadedAds()
-    {
-        var result = IsLoadedVideoReward();
-        return !result ? IsLoadedInterstitial() : result;
-    }
+    // public bool IsLoadedAds()
+    // {
+    //     var result = IsLoadedVideoReward();
+    //     return !result ? IsLoadedInterstitial() : result;
+    // }
 
     public bool ShowVideoReward(UnityAction actionReward, UnityAction actionNotLoadedVideo, UnityAction actionClose, ActionWatchVideo actionType, string level)
     {
-        lockShowOpenAppAds = true;
-        if (Application.internetReachability == NetworkReachability.NotReachable)
-        {
-            actionNotLoadedVideo?.Invoke();
-            GameController.Instance.AnalyticsController.LogWatchVideo(actionType, true, false, level);
-            return false;
-        }
-        actionWatchVideo = actionType;
-        GameController.Instance.AnalyticsController.LogRequestVideoReward(actionType.ToString());
+        // lockShowOpenAppAds = true;
+        // if (Application.internetReachability == NetworkReachability.NotReachable)
+        // {
+        //     actionNotLoadedVideo?.Invoke();
+        //     GameController.Instance.AnalyticsController.LogWatchVideo(actionType, true, false, level);
+        //     return false;
+        // }
+        // actionWatchVideo = actionType;
+        // GameController.Instance.AnalyticsController.LogRequestVideoReward(actionType.ToString());
      
-        if (IsLoadedVideoReward())
-        {
+        // if (IsLoadedVideoReward())
+        // {
 
-            countdownAds = 0;
-            this._actionNotLoadedVideo = actionNotLoadedVideo;
-            this._actionClose = actionClose;
-            this._actionRewardVideo = actionReward;
+        //     countdownAds = 0;
+        //     this._actionNotLoadedVideo = actionNotLoadedVideo;
+        //     this._actionClose = actionClose;
+        //     this._actionRewardVideo = actionReward;
 
-            MaxSdk.ShowRewardedAd(RewardedAdUnitId, actionType.ToString());
-            GameController.Instance.AnalyticsController.LogWatchVideo(actionType, true, true, level);
-            GameController.Instance.AnalyticsController.LogVideoRewardShow(actionWatchVideo.ToString());
-            GameController.Instance.AnalyticsController.LogVideoRewardShow();
+        //     MaxSdk.ShowRewardedAd(RewardedAdUnitId, actionType.ToString());
+        //     GameController.Instance.AnalyticsController.LogWatchVideo(actionType, true, true, level);
+        //     GameController.Instance.AnalyticsController.LogVideoRewardShow(actionWatchVideo.ToString());
+        //     GameController.Instance.AnalyticsController.LogVideoRewardShow();
 
-        }
-        else
-        {
-            if (IsLoadedInterstitial())
-            {
-                this._actionNotLoadedVideo = actionNotLoadedVideo;
-                this._actionClose = actionClose;
-                this._actionRewardVideo = actionReward;
+        // }
+        // else
+        // {
+        //     if (IsLoadedInterstitial())
+        //     {
+        //         this._actionNotLoadedVideo = actionNotLoadedVideo;
+        //         this._actionClose = actionClose;
+        //         this._actionRewardVideo = actionReward;
 
-                ShowInterstitial(isShowImmediatly: true, actionType.ToString(), actionIniterClose: () => { }, level);
-                GameController.Instance.AnalyticsController.LogWatchVideo(actionType, true, true, level);
-                Debug.Log("ShowInterstitial !!!");
-                countdownAds = 0;
-                return true;
-            }
-            else
-            {
-                //ConfirmBox.Setup().AddMessageYes(Localization.Get("s_noti"), Localization.Get("s_TryAgain"), () => { });
-                Debug.Log("No ads !!!");
-                actionNotLoadedVideo?.Invoke();
-                GameController.Instance.AnalyticsController.LogWatchVideo(actionType, false, true, level);
-                return false;
-            }
-        }
+        //         ShowInterstitial(isShowImmediatly: true, actionType.ToString(), actionIniterClose: () => { }, level);
+        //         GameController.Instance.AnalyticsController.LogWatchVideo(actionType, true, true, level);
+        //         Debug.Log("ShowInterstitial !!!");
+        //         countdownAds = 0;
+        //         return true;
+        //     }
+        //     else
+        //     {
+        //         //ConfirmBox.Setup().AddMessageYes(Localization.Get("s_noti"), Localization.Get("s_TryAgain"), () => { });
+        //         Debug.Log("No ads !!!");
+        //         actionNotLoadedVideo?.Invoke();
+        //         GameController.Instance.AnalyticsController.LogWatchVideo(actionType, false, true, level);
+        //         return false;
+        //     }
+        // }
 
         return true;
     }
@@ -324,150 +325,150 @@ public class AdmobAds : MonoBehaviour
     {
         // Attach callbacks
    
-        MaxSdkCallbacks.Rewarded.OnAdLoadedEvent += OnRewardedAdLoadedEvent;
-        MaxSdkCallbacks.Rewarded.OnAdLoadFailedEvent += OnRewardedAdFailedEvent;
-        MaxSdkCallbacks.Rewarded.OnAdDisplayFailedEvent += OnRewardedAdFailedToDisplayEvent;
-        MaxSdkCallbacks.Rewarded.OnAdDisplayedEvent += OnRewardedAdDisplayedEvent;
-        MaxSdkCallbacks.Rewarded.OnAdClickedEvent += OnRewardedAdClickedEvent;
-        MaxSdkCallbacks.Rewarded.OnAdHiddenEvent += OnRewardedAdDismissedEvent;
-        MaxSdkCallbacks.Rewarded.OnAdReceivedRewardEvent += OnRewardedAdReceivedRewardEvent;
-        MaxSdkCallbacks.Rewarded.OnAdRevenuePaidEvent += OnAdRevenuePaidEvent;
-        // Load the first RewardedAd
-        LoadRewardedAd();
+        // MaxSdkCallbacks.Rewarded.OnAdLoadedEvent += OnRewardedAdLoadedEvent;
+        // MaxSdkCallbacks.Rewarded.OnAdLoadFailedEvent += OnRewardedAdFailedEvent;
+        // MaxSdkCallbacks.Rewarded.OnAdDisplayFailedEvent += OnRewardedAdFailedToDisplayEvent;
+        // MaxSdkCallbacks.Rewarded.OnAdDisplayedEvent += OnRewardedAdDisplayedEvent;
+        // MaxSdkCallbacks.Rewarded.OnAdClickedEvent += OnRewardedAdClickedEvent;
+        // MaxSdkCallbacks.Rewarded.OnAdHiddenEvent += OnRewardedAdDismissedEvent;
+        // MaxSdkCallbacks.Rewarded.OnAdReceivedRewardEvent += OnRewardedAdReceivedRewardEvent;
+        // MaxSdkCallbacks.Rewarded.OnAdRevenuePaidEvent += OnAdRevenuePaidEvent;
+        // // Load the first RewardedAd
+        // LoadRewardedAd();
     }
 
-    private void LoadRewardedAd()
-    {
-        MaxSdk.LoadRewardedAd(RewardedAdUnitId);
-    }
+//     private void LoadRewardedAd()
+//     {
+//      //   MaxSdk.LoadRewardedAd(RewardedAdUnitId);
+//     }
 
-    private void OnRewardedAdLoadedEvent(string adUnitId, AdInfo info)
-    {
-        GameController.Instance.AnalyticsController.LogVideoRewardReady();
-    }
+//     private void OnRewardedAdLoadedEvent(string adUnitId, AdInfo info)
+//     {
+//     //    GameController.Instance.AnalyticsController.LogVideoRewardReady();
+//     }
 
-    private void OnRewardedAdFailedEvent(string adUnitId, ErrorInfo errorCode)
-    {
-        Debug.Log("Rewarded ad failed to load with error code: " + errorCode);
-        Invoke("LoadRewardedAd", 10);
-        GameController.Instance.AnalyticsController.LogVideoRewardLoadFail(actionWatchVideo.ToString(), errorCode.ToString());
-    }
+//     private void OnRewardedAdFailedEvent(string adUnitId, ErrorInfo errorCode)
+//     {
+//     //     Debug.Log("Rewarded ad failed to load with error code: " + errorCode);
+//     //     Invoke("LoadRewardedAd", 10);
+//     //     GameController.Instance.AnalyticsController.LogVideoRewardLoadFail(actionWatchVideo.ToString(), errorCode.ToString());
+//     // }
 
-    private void OnRewardedAdFailedToDisplayEvent(string adUnitId, ErrorInfo errorCode, AdInfo adInfo)
-    {
-        Debug.Log("Rewarded ad failed to display with error code: " + errorCode);
-        isVideoDone = false;
+//     private void OnRewardedAdFailedToDisplayEvent(string adUnitId, ErrorInfo errorCode, AdInfo adInfo)
+//     {
+//         Debug.Log("Rewarded ad failed to display with error code: " + errorCode);
+//         isVideoDone = false;
 
-        //if (IsLoadedInterstitial())
-        //{
-        //    ShowInterstitial(isShowImmediatly: true);
-        //}
-        //else
-        //{
-        //    //ConfirmBox.Setup().AddMessageYes(Localization.Get("s_noti"), Localization.Get("s_TryAgain"), () => { });
-        //}
-        LoadRewardedAd();
-    }
+//         //if (IsLoadedInterstitial())
+//         //{
+//         //    ShowInterstitial(isShowImmediatly: true);
+//         //}
+//         //else
+//         //{
+//         //    //ConfirmBox.Setup().AddMessageYes(Localization.Get("s_noti"), Localization.Get("s_TryAgain"), () => { });
+//         //}
+//   //      LoadRewardedAd();
+//     }
 
-    private void OnRewardedAdDisplayedEvent(string adUnitId, AdInfo info)
-    {
-        Debug.Log("Rewarded ad displayed " + isVideoDone);
-        GameController.Instance.AnalyticsController.HandleFireEvent_Total_Reward_Count();
-        isVideoDone = false;
-    }
+    // private void OnRewardedAdDisplayedEvent(string adUnitId, AdInfo info)
+    // {
+    //     Debug.Log("Rewarded ad displayed " + isVideoDone);
+    //     GameController.Instance.AnalyticsController.HandleFireEvent_Total_Reward_Count();
+    //     isVideoDone = false;
+    // }
 
-    private void OnRewardedAdClickedEvent(string adUnitId, AdInfo info)
-    {
-        amountVideoRewardClick++;
-        Debug.Log("Rewarded ad clicked");
-        isVideoDone = true;
-        GameController.Instance.AnalyticsController.LogClickToVideoReward(actionWatchVideo.ToString());
-    }
+    // private void OnRewardedAdClickedEvent(string adUnitId, AdInfo info)
+    // {
+    //     amountVideoRewardClick++;
+    //     Debug.Log("Rewarded ad clicked");
+    //     isVideoDone = true;
+    //     GameController.Instance.AnalyticsController.LogClickToVideoReward(actionWatchVideo.ToString());
+    // }
 
-    private void OnRewardedAdDismissedEvent(string adUnitId, AdInfo info)
-    {
-        // Rewarded ad is hidden. Pre-load the next ad
-        lockShowOpenAppAds = false;
-        Debug.Log("Rewarded ad dismissed");
-        _actionClose?.Invoke();
-        _actionClose = null;
-        LoadRewardedAd();
-    }
+    // private void OnRewardedAdDismissedEvent(string adUnitId, AdInfo info)
+    // {
+    //     // Rewarded ad is hidden. Pre-load the next ad
+    //     lockShowOpenAppAds = false;
+    //     Debug.Log("Rewarded ad dismissed");
+    //     _actionClose?.Invoke();
+    //     _actionClose = null;
+    //     LoadRewardedAd();
+    // }
 
-    private void OnRewardedAdReceivedRewardEvent(string adUnitId, MaxSdk.Reward reward, AdInfo  info)
-    {
-        // Rewarded ad was displayed and user should receive the reward
-        Debug.Log("Rewarded ad received reward");
-        isVideoDone = true;
-        _actionRewardVideo?.Invoke();
-        _actionRewardVideo = null;
-        countdownAds = 0;
-        GameController.Instance.AnalyticsController.LogVideoRewardShowDone(actionWatchVideo.ToString());
-    }
+    // private void OnRewardedAdReceivedRewardEvent(string adUnitId, MaxSdk.Reward reward, AdInfo  info)
+    // {
+    //     // Rewarded ad was displayed and user should receive the reward
+    //     Debug.Log("Rewarded ad received reward");
+    //     isVideoDone = true;
+    //     _actionRewardVideo?.Invoke();
+    //     _actionRewardVideo = null;
+    //     countdownAds = 0;
+    //     GameController.Instance.AnalyticsController.LogVideoRewardShowDone(actionWatchVideo.ToString());
+    // }
     #endregion
 
     #region Applovin Interstitial
-    private void OnInterstitialLoadedEvent(string adUnitId, AdInfo info)
-    {
-        _isLoading = true;
-        GameController.Instance.AnalyticsController.LogInterReady();
-    }
+    // private void OnInterstitialLoadedEvent(string adUnitId, AdInfo info)
+    // {
+    //     _isLoading = true;
+    //     GameController.Instance.AnalyticsController.LogInterReady();
+    // }
 
-    private void OnInterstitialFailedEvent(string adUnitId, MaxSdkBase.ErrorInfo errorCode)
-    {
-        _isLoading = false;
-        actionInterstitialClose?.Invoke();
-        actionInterstitialClose = null;
-        Invoke("RequestInterstitial", 3);
+    // private void OnInterstitialFailedEvent(string adUnitId, MaxSdkBase.ErrorInfo errorCode)
+    // {
+    //     _isLoading = false;
+    //     actionInterstitialClose?.Invoke();
+    //     actionInterstitialClose = null;
+    //     Invoke("RequestInterstitial", 3);
 
        
-        GameController.Instance.AnalyticsController.LogInterLoadFail(errorCode.AdLoadFailureInfo);
-    }
+    //     GameController.Instance.AnalyticsController.LogInterLoadFail(errorCode.AdLoadFailureInfo);
+    // }
 
-    private void InterstitialFailedToDisplayEvent(string adUnitId, ErrorInfo errorCode, AdInfo info)
-    {
-        _isLoading = false;
-        actionInterstitialClose?.Invoke();
-        actionInterstitialClose = null;
-        RequestInterstitial();
-    }
+    // private void InterstitialFailedToDisplayEvent(string adUnitId, ErrorInfo errorCode, AdInfo info)
+    // {
+    //     _isLoading = false;
+    //     actionInterstitialClose?.Invoke();
+    //     actionInterstitialClose = null;
+    //     RequestInterstitial();
+    // }
 
-    private void OnInterstitialHiddenEvent(string adUnitId, AdInfo info)
-    {
-        _isLoading = false;
-        Debug.Log("InterstitialAdClosedEvent");
-        Time.timeScale = 1;
+    // private void OnInterstitialHiddenEvent(string adUnitId, AdInfo info)
+    // {
+    //     _isLoading = false;
+    //     Debug.Log("InterstitialAdClosedEvent");
+    //     Time.timeScale = 1;
 
-        _actionRewardVideo?.Invoke();
-        _actionRewardVideo = null;
+    //     _actionRewardVideo?.Invoke();
+    //     _actionRewardVideo = null;
 
-        _actionClose?.Invoke();
-        _actionClose = null;
+    //     _actionClose?.Invoke();
+    //     _actionClose = null;
 
-        actionInterstitialClose?.Invoke();
-        actionInterstitialClose = null;
-        lockShowOpenAppAds = false;
-        RequestInterstitial();
-    }
-    private void MaxSdkCallbacks_OnInterstitialDisplayedEvent(string adUnitId, AdInfo info)
-    {
-        //if (UseProfile.RetentionD <= 1)
-        //{
-        //    UseProfile.NumberOfDisplayedInterstitialD0_D1++;
-        //}
-        //GameController.Instance.AnalyticsController.LogDisplayedInterstitialDay01();
-        Debug.Log("InterstitialAdOpenedEvent");
-        GameController.Instance.AnalyticsController.HandleFireEvent_Total_Inter_Count();
-        _isLoading = false;
-        Time.timeScale = 0;
-    }
+    //     actionInterstitialClose?.Invoke();
+    //     actionInterstitialClose = null;
+    //     lockShowOpenAppAds = false;
+    //     RequestInterstitial();
+    // }
+    // private void MaxSdkCallbacks_OnInterstitialDisplayedEvent(string adUnitId, AdInfo info)
+    // {
+    //     //if (UseProfile.RetentionD <= 1)
+    //     //{
+    //     //    UseProfile.NumberOfDisplayedInterstitialD0_D1++;
+    //     //}
+    //     //GameController.Instance.AnalyticsController.LogDisplayedInterstitialDay01();
+    //     Debug.Log("InterstitialAdOpenedEvent");
+    //     GameController.Instance.AnalyticsController.HandleFireEvent_Total_Inter_Count();
+    //     _isLoading = false;
+    //     Time.timeScale = 0;
+    // }
 
-    private void MaxSdkCallbacks_OnInterstitialClickedEvent(string adUnitId, AdInfo info)
-    {
-        amountInterClick++;
-        GameController.Instance.AnalyticsController.LogInterClick();
-        _isLoading = false;
-    }
+    // private void MaxSdkCallbacks_OnInterstitialClickedEvent(string adUnitId, AdInfo info)
+    // {
+    //     amountInterClick++;
+    //     GameController.Instance.AnalyticsController.LogInterClick();
+    //     _isLoading = false;
+    // }
     #endregion
 
     #region Applovin Baner
@@ -520,58 +521,58 @@ public class AdmobAds : MonoBehaviour
 
     public void InitializeBannerAds()
     {
-        MaxSdkCallbacks.Banner.OnAdLoadedEvent += OnBannerAdLoadedEvent;
-        MaxSdkCallbacks.Banner.OnAdLoadFailedEvent += OnBannerAdLoadFailedEvent;
-        MaxSdkCallbacks.Banner.OnAdClickedEvent += OnBannerAdClickedEvent;
-        MaxSdkCallbacks.Banner.OnAdRevenuePaidEvent += OnAdRevenuePaidEvent;
+        // MaxSdkCallbacks.Banner.OnAdLoadedEvent += OnBannerAdLoadedEvent;
+        // MaxSdkCallbacks.Banner.OnAdLoadFailedEvent += OnBannerAdLoadFailedEvent;
+        // MaxSdkCallbacks.Banner.OnAdClickedEvent += OnBannerAdClickedEvent;
+        // MaxSdkCallbacks.Banner.OnAdRevenuePaidEvent += OnAdRevenuePaidEvent;
 
-        MaxSdk.CreateBanner(BanerAdUnitId, MaxSdkBase.BannerPosition.BottomCenter);
-        MaxSdk.SetBannerExtraParameter(BanerAdUnitId, "adaptive_banner", "true");
-        MaxSdk.SetBannerBackgroundColor(BanerAdUnitId, Color.black);
-        MaxSdk.SetBannerWidth(BanerAdUnitId, 520);
+        // MaxSdk.CreateBanner(BanerAdUnitId, MaxSdkBase.BannerPosition.BottomCenter);
+        // MaxSdk.SetBannerExtraParameter(BanerAdUnitId, "adaptive_banner", "true");
+        // MaxSdk.SetBannerBackgroundColor(BanerAdUnitId, Color.black);
+        // MaxSdk.SetBannerWidth(BanerAdUnitId, 520);
 
         
-        ShowBanner();
+        // ShowBanner();
     }
    
-    private void OnBannerAdClickedEvent(string obj, AdInfo info)
-    {
-        //inter click
-        Debug.Log("Click Baner !!!");
-        amountBanerClick++;
+    // private void OnBannerAdClickedEvent(string obj, AdInfo info)
+    // {
+    //     //inter click
+    //     Debug.Log("Click Baner !!!");
+    //     amountBanerClick++;
 
-    }
+    // }
 
-    private void OnBannerAdLoadFailedEvent(string arg1, ErrorInfo arg2)
-    {
-        if (reloadBannerCoru != null)
-        {
-            StopCoroutine(reloadBannerCoru);
-            reloadBannerCoru = null;
-        }
-        reloadBannerCoru = Helper.StartAction(() => { ShowBanner(); }, 0.3f);
-        StartCoroutine(reloadBannerCoru);
-    }
+    // private void OnBannerAdLoadFailedEvent(string arg1, ErrorInfo arg2)
+    // {
+    //     // if (reloadBannerCoru != null)
+    //     // {
+    //     //     StopCoroutine(reloadBannerCoru);
+    //     //     reloadBannerCoru = null;
+    //     // }
+    //     // reloadBannerCoru = Helper.StartAction(() => { ShowBanner(); }, 0.3f);
+    //     // StartCoroutine(reloadBannerCoru);
+    // }
 
-    private void OnBannerAdLoadedEvent(string obj, AdInfo info)
-    {
-        Debug.Log("Request success");
-        if (reloadBannerCoru != null)
-        {
-            StopCoroutine(reloadBannerCoru);
-            reloadBannerCoru = null;
-        }
+    // private void OnBannerAdLoadedEvent(string obj, AdInfo info)
+    // {
+    //     // Debug.Log("Request success");
+    //     // if (reloadBannerCoru != null)
+    //     // {
+    //     //     StopCoroutine(reloadBannerCoru);
+    //     //     reloadBannerCoru = null;
+    //     // }
        
-    }
+    // }
 
     public void DestroyBanner()
     {
-        if (reloadBannerCoru != null)
-        {
-            StopCoroutine(reloadBannerCoru);
-            reloadBannerCoru = null;
-        }
-        MaxSdk.HideBanner(BanerAdUnitId);
+        // if (reloadBannerCoru != null)
+        // {
+        //     StopCoroutine(reloadBannerCoru);
+        //     reloadBannerCoru = null;
+        // }
+        // MaxSdk.HideBanner(BanerAdUnitId);
     }
 
     public void ShowBanner()
@@ -581,14 +582,14 @@ public class AdmobAds : MonoBehaviour
         //    return;
         //}
 
-        if (wasShowMer)
-        {
-            return;
-        }
+        // if (wasShowMer)
+        // {
+        //     return;
+        // }
 
 
 
-        MaxSdk.ShowBanner(BanerAdUnitId);
+        // MaxSdk.ShowBanner(BanerAdUnitId);
     }
 
 
@@ -624,37 +625,37 @@ public class AdmobAds : MonoBehaviour
     }
     #endregion
 
-    private void OnAdRevenuePaidEvent(string adUnitId, MaxSdkBase.AdInfo impressionData)
-    {
+//     private void OnAdRevenuePaidEvent(string adUnitId, MaxSdkBase.AdInfo impressionData)
+//     {
     
 
-        double revenue = impressionData.Revenue;
-        var impressionParameters = new[] {
-    new Firebase.Analytics.Parameter("ad_platform", "AppLovin"),
-    new Firebase.Analytics.Parameter("ad_source", impressionData.NetworkName),
-    new Firebase.Analytics.Parameter("ad_unit_name", impressionData.AdUnitIdentifier),
-    new Firebase.Analytics.Parameter("value", revenue),
-    new Firebase.Analytics.Parameter("currency", "USD"), // All AppLovin revenue is sent in USD
-};
-        Firebase.Analytics.FirebaseAnalytics.LogEvent("ad_max", impressionParameters);
-        Firebase.Analytics.FirebaseAnalytics.LogEvent("ad_impression", impressionParameters);
+//         double revenue = impressionData.Revenue;
+//         var impressionParameters = new[] {
+//     new Firebase.Analytics.Parameter("ad_platform", "AppLovin"),
+//     new Firebase.Analytics.Parameter("ad_source", impressionData.NetworkName),
+//     new Firebase.Analytics.Parameter("ad_unit_name", impressionData.AdUnitIdentifier),
+//     new Firebase.Analytics.Parameter("value", revenue),
+//     new Firebase.Analytics.Parameter("currency", "USD"), // All AppLovin revenue is sent in USD
+// };
+//         Firebase.Analytics.FirebaseAnalytics.LogEvent("ad_max", impressionParameters);
+//         Firebase.Analytics.FirebaseAnalytics.LogEvent("ad_impression", impressionParameters);
     
 
  
-    }
+//     }
 
-    private void OnLevelWasLoaded(int level)
-    {
-        _actionRewardVideo = null;
-        _actionClose = null;
-        actionInterstitialClose = null;
-    }
+//     private void OnLevelWasLoaded(int level)
+//     {
+//         _actionRewardVideo = null;
+//         _actionClose = null;
+//         actionInterstitialClose = null;
+//     }
 
-    private void Update()
-    {
-        countdownAds += Time.unscaledDeltaTime;
-        countdownAdsOpenAppAds += Time.unscaledTime;
-    }
+//     private void Update()
+//     {
+//         countdownAds += Time.unscaledDeltaTime;
+//         countdownAdsOpenAppAds += Time.unscaledTime;
+//     }
 
     //public bool IsOpenAdsReady
     //{
@@ -745,64 +746,64 @@ public class AdmobAds : MonoBehaviour
     //    }
 
     //}
-    public void InitializeMRecAds()
-    {
-    //    // MRECs are sized to 300x250 on phones and tablets
-        MaxSdk.CreateMRec(MREC_Id, MaxSdkBase.AdViewPosition.Centered);
+    // public void InitializeMRecAds()
+    // {
+    // //    // MRECs are sized to 300x250 on phones and tablets
+    //     MaxSdk.CreateMRec(MREC_Id, MaxSdkBase.AdViewPosition.Centered);
 
-        MaxSdkCallbacks.MRec.OnAdLoadedEvent += OnMRecAdLoadedEvent;
-        MaxSdkCallbacks.MRec.OnAdLoadFailedEvent += OnMRecAdLoadFailedEvent;
-        MaxSdkCallbacks.MRec.OnAdClickedEvent += OnMRecAdClickedEvent;
-        MaxSdkCallbacks.MRec.OnAdRevenuePaidEvent += OnAdRevenuePaidEvent;
-        MaxSdkCallbacks.MRec.OnAdExpandedEvent += OnMRecAdExpandedEvent;
-       MaxSdkCallbacks.MRec.OnAdCollapsedEvent += OnMRecAdCollapsedEvent;
-
-
-    }
-
-    public void OnMRecAdLoadedEvent(string adUnitId, MaxSdkBase.AdInfo adInfo)
-    {
-        IsMRecReady = true;
-
-    }
-
-    public void OnMRecAdLoadFailedEvent(string adUnitId, MaxSdkBase.ErrorInfo error)
-    {
-
-        IsMRecReady = false;
+    //     MaxSdkCallbacks.MRec.OnAdLoadedEvent += OnMRecAdLoadedEvent;
+    //     MaxSdkCallbacks.MRec.OnAdLoadFailedEvent += OnMRecAdLoadFailedEvent;
+    //     MaxSdkCallbacks.MRec.OnAdClickedEvent += OnMRecAdClickedEvent;
+    //     MaxSdkCallbacks.MRec.OnAdRevenuePaidEvent += OnAdRevenuePaidEvent;
+    //     MaxSdkCallbacks.MRec.OnAdExpandedEvent += OnMRecAdExpandedEvent;
+    //    MaxSdkCallbacks.MRec.OnAdCollapsedEvent += OnMRecAdCollapsedEvent;
 
 
-    }
+    // }
 
-    public void OnMRecAdClickedEvent(string adUnitId, MaxSdkBase.AdInfo adInfo) { }
+    // public void OnMRecAdLoadedEvent(string adUnitId, MaxSdkBase.AdInfo adInfo)
+    // {
+    //     IsMRecReady = true;
 
-    public void OnMRecAdRevenuePaidEvent(string adUnitId, MaxSdkBase.AdInfo adInfo) { }
+    // }
 
-    public void OnMRecAdExpandedEvent(string adUnitId, MaxSdkBase.AdInfo adInfo) { }
+    // public void OnMRecAdLoadFailedEvent(string adUnitId, MaxSdkBase.ErrorInfo error)
+    // {
 
-    public void OnMRecAdCollapsedEvent(string adUnitId, MaxSdkBase.AdInfo adInfo) { }
+    //     IsMRecReady = false;
 
 
-    public void HandleShowMerec()
-    {
-        //if (UseProfile.IsRemoveAds)
-        //{
-        //    return;
-        //}
+    // }
 
-        DestroyBanner();
-        MaxSdk.ShowMRec(MREC_Id);
-        showingMREC = true;
-    }
-    public void HandleHideMerec()
-    {
-        if (showingMREC)
-        {
-            MaxSdk.HideMRec(MREC_Id);
-            ShowBanner();
-            showingMREC = false;
-       }
+    // public void OnMRecAdClickedEvent(string adUnitId, MaxSdkBase.AdInfo adInfo) { }
 
-    }
+    // public void OnMRecAdRevenuePaidEvent(string adUnitId, MaxSdkBase.AdInfo adInfo) { }
+
+    // public void OnMRecAdExpandedEvent(string adUnitId, MaxSdkBase.AdInfo adInfo) { }
+
+    // public void OnMRecAdCollapsedEvent(string adUnitId, MaxSdkBase.AdInfo adInfo) { }
+
+
+    // public void HandleShowMerec()
+    // {
+    //     //if (UseProfile.IsRemoveAds)
+    //     //{
+    //     //    return;
+    //     //}
+
+    //     DestroyBanner();
+    //     MaxSdk.ShowMRec(MREC_Id);
+    //     showingMREC = true;
+    // }
+    // public void HandleHideMerec()
+    // {
+    //     if (showingMREC)
+    //     {
+    //         MaxSdk.HideMRec(MREC_Id);
+    //         ShowBanner();
+    //         showingMREC = false;
+    //    }
+
+    // }
 
 }
