@@ -1,0 +1,168 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7bd5f4698d661a2418e98cf264b5a5f4, type: 3}
+  m_Name: ToolPreference
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes: []
+  CheckUpdate: 1
+  MajorNotice: 1
+  XMYGoogleServicesJsonPath: 
+  XMYGradleDependencyLibrary: []
+  XMYResourceFilePaths: []
+  XMYResourceFolderPaths: []
+  OverrideXMYUnityClassJar: 0
+  XMYUnityClassPath: 
+  DouyinXSDKChannel: -1
+  OpenByteDanceGe: 1
+  ByteDanceGeAccessToken: 
+  ByteDanceGeAutoVersionCode: 1
+  ByteDanceGeVersionCode: 1
+  WeChatXSDKSdkChannelId: -1
+  WeChatXSDKVersionName: 
+  WeChatAppId: 
+  WeChatCdn: http://www.xxx.com/wxcdn/v1001
+  WeChatProjName: "\u5FAE\u4FE1\u5C0F\u6E38\u620F"
+  WeChatUnityHeap: 512
+  WeChatExportProj: wxgame
+  WeChatResolution: 0
+  WeChatLoadingBackground: {fileID: 0}
+  AdvancedOptions:
+    _ProjectConf:
+      VideoUrl: 
+      assetLoadType: 0
+      compressDataPackage: 0
+      bundleExcludeExtensions: json;
+      bundleHashLength: 32
+      preloadFiles: 
+    _SDKOptions:
+      UseFriendRelation: 0
+      UseMiniGameChat: 0
+      PreloadWXFont: 0
+      disableMultiTouch: 0
+    _CompileOptions:
+      DevelopBuild: 0
+      AutoProfile: 0
+      ScriptOnly: 0
+      Il2CppOptimizeSize: 1
+      profilingFuncs: 1
+      ProfilingMemory: 0
+      Webgl2: 0
+      enableIOSPerformancePlus: 0
+      DeleteStreamingAssets: 1
+      CleanBuild: 0
+      fbslim: 0
+      autoAdaptScreen: 0
+      showMonitorSuggestModal: 1
+      enableProfileStats: 0
+      enableRenderAnalysis: 0
+      brotliMT: 1
+  WeChatShareImages: []
+  WeChatGameClubButtonImage: {fileID: 2800000, guid: 04eb68aa425599d458184c090bd8ae15, type: 3}
+  OpenTaAttribution: 0
+  TaAttributionAppId: 
+  TaAttributionSecretKey: 
+  TaAttributionSourceId: 0
+  OpenWxGe: 0
+  WxGeAccessToken: 
+  WxGeAutoVersionFlag: 1
+  WxGeVersion: 0
+  OppoXSDKSdkChannelId: -1
+  OppoXSDKVersionName: 
+  OppoMiniLimitFrameRate: 0
+  OppoMiniFrameRate: 50
+  VivoXSDKSdkChannelId: -1
+  VivoXSDKVersionName: 
+  VivoMiniLogo: {fileID: 0}
+  VivoMiniLimitFrameRate: 0
+  VivoMiniFrameRate: 50
+  VivoMiniPrivatePemPath: 
+  VivoMiniCertificatePemPath: 
+  KuaishouXSDKChannel: -1
+  KuaishouAppId: 
+  KuaishouExportProj: 
+  KuaishouCdn: 
+  KuaishouBundleExcludeExtensions: json;
+  KuaishouBundleHashLength: 32
+  KuaishouEnableWasmBrCompress: 0
+  KuaishouEnableParallel: 0
+  KuaishouEnableDataBrCompress: 0
+  KuaishouPreloadFiles: 
+  KuaishouPreloadUrl: 
+  KuaishouDevelopBuild: 0
+  OpenKuaishouGe: 0
+  KuaishouGeAccessToken: 
+  KuaishouGeAutoVersionCode: 1
+  KuaishouGeVersionCode: 1
+  BilibiliXSDKChannel: -1
+  BilibiliAppId: 
+  BilibiliCdn: 
+  BilibiliProjName: 
+  BilibiliUnityHeap: 512
+  BilibiliExportProj: 
+  BilibiliResolution: 0
+  BilibiliLoadingBackground: {fileID: 0}
+  BilibiliAdvancedOptions:
+    _ProjectConf:
+      VideoUrl: 
+      assetLoadType: 0
+      bundleExcludeExtensions: json;
+      bundleHashLength: 32
+      preloadFiles: 
+    _CompileOptions:
+      DevelopBuild: 0
+      AutoProfile: 0
+      ScriptOnly: 0
+      profilingFuncs: 0
+      ProfilingMemory: 0
+      DeleteStreamingAssets: 1
+      CleanBuild: 1
+  OpenBilibiliGe: 0
+  BilibiliGeAccessToken: 
+  BilibiliGeAutoVersionFlag: 1
+  BilibiliGeVersion: 1
+  harmonyLightConfig:
+    appId: 
+    appKey: 
+    ltChannelID: 0
+    ltUrl: https://api.server.xgame.xplaymobile.com
+    adParams:
+      HARMONY_AD_INTERS_IDS: 
+      HARMONY_AD_VIDEO_IDS: 
+  harmonyLightLaunchImage: 
+  harmonyLightAgeAppropriateImage: 
+  harmonyLightGameName: 
+  harmonyLightCopyrightOwner: 
+  harmonyLightUserAgreement: 
+  harmonyLightPrivacyPolicy: 
+  harmonyLightEnableGravityEngine: 0
+  gravityAccessToken: 
+  harmonyLightIsPurchaseGame: 0
+  harmonyLightApprovalNumber: 
+  harmonyLightPublishingServiceUnit: 
+  harmonyLightPublicationNumber: 
+  harmonyLightGameRegistrationIdentificationCode: 
+  harmonyLightRecordInquiryWebsite: 
+  HuaweiXSDKChannel: -1
+  HuaweiXSDKVersionName: 
+  HuaweiAppId: 
+  OpenGeHuaweiKuaiGame: 0
+  GeAccessTokenHuaweiKuaiGame: 
+  GeAutoVersionCodeHuaweiKuaiGame: 1
+  GeVersionCodeHuaweiKuaiGame: 1

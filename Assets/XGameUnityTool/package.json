@@ -1,0 +1,25 @@
+{
+  "name": "com.xgame.unitytool",
+  "displayName": "XGame Unity Tool",
+  "version":"2026.5.29.1",
+  "versionCode":2026052901,
+  "unity": "2018",
+  "description": "XGame Unity Tool\n\u5efa\u8bae\u4f7f\u7528 Unity 2019.4.8",
+  "keywords": [
+    "xgame",
+    "unitytool",
+    "sdk"
+  ],
+  "dependencies": {},
+  "category": "Libraries",
+  "links": [
+    {
+      "label": "\u67e5\u770b\u6587\u6863 | View Document",
+      "url": "https://xplaymobile.feishu.cn/docs/doccnu7Nit6kxIu7LIRxSx1nDfd#"
+    },
+    {
+      "label": "\u67e5\u770b\u66f4\u65b0\u8bb0\u5f55 | View Changelog",
+      "url": ""
+    }
+  ]
+}

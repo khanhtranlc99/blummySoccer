@@ -1,0 +1,14 @@
+Assets/Plugins/Android
+Assets/Plugins/Android/AndroidManifest.xml
+Assets/Plugins/Android/proguard-user.txt
+Assets/Plugins/Android/libs/LTBaseSDK-1.5.1.aar
+Assets/Plugins/Android/libs/LTUnityHelper-1.0.1.aar
+Assets/XGameUnityTool/Lib/Light
+Assets/XGameUnityTool/Lib/Light/LightSdk.cs
+Assets/XGameUnityTool/Lib/Light/LightSDKCallback.cs
+Assets/XGameUnityTool/Lib/Light/LightSdkNativeInterface.cs
+Assets/XGameUnityTool/Lib/Light/LTAdResultInfo.cs
+Assets/XGameUnityTool/Lib/Light/LTLoginResultInfo.cs
+Assets/XGameUnityTool/Lib/Light/LTPayParams.cs
+Assets/XGameUnityTool/Lib/Light/LTPayResultInfo.cs
+Assets/XGameUnityTool/Lib/Light/Editor/PublishLightSdkApk.cs

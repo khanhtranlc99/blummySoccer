@@ -26,7 +26,7 @@ public class PopupRateUs : UIPopupBehavior
         UIManager.Instance.pfb_PopupController.ActiveNormalPopup(false);
         if (StarVoted >= 3)
         {
-            AppRating.Instance.RateAndReview();
+           // AppRating.Instance.RateAndReview();
         }
         Facade.Instance.PlayerPrefManager.IsRateUs = true;
     }

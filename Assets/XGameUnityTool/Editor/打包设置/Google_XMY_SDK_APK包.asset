@@ -1,0 +1,59 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ab147e4ecca69a44a503c5ec0b4ceac, type: 3}
+  m_Name: "Google_XMY_SDK_APK\u5305"
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes: []
+  Channel: 11
+  BuildTarget: 13
+  ScriptingImplementation: 1
+  StripEngineCode: 1
+  ManagedStrippingLevel: 1
+  RemoveFolders: []
+  CopySettings: []
+  VersionString: 1.0.0
+  BuildType: 4
+  PublishMode: 0
+  MinApiVersion: 23
+  TargetApiVersion: 0
+  targetArchitectures: 4294967283
+  PackageName: com.xgame.xmy
+  EnableSignature: 0
+  KeystoreName: 
+  KeystorePassword: 
+  KeyAliasName: 
+  KeyAliasPassword: 
+  GraphicsAPIs: 
+  TextureSubtarget: 6
+  EnableAddressableSetting: 0
+  AddressableUseProfile: Default
+  AAVariablesModify: []
+  OpenSplitAAResByCountry: 0
+  SplitAAExportPath: countryAA
+  SplitAaDataOption: []
+  PlayAssetDeliveryIsEnable: 0
+  PlayAssetDeliveryExportPath: pad_export
+  PlayAssetDeliveryOptions: []
+  PublishName: 
+  IsOverBuild: 0
+  IsCreateSymbols: 1
+  BuildOptions: 0
+  isAddTestAd: 0
+  isOutputAar: 1

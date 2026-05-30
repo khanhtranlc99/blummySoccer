@@ -1,0 +1,5 @@
+/Users/macbook/ProjectUnity/blumgi-soccer-main/.utmp/RelWithDebInfo/5f475l2n/armeabi-v7a/CMakeFiles/edit_cache.dir
+/Users/macbook/ProjectUnity/blumgi-soccer-main/.utmp/RelWithDebInfo/5f475l2n/armeabi-v7a/CMakeFiles/rebuild_cache.dir
+/Users/macbook/ProjectUnity/blumgi-soccer-main/.utmp/RelWithDebInfo/5f475l2n/armeabi-v7a/FramePacing/CMakeFiles/swappywrapper.dir
+/Users/macbook/ProjectUnity/blumgi-soccer-main/.utmp/RelWithDebInfo/5f475l2n/armeabi-v7a/FramePacing/CMakeFiles/edit_cache.dir
+/Users/macbook/ProjectUnity/blumgi-soccer-main/.utmp/RelWithDebInfo/5f475l2n/armeabi-v7a/FramePacing/CMakeFiles/rebuild_cache.dir

@@ -1,0 +1,81 @@
+namespace XGame
+{
+    /// <summary>
+    /// App配置
+    /// 自动生成，请不要拓展，手动修改
+    /// </summary>
+    public class AppConfig
+    {
+        /// <summary>
+        /// 上架渠道
+        /// </summary>
+        public const AppChannel CHANNEL = ${CHANNEL};
+
+        /// <summary>
+        /// sdk开关
+        /// </summary>
+        public static bool SDK_ON = ${SDK_ON};
+
+        /// <summary>
+        /// 抖音小游戏 视频广告id
+        /// </summary>
+        public const string BYTE_DANCE_VIDEO_AD_ID = "${BYTE_DANCE_VIDEO_AD_ID}";
+
+        /// <summary>
+        /// 抖音小游戏 插页广告id
+        /// </summary>
+        public const string BYTE_DANCE_INTERS_AD_ID = "${BYTE_DANCE_INTERS_AD_ID}";
+
+
+
+        /// <summary>
+        /// 版本号
+        /// </summary>
+        public const string VERSION = "${VERSION}";
+
+        /// <summary>
+        /// 构建类型
+        /// </summary>
+        public const BuildType BUILD_TYPE = ${BUILD_TYPE};
+
+
+        /// <summary>
+        /// 保存时间
+        /// </summary>
+        public const string BUILD_DATE_TIME ="${BUILD_DATE_TIME}";
+
+
+        /// <summary>
+        /// 抖音小游戏，android端 Channel Id
+        /// </summary>
+        public const int BYTE_DANCE_ANDROID_CHANNEL_ID =  ${BYTE_DANCE_ANDROID_CHANNEL_ID};
+
+
+        
+        /// <summary>
+		/// 抖音小游戏，引力引擎开关
+		/// </summary>
+		public const bool BYTE_DANCE_GE_IS_ON = ${BYTE_DANCE_GE_IS_ON};
+
+
+        
+        /// <summary>
+        /// 抖音小游戏，引力引擎 access token
+        /// </summary>
+        public const string BYTE_DANCE_GE_ACCESS_TOKEN = "${BYTE_DANCE_GE_ACCESS_TOKEN}";
+
+
+        /// <summary>
+        /// 抖音小游戏，引力引擎 aes key
+        /// </summary>
+        public const string BYTE_DANCE_GE_AES_KEY = "${BYTE_DANCE_GE_AES_KEY}";
+
+
+        /// <summary>
+        /// 抖音小游戏，引力引擎 版本号
+        /// </summary>
+        public const int BYTE_DANCE_GE_VERSION = ${BYTE_DANCE_GE_VERSION};
+
+
+    }
+}

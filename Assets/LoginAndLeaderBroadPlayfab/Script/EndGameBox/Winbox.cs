@@ -42,9 +42,9 @@ public class Winbox : BaseBox
     {
       //  GameController.Instance.admobAds.HandleHideMerec();
         GlobalAudioPlayer.PlaySFX(eAudioType.CLICK);
- 
+       Next();
 
-        GameController.Instance.admobAds.ShowInterstitial(false, actionIniterClose: () => { Next(); }, actionWatchLog: "InterWinBox");
+       // GameController.Instance.admobAds.ShowInterstitial(false, actionIniterClose: () => { Next(); }, actionWatchLog: "InterWinBox");
         void Next()
         {
 

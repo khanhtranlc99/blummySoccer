@@ -62,7 +62,8 @@ public class MatchBox : BaseBox
         sequence.Append(decorVs.transform.DOScale(Vector3.one, 1)).SetEase(Ease.OutBack);
         sequence.OnComplete(delegate
         {
-            GameController.Instance.admobAds.ShowInterstitial(false, actionIniterClose: () => { Next(); }, actionWatchLog: "Match");
+           // GameController.Instance.admobAds.ShowInterstitial(false, actionIniterClose: () => { Next(); }, actionWatchLog: "Match");
+            Next();
         });
 
        

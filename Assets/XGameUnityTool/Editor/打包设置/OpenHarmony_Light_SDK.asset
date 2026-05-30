@@ -1,0 +1,36 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d427a6092b3f3fa44949b4f7f4b4424f, type: 3}
+  m_Name: OpenHarmony_Light_SDK
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes: []
+  Channel: 27
+  BuildTarget: 0
+  ScriptingImplementation: 1
+  StripEngineCode: 1
+  ManagedStrippingLevel: 1
+  RemoveFolders: []
+  CopySettings: []
+  VersionString: 1.0.0
+  BuildType: 4
+  EnableAddressableSetting: 0
+  AddressableUseProfile: 
+  AAVariables: []
+  PublishName: 

@@ -1,0 +1,42 @@
+{
+  "code": 200,
+  "codeMsg": "",
+  "data": [
+    {
+      "videoId": "test_id_1",
+      "diggCount": "1000",
+      "coverUrl": "https://gss0.baidu.com/-Po3dSag_xI4khGko9WTAnF6hhy/zhidao/pic/item/024f78f0f736afc3ca4b4ebeb219ebc4b64512a1.jpg",
+      "source": "1128",
+      "userName": "作者a",
+      "rank": 1,
+      "videoTag": "test_tag"
+    },
+    {
+      "videoId": "test_id_2",
+      "diggCount": "880",
+      "coverUrl": "https://tu.sioe.cn/uploadfile/201106/8/929266249.jpg",
+      "source": "1128",
+      "userName": "作者b",
+      "rank": 2,
+      "videoTag": "test_tag"
+    },
+    {
+      "videoId": "test_id_3",
+      "diggCount": "50",
+      "coverUrl": "https://img-qn.51miz.com/preview/element/00/01/16/07/E-1160735-E356874D.jpg",
+      "source": "1128",
+      "userName": "作者c",
+      "rank": 3,
+      "videoTag": "test_tag"
+    },
+    {
+      "videoId": "test_id_4",
+      "diggCount": "10",
+      "coverUrl": "http://img.name2012.com/uploads/allimg/2015-07/17-233403_354.jpg",
+      "source": "1128",
+      "userName": "作者d",
+      "rank": 4,
+      "videoTag": "test_tag"
+    }
+  ]
+}

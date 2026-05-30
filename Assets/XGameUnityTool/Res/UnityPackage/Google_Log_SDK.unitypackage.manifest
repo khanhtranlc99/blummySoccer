@@ -1,0 +1,16 @@
+Assets/Plugins/Android
+Assets/Plugins/Android/AndroidManifest.xml
+Assets/Plugins/Android/proguard-user.txt
+Assets/Plugins/Android/libs/LogBaseSDK-release.aar
+Assets/Plugins/Android/libs/LogUnityHelper-release.aar
+Assets/XGameUnityTool/Lib/GoogleLogSDK
+Assets/XGameUnityTool/Lib/GoogleLogSDK/GoogleLogAdBridge.cs
+Assets/XGameUnityTool/Lib/GoogleLogSDK/GoogleLogAdResult.cs
+Assets/XGameUnityTool/Lib/GoogleLogSDK/GoogleLogLoginResult.cs
+Assets/XGameUnityTool/Lib/GoogleLogSDK/GoogleLogPayParams.cs
+Assets/XGameUnityTool/Lib/GoogleLogSDK/GoogleLogPayResult.cs
+Assets/XGameUnityTool/Lib/GoogleLogSDK/GoogleLogSdk.cs
+Assets/XGameUnityTool/Lib/GoogleLogSDK/GoogleLogSdkCallback.cs
+Assets/XGameUnityTool/Lib/GoogleLogSDK/GoogleLogSnapshotResult.cs
+Assets/XGameUnityTool/Lib/GoogleLogSDK/Editor/LogTestAdHelper-release.aar
+Assets/XGameUnityTool/Lib/GoogleLogSDK/Editor/PublishGoogleLogSDKApk.cs

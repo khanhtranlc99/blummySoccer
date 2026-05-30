@@ -1,0 +1,65 @@
+﻿using System;
+using UnityEngine;
+
+namespace XGame
+{
+    public class XJson
+    {
+#if NEWTONSOFT
+        public static T FromJson<T>(string json)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<T>(json);
+        }
+
+        public static string ToJson(object obj)
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(obj);
+        }
+
+#else
+
+
+        public static T FromJson<T>(string json)
+        {
+#if UNITY_EDITOR
+            Debug.Log("<color=#e74033>找不到Newtonsoft.Json，请从XGameUnityTool菜单中安装</color>");
+#endif
+            return JsonUtility.FromJson<T>(json);
+        }
+
+        public static string ToJson(object obj)
+        {
+#if UNITY_EDITOR
+            Debug.Log("<color=#e74033>找不到Newtonsoft.Json，请从XGameUnityTool菜单中安装</color>");
+#endif
+            return JsonUtility.ToJson(obj);
+        }
+#endif
+    }
+
+
+#if NEWTONSOFT
+    public class XJsonPropertyAttribute : Newtonsoft.Json.Serialization.JsonProperty
+    {
+    }
+
+#else
+
+    [AttributeUsage(AttributeTargets.Property | AttributeTargets.Field)]
+    public class XJsonPropertyAttribute : Attribute
+    {
+        public string PropertyName { get; set; }
+        public bool Required { get; set; }
+        public object DefaultValue { get; set; }
+
+        public XJsonPropertyAttribute(string propertyName)
+        {
+            PropertyName = propertyName;
+        }
+
+        public XJsonPropertyAttribute()
+        {
+        }
+    }
+#endif
+}
