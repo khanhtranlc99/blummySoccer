@@ -33,13 +33,13 @@
       "hash": "fd8ff1fb700caf062eb5cce364c1d0a85f99ebe6"
     },
     "com.google.external-dependency-manager": {
-      "version": "file:/Users/macbook/ProjectUnity/OsMetaNew/Assets/1.OsMeta/ThirdPartyConfig/3Party/Third/com.google.external-dependency-manager-1.2.186.tgz",
+      "version": "file:D:/ProjectUniy/osMeta/Assets/Base/3Party/Third/com.google.external-dependency-manager-1.2.186.tgz",
       "depth": 0,
       "source": "local-tarball",
       "dependencies": {}
     },
     "com.google.firebase.analytics": {
-      "version": "file:/Users/macbook/ProjectUnity/OsMetaNew/Assets/1.OsMeta/ThirdPartyConfig/3Party/Third/com.google.firebase.analytics-13.1.0.tgz",
+      "version": "file:D:/ProjectUniy/osMeta/Assets/Base/3Party/Third/com.google.firebase.analytics-13.1.0.tgz",
       "depth": 0,
       "source": "local-tarball",
       "dependencies": {
@@ -47,7 +47,7 @@
       }
     },
     "com.google.firebase.app": {
-      "version": "file:/Users/macbook/ProjectUnity/OsMetaNew/Assets/1.OsMeta/ThirdPartyConfig/3Party/Third/com.google.firebase.app-13.1.0.tgz",
+      "version": "file:D:/ProjectUniy/osMeta/Assets/Base/3Party/Third/com.google.firebase.app-13.1.0.tgz",
       "depth": 0,
       "source": "local-tarball",
       "dependencies": {
@@ -55,7 +55,7 @@
       }
     },
     "com.google.firebase.crashlytics": {
-      "version": "file:/Users/macbook/ProjectUnity/OsMetaNew/Assets/1.OsMeta/ThirdPartyConfig/3Party/Third/com.google.firebase.crashlytics-13.1.0.tgz",
+      "version": "file:D:/ProjectUniy/osMeta/Assets/Base/3Party/Third/com.google.firebase.crashlytics-13.1.0.tgz",
       "depth": 0,
       "source": "local-tarball",
       "dependencies": {
@@ -63,7 +63,7 @@
       }
     },
     "com.google.firebase.remote-config": {
-      "version": "file:/Users/macbook/ProjectUnity/OsMetaNew/Assets/1.OsMeta/ThirdPartyConfig/3Party/Third/com.google.firebase.remote-config-13.1.0.tgz",
+      "version": "file:D:/ProjectUniy/osMeta/Assets/Base/3Party/Third/com.google.firebase.remote-config-13.1.0.tgz",
       "depth": 0,
       "source": "local-tarball",
       "dependencies": {

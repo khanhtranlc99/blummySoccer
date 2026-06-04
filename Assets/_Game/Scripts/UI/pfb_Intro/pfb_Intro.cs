@@ -17,9 +17,9 @@ public class pfb_Intro : UIBehavior
     }
     private void Nextlevel()
     {
-        //GameManager.Instance.Nextlevel();
-        //Debug.LogError("12346Nextlevel");
-        Winbox.Setup().Show();
+        GameManager.Instance.Nextlevel();
+        Debug.LogError("12346Nextlevel");
+    //    Winbox.Setup().Show();
     }
     private void Ready()
     {

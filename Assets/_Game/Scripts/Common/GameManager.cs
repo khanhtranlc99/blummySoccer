@@ -111,12 +111,12 @@ public class GameManager : MonoSingleton<GameManager>
     }
     public void Nextlevel()
     {
-
+        UIManager.Instance.pfb_Gameplay.HandleStopAllCorutin();
         //if (Facade.Instance.PlayerPrefManager.CurrentLevel >= 1)
         //  AdsManager.Instance.ShowAds(AdsNetwork.Max, AdsType.Interstitial, delegate { Next(); });
 
-        GameController.Instance.admobAds.ShowInterstitial(false, actionIniterClose: () => { Next(); }, actionWatchLog: "Retry");
-    
+        // GameController.Instance.admobAds.ShowInterstitial(false, actionIniterClose: () => { Next(); }, actionWatchLog: "Retry");
+        Next();
 
         void Next()
         {
@@ -134,6 +134,8 @@ public class GameManager : MonoSingleton<GameManager>
             GAME_STATE = GAME_STATE.PLAYING;
 
             SpawnMap(Facade.Instance.PlayerPrefManager.CurrentLevel);
+        
+            NextlevelWin();
         }
     
     }

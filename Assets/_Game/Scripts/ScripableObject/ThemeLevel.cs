@@ -11,6 +11,7 @@ public class ThemeLevel : SingletonScriptableObject<ThemeLevel>
     {
         public Sprite backgroundSprite;
         public Sprite groundsSprite;
+        public Sprite luoiSprite;
         public Texture2D waterTexture;
     }
     public ThemeSprite[] themeSprites;

@@ -125,10 +125,10 @@ public class pfb_Gameplay : UIBehavior
         {
             ListBalls[i].SetActive(true);
         }
-        if(ballCount == 0)
-        {
-            StartCoroutine(HandleCountLose());
-        }    
+        //if(ballCount == 0)
+        //{
+        //    StartCoroutine(HandleCountLose());
+        //}    
     }
     private IEnumerator HandleCountLose()
     {

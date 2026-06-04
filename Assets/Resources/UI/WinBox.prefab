@@ -370,7 +370,7 @@ MonoBehaviour:
   isBoxSave: 0
   isCloseBackground: 0
   backgroundButton: {fileID: 0}
-  nextButton: {fileID: 7828520174083884599}
+  nextButton: {fileID: 0}
 --- !u!1 &6028081308785072165
 GameObject:
   m_ObjectHideFlags: 0

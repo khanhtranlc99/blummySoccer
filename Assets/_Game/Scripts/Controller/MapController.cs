@@ -14,6 +14,6 @@ public class MapController : MonoBehaviour
     {
         this.theme = theme;
         var themeLevel = ThemeLevel.i.themeSprites[theme];
-        _backGround.SetBackGround(themeLevel.backgroundSprite, themeLevel.groundsSprite);
+        _backGround.SetBackGround(themeLevel.backgroundSprite, themeLevel.groundsSprite, themeLevel.luoiSprite);
     }
 }
