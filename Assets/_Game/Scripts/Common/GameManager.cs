@@ -135,7 +135,7 @@ public class GameManager : MonoSingleton<GameManager>
 
             SpawnMap(Facade.Instance.PlayerPrefManager.CurrentLevel);
         
-            NextlevelWin();
+          //  NextlevelWin();
         }
     
     }
