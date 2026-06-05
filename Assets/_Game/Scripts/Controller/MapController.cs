@@ -8,7 +8,7 @@ public class MapController : MonoBehaviour
     public Transform bottomRight;
     public int theme;
 
-    [SerializeField] private BackgroundInfo _backGround;
+    public BackgroundInfo _backGround;
 
     public void SetTheme(int theme)
     {

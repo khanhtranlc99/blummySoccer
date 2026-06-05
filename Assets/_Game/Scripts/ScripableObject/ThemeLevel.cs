@@ -13,6 +13,8 @@ public class ThemeLevel : SingletonScriptableObject<ThemeLevel>
         public Sprite groundsSprite;
         public Sprite luoiSprite;
         public Texture2D waterTexture;
+        public Color top_bot_Color;
+        public Color mid_Color;
     }
     public ThemeSprite[] themeSprites;
 

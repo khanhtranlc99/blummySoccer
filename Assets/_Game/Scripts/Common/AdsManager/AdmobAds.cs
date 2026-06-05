@@ -145,8 +145,8 @@ public class AdmobAds : MonoBehaviour
     {
         //if (GameController.Instance.useProfile.IsRemoveAds)
         //{
-        //    if (actionIniterClose != null)
-        //        actionIniterClose();
+           if (actionIniterClose != null)
+               actionIniterClose();
         //    return;
         //}
 
@@ -267,6 +267,8 @@ public class AdmobAds : MonoBehaviour
 
     public bool ShowVideoReward(UnityAction actionReward, UnityAction actionNotLoadedVideo, UnityAction actionClose, ActionWatchVideo actionType, string level)
     {
+        actionClose?.Invoke();
+        actionReward?.Invoke();
         // lockShowOpenAppAds = true;
         // if (Application.internetReachability == NetworkReachability.NotReachable)
         // {

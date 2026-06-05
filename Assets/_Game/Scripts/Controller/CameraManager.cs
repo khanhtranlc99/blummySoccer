@@ -45,14 +45,20 @@ public class CameraManager : MonoSingleton<CameraManager>
 
             MainCam.orthographicSize = requiredSize + 10;
 
-             sequence = DOTween.Sequence();
+            //  sequence = DOTween.Sequence();
+            // sequence.Join(MainCam.transform.DOMove(desiredPosition, 2f));
+            // sequence.Join(DOTween.To(() => this.MainCam.orthographicSize, x => this.MainCam.orthographicSize = x, requiredSize, 2f).SetEase(Ease.OutExpo));
+            // sequence.OnComplete(delegate
+            // {
+            //     callBack?.Invoke();
+            // });
+              BackgroundInfo backGround = GameManager.Instance.CurrentMap._backGround;
+            backGround.FitSpriteToCamera();
+            sequence = DOTween.Sequence();
             sequence.Join(MainCam.transform.DOMove(desiredPosition, 2f));
             sequence.Join(DOTween.To(() => this.MainCam.orthographicSize, x => this.MainCam.orthographicSize = x, requiredSize, 2f).SetEase(Ease.OutExpo));
-            sequence.OnComplete(delegate
-            {
-                callBack?.Invoke();
-            });
-
+            sequence.OnUpdate(() => backGround.FitSpriteToCamera());
+            sequence.OnComplete(() => callBack?.Invoke());
 
 
 

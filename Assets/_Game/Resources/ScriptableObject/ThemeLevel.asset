@@ -17,27 +17,41 @@ MonoBehaviour:
     groundsSprite: {fileID: 21300000, guid: e07771ad1186eba46bd41f37c8134105, type: 3}
     luoiSprite: {fileID: 21300000, guid: 3b165a7a9df090541ba6a7a3b3306d2a, type: 3}
     waterTexture: {fileID: 2800000, guid: 0d297564a60dc0f488864a2970c9bd61, type: 3}
+    top_bot_Color: {r: 0.38823533, g: 0.6392157, b: 0.7490196, a: 1}
+    mid_Color: {r: 0.8431373, g: 0.7686275, b: 0.46274513, a: 1}
   - backgroundSprite: {fileID: 21300000, guid: facd3bf6414713e42a72688eb41d666d, type: 3}
     groundsSprite: {fileID: 21300000, guid: 032eb9f485f779247903397459439ec9, type: 3}
     luoiSprite: {fileID: 21300000, guid: 63521b6d680ca8640a430e1567108bed, type: 3}
     waterTexture: {fileID: 2800000, guid: 4b706e90dd0d6f249b853a3bf37e1953, type: 3}
+    top_bot_Color: {r: 1, g: 0.909804, b: 0.5019608, a: 1}
+    mid_Color: {r: 0.41960788, g: 0.70980394, b: 0.1764706, a: 1}
   - backgroundSprite: {fileID: 21300000, guid: 2c7c21ef2b0a2e84e8e879990c15b25e, type: 3}
     groundsSprite: {fileID: 21300000, guid: ccc9f44a147cb7c4791c6a4f867d7df4, type: 3}
     luoiSprite: {fileID: 21300000, guid: 0e4987c423df5934ea2543d2cc7d1d89, type: 3}
     waterTexture: {fileID: 2800000, guid: 76d47b4d1d5a44f40a340ed8ae275785, type: 3}
+    top_bot_Color: {r: 0.97647065, g: 0.882353, b: 0.8078432, a: 1}
+    mid_Color: {r: 0.9843138, g: 0.654902, b: 0.38431376, a: 1}
   - backgroundSprite: {fileID: 21300000, guid: 1f0c21c8db31ae448b1ddb46e86995c5, type: 3}
     groundsSprite: {fileID: 21300000, guid: 87ea67749ceb2e3479b61954b6821104, type: 3}
     luoiSprite: {fileID: 21300000, guid: 1c35b075d60e40047bd443fcda4ccfb4, type: 3}
     waterTexture: {fileID: 2800000, guid: df303ccc21fef6b44a498daac4433bfe, type: 3}
+    top_bot_Color: {r: 0.6039216, g: 0.5568628, b: 0.7294118, a: 1}
+    mid_Color: {r: 0.9960785, g: 0.81568635, b: 0.40000004, a: 1}
   - backgroundSprite: {fileID: 21300000, guid: 84ff1d5580a74164cb2a0dec60cfcb40, type: 3}
     groundsSprite: {fileID: 21300000, guid: 4af7ca72286b7ff4aaed3d60ffc8fff3, type: 3}
     luoiSprite: {fileID: 21300000, guid: 21911160a4608ef4782c9f7def48c6e1, type: 3}
     waterTexture: {fileID: 2800000, guid: c34a01451c93ce74692c32154c83837a, type: 3}
+    top_bot_Color: {r: 0.28627452, g: 0.49803925, b: 0.8941177, a: 1}
+    mid_Color: {r: 0.7019608, g: 0.8235295, b: 0.95294124, a: 1}
   - backgroundSprite: {fileID: 21300000, guid: ec387270bc0573340b370b145aa941f5, type: 3}
     groundsSprite: {fileID: 21300000, guid: 202a8162d16988e419a211057ef432b4, type: 3}
     luoiSprite: {fileID: 21300000, guid: b16808d60b0723d44ab0ba5683c09959, type: 3}
     waterTexture: {fileID: 2800000, guid: 8605dc88340dca64d93d908b7a78184c, type: 3}
+    top_bot_Color: {r: 1, g: 1, b: 1, a: 1}
+    mid_Color: {r: 0.6509804, g: 0.7843138, b: 0.9333334, a: 1}
   - backgroundSprite: {fileID: 21300000, guid: a23940918d572ae4785d8a57854e2e9d, type: 3}
     groundsSprite: {fileID: 21300000, guid: ee28352dbfab41349aa3ff84eb088362, type: 3}
     luoiSprite: {fileID: 21300000, guid: e0e89c2241572da41a9ad5eb1f28b030, type: 3}
     waterTexture: {fileID: 2800000, guid: 878919954e278944fbaaed470d663c5c, type: 3}
+    top_bot_Color: {r: 0.1764706, g: 0.25882354, b: 0.5882353, a: 1}
+    mid_Color: {r: 0.2392157, g: 0.6745098, b: 0.49411768, a: 1}
