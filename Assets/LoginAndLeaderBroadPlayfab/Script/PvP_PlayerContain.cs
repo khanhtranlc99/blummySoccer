@@ -164,4 +164,23 @@ public class PvP_PlayerContain : MonoBehaviour
             }
         }
     }    
+
+    private void Update()
+    {
+        if(Input.GetKeyDown(KeyCode.V))
+        {
+                       EndGameBox.Setup(EndGameType.Win, PvPController.Instance.pvpScene.scoreUser * 10).Show();
+ 
+        }
+         if(Input.GetKeyDown(KeyCode.B))
+        {
+                           EndGameBox.Setup(EndGameType.Draw, 0).Show();
+ 
+        }
+           if(Input.GetKeyDown(KeyCode.N))
+        {
+                           EndGameBox.Setup(EndGameType.Lose, -PvPController.Instance.pvpScene.scoreUser * 10).Show();
+     
+        }
+    }
 }

@@ -7,7 +7,8 @@ using UnityEngine.UI;
 
 public class pfb_Loading : UIBehavior
 {
-    public SlicedFilledImage Progress;
+   // public SlicedFilledImage Progress;
+    public Slider progress;
     public GameObject NotiTrackingIOSObject;
     protected override void Awake()
     {
@@ -29,7 +30,8 @@ public class pfb_Loading : UIBehavior
             timeLoad = 4f;
         }
 #endif
-        this.Progress.DOFillAmount(1, timeLoad).From(0).OnComplete(delegate
+     
+        this.progress.DOValue(1, timeLoad).From(0).OnComplete(delegate
         {
             ActiveNormalPopup(false);
             GameManager.Instance.DoneLoading();

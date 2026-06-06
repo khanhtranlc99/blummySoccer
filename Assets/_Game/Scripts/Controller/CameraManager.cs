@@ -18,6 +18,7 @@ public class CameraManager : MonoSingleton<CameraManager>
     Tween cameraTween;
     Tween orthorgraphicTween;
     Sequence sequence;
+    public bool isPvP;
     public void SetCameraPosition(MapController map, Action callBack = null)
     {
         Transform topLeft = map.topLeft;
@@ -52,13 +53,29 @@ public class CameraManager : MonoSingleton<CameraManager>
             // {
             //     callBack?.Invoke();
             // });
-              BackgroundInfo backGround = GameManager.Instance.CurrentMap._backGround;
-            backGround.FitSpriteToCamera();
-            sequence = DOTween.Sequence();
+            if(isPvP)
+            {
+                            sequence = DOTween.Sequence();
+            sequence.Join(MainCam.transform.DOMove(desiredPosition, 2f));
+            sequence.Join(DOTween.To(() => this.MainCam.orthographicSize, x => this.MainCam.orthographicSize = x, requiredSize, 2f).SetEase(Ease.OutExpo));     
+            sequence.OnComplete(() => callBack?.Invoke());
+             
+            }
+            else
+            {
+                
+                   BackgroundInfo backGround = GameManager.Instance.CurrentMap._backGround;
+                 backGround.FitSpriteToCamera();
+                   sequence = DOTween.Sequence();
             sequence.Join(MainCam.transform.DOMove(desiredPosition, 2f));
             sequence.Join(DOTween.To(() => this.MainCam.orthographicSize, x => this.MainCam.orthographicSize = x, requiredSize, 2f).SetEase(Ease.OutExpo));
             sequence.OnUpdate(() => backGround.FitSpriteToCamera());
             sequence.OnComplete(() => callBack?.Invoke());
+       
+            }
+             
+          
+          
 
 
 

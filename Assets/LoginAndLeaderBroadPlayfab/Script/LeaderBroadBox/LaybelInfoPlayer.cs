@@ -188,12 +188,16 @@ public class LaybelInfoPlayer : EnhancedScrollerCellView
         else
         {
             //  tvRank.color = new Color(1, 1, 1, 1);
-            bgLableNew.sprite = normal;
+         
             // bgLableNew.color = new Color32(0, 0, 0, 0);
             //  headlabelNew.color = new Color32(228, 110, 40, 255);
             if (laybelInfo == TypeLableInfoPlayer.Player)
             {
          //       headlabelNew.color = new Color32(255, 173, 17, 255);
+            }
+            else
+            {
+               bgLableNew.sprite = normal;
             }
         }
     }
