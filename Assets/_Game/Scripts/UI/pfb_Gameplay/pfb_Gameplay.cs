@@ -186,4 +186,18 @@ public class pfb_Gameplay : UIBehavior
         }
     }    
 
+    public void HandleTestBanner()
+    {
+        GameController.Instance.admobAds.ShowBanner();
+    }
+    public void HandleTestInter()
+    {
+        GameController.Instance.admobAds.ShowInterstitial();
+    }
+    public void HandleTestVideo()
+    {
+        GameController.Instance.admobAds.ShowVideoReward(null,null,null,ActionWatchVideo.BuyExtral, "");
+    }
+
+
 }

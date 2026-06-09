@@ -1,0 +1,190 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93c499b462f75fd4499715c9ecdbb4d7, type: 3}
+  m_Name: SdkPreference
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: RequestSubscribeMessageSuccessParams
+      Entry: 7
+      Data: 0|System.Collections.Generic.Dictionary`2[[System.String, mscorlib],[XGame.SdkPreference+RequestSubscribeMessageSuccessState,
+        Assembly-CSharp]], mscorlib
+    - Name: comparer
+      Entry: 7
+      Data: 1|System.Collections.Generic.GenericEqualityComparer`1[[System.String,
+        mscorlib]], mscorlib
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+  IsRequestSubscribeMessageSuc: 1
+  GetVideoFlag: 1
+  GetBigNativeFlag: 1
+  GetNativeFlag: 1
+  GetIntersFlag: 1
+  CanShowInters: 1
+  VideoWatchSuccess: 1
+  GetTemplateAdFlag: 1
+  GetPatchAdFlag: 1
+  GetNativeIconFlag: 1
+  GetBlockFlag: 1
+  GetNavigateBoxBannerFlag: 1
+  PaySuccess: 1
+  PayDelayReturn: 0
+  PayDelayReturnTime: 3
+  RequestProductInfoSuccess: 1
+  RequestProductInfoReturnDelay: 1
+  ProductInfos:
+  - id: google_test_product_1
+    name: "google\u6D4B\u8BD5\u5546\u54C11"
+    desc: "google\u6D4B\u8BD5\u5546\u54C11...\u63CF\u8FF0"
+    type: 1
+    subsOfferDetails: []
+    oneTimeOfferDetails: []
+    price: $1
+    originalPrice: 
+    offerTags: []
+    priceCurrencyCode: USD
+  deviceInfo:
+    GAID: 
+    gaid: 
+    availRuntimeMemory: 0
+    systemRuntimeMemory: 
+    gameVersion: 
+    gameCode: 0
+    gamePackage: 
+    gameSHA1: 
+    country: 
+  CrossInfos:
+  - type: icon
+    name: Mini Relaxing draw line
+    package: com.xgame.DrawLineChallenge
+    pic: https://play-lh.googleusercontent.com/wk0_W01lol72GCiMsgUzmSJRQVMIX9hY-F4MlqtggS-_cWH7l0WIG9TAI6OtT0RZzcU=w240-h480-rw
+    desc: "Mini Relaxing draw line\u63CF\u8FF0"
+    weight: 100
+    isInstall: 0
+  RequestSubscribeStatesSuccess: 1
+  RequestSubscribeDelayReturn: 1
+  SubscribeStates:
+  - productId: testSubscribe
+    expireTime: 2539998634000
+    expireVaild: 1
+  RestoreCompletePayInfoCallResult: 1
+  RestoreCompletePayInfoDelayTime: 1
+  RestoreCompletePayInfoDataResult:
+  - "\u6A21\u62DF\u5546\u54C11(\u8BF7\u6539\u4E3A\u6B63\u5F0F\u5546\u54C1ID)"
+  - "\u6A21\u62DF\u5546\u54C12(\u8BF7\u6539\u4E3A\u6B63\u5F0F\u5546\u54C1ID)"
+  IsEURegion: 1
+  IsSupportPrivacyBtn: 1
+  CanGift: 1
+  GiftSuccess: 1
+  GiftProductCount: 1
+  GiftProductName: test_gift_product_name
+  LocalHostCloudArchiveServerSaveTime: 30
+  ChannelName: -1
+  HasGameCounsel: 1
+  CountryIso: CN
+  DeviceType: 0
+  SDKUserID: xgame_sdk_test_user_id
+  SdkUID: xgame_sdk_test_uid
+  SDKUserPicUrl: 
+  UseUnityInternetReachability: 1
+  NetworkType: 6
+  RemoteConfig: {fileID: 0}
+  HasMoreGame: 1
+  GameJson: "\r\n    {\r\n        \"matchVersion\": \"1.0.0.0\",\r\n        \"gameChannelCodeNo\":
+    \"12345\",\r\n        \"debugFlag\": true\r\n    }"
+  UseTestArea: 0
+  GetAreaReturn: 1
+  GetSpecialGameSwitchResult: 1
+  CanRecord: 1
+  ShareRecordResult: 1
+  IsSupportSidebar: 1
+  IsEnterFromSidebar: 1
+  NavigateToSidebarResult: 1
+  IsSupportShortcut: 1
+  CreateShortcutReturnSuccess: 1
+  HasCustomerService: 1
+  OpenCustomerServiceResult: 1
+  CanShareVideoToRank: 1
+  ShareVideoToRankResult: 1
+  RequestVideoRankResult: 1
+  WXShareResult: 1
+  UploadShareTaskResult: 1
+  UploadShareTaskDelayReturn: 1
+  GetShareTaskDetailResult: 1
+  GetShareTaskDetailDelayReturn: 1
+  GetShareTaskDetailReturnData:
+  - uid: "\u6D4B\u8BD5uid01"
+    ext: "\u62D3\u5C55\u53C2\u6570..."
+    datetime: 
+  - uid: "\u6D4B\u8BD5uid02"
+    ext: "\u62D3\u5C55\u53C2\u6570..."
+    datetime: 
+  GetWxGameClubDataResult: 1
+  GetWxGameClubDataResultDelay: 1
+  GetWxGameClubDataReturnData:
+  - dataType: 1
+    value: 1711595137
+  - dataType: 3
+    value: 0
+  - dataType: 4
+    value: 100
+  - dataType: 5
+    value: 30
+  - dataType: 6
+    value: 10
+  - dataType: 7
+    value: 5
+  - dataType: 8
+    value: 20
+  - dataType: 9
+    value: 6
+  - dataType: 10
+    value: 600
+  GetRankDataResult: 1
+  GetRankDataResultDelay: 1
+  GetRankDataReturnData:
+  - userId: 1
+    score: 1000
+    rankId: 1
+    extra: other
+  - userId: 2
+    score: 1001
+    rankId: 2
+    extra: other
+  GetUpLoadRankDataResult: 1
+  GetUpLoadRankDataResultDelay: 1
+  GetUpLoadRankDataReturnData:
+  - rankId: 1
+    rankCategory: Level
+    groupId: 1
+    score: 1000
+    extra: other
+  MPushReqItemFlag: 1
+  MPushClickItemFlag: 1
+  XGPApi_UserName: 

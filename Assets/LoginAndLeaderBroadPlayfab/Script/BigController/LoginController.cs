@@ -127,7 +127,7 @@ public class LoginController : MonoBehaviour
             bool isRun = false;
             SaveName(UseProfile.NamePlayer.Insert(UseProfile.NamePlayer.Length - 5, Random.Range(0, 9).ToString()));
             // GameController.Instance.playerData.SaveData(OnDone, OnDone, true, true);
-            Debug.LogError("LoginOK- Lần đầu");
+           // Debug.LogError("LoginOK- Lần đầu");
             OnDone();
             void OnDone()
             {
@@ -144,9 +144,9 @@ public class LoginController : MonoBehaviour
         }
         else
         {
-            Debug.LogError("LoginOK- Đã đăng ký r");
+        //    Debug.LogError("LoginOK- Đã đăng ký r");
             GameController.Instance.playerData.InitData();
-            Debug.LogError(UseProfile.NamePlayer);
+       //     Debug.LogError(UseProfile.NamePlayer);
             //Đồng bộ data
             //if (!GameController.Instance.playerData.isSyncData)
             //{

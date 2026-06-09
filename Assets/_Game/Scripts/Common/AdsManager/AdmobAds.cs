@@ -24,49 +24,15 @@ public class AdmobAds : MonoBehaviour
     public int coutOpenAdsLoad;
  
     public bool showingMREC;
-#if UNITY_ANDROID
-    private const string MaxSdkKey = "izbW4oEiJA_cdTh6wc0r6Cqyel80b8VaLe1pL0pAKx7TvV9BoLk4F29V4R3OUqiynDPwowsUIsszEb66mbssOZ";
-    private const string InterstitialAdUnitId = "606422c9fa3ddfdf";
-    private const string RewardedAdUnitId = "87b7ac618f73006f";
-    private const string BanerAdUnitId = "738fc4ac1c0644ee";
-    //private const string AppOpenId = "f134fb77cadd5d81";
-    private const string MREC_Id = "3975eee6b214276b";
 
-#elif UNITY_IOS
-    private const string MaxSdkKey = "oL9CCQ2BlEl-78avNTt7qkDU1Tl_Pkb2pgv9g9m5cLUiiJcxwGv_2T1_T9OsBIhSM4UPhnkDXyMO8HNGmFnEKu";
-    private const string InterstitialAdUnitId = "889d3be96699a88a";
-    private const string RewardedAdUnitId = "68767bec27f5c9ba";
-    private const string BanerAdUnitId = "7de0278c95c6b6b3";
-    private string AppOpenId = "45fa180466aff54e";
-    private const string MREC_Id = "c6c39017701b597c";
-#endif
+
+    public AdsXGame AdsXGame;
+ 
+
+ 
     public void Init()
     {
-        // coutOpenAdsLoad = 0;
-        // lockShowOpenAppAds = false;
-        // canShowOpenAppAds = false;
-        // wasShowOpenAppAdsInGame = false;
-        // IsMRecReady = false;
-        // countdownAds = 10000;
-        // countdownAdsOpenAppAds = 1000;
-        // #region Applovin Ads
-        // CheckResetCaping();
-        // MaxSdkCallbacks.OnSdkInitializedEvent += (MaxSdkBase.SdkConfiguration sdkConfiguration) =>
-        // {
-        //     InitializeBannerAds();
-        //     InitInterstitial();
-        //     InitRewardVideo();
-        //     InitializeMRecAds();
-        //     //InitializeOpenAppAds();
-
-        //     // MaxSdk.ShowMediationDebugger();
-        // };
-        // MaxSdk.SetVerboseLogging(true);
-        // MaxSdk.SetSdkKey(MaxSdkKey);
-        // MaxSdk.InitializeSdk();
-        // #endregion
-        // _isInited = true;
-        // //Debug.LogError("AppOpenId" + AppOpenId);
+        AdsXGame.Init();
     }
 
     #region Interstitial
@@ -141,74 +107,10 @@ public class AdmobAds : MonoBehaviour
 
     }
 
-    public void ShowInterstitial(bool isShowImmediatly = false, string actionWatchLog = "other", UnityAction actionIniterClose = null, string level = null)
+    public void ShowInterstitial(bool isShowImmediatly = false, string actionWatchLog = "other", Action actionIniterClose = null, string level = null)
     {
-        //if (GameController.Instance.useProfile.IsRemoveAds)
-        //{
-           if (actionIniterClose != null)
-               actionIniterClose();
-        //    return;
-        //}
 
-
-    //     if (isShowImmediatly)
-    //     {
-          
-    //         ShowInterstitialHandle(isShowImmediatly, actionWatchLog, actionIniterClose, level);
-    //     }
-    //     else
-    //     {
-           
-
-    //         if (PlayerPrefs.GetInt("CurrentLevel") >= RemoteConfigController.GetFloatConfig("level_start_show_initstial", 1))
-    //         {
-
-             
-    //             if (countdownAds > RemoteConfigController.GetFloatConfig("Inter_time", 55))
-    //             {
-    //                 ShowInterstitialHandle(isShowImmediatly, actionWatchLog, actionIniterClose, level);
-
-               
-    //             }
-    //             else
-    //             {
-    //                 if (actionIniterClose != null)
-    //                     actionIniterClose();
-    //             }
-    //         }
-    //         else
-    //         {
-    //             if (actionIniterClose != null)
-    //                 actionIniterClose();
-    //         }
-    //     }
-
-    // }
-
-    // private void ShowInterstitialHandle(bool isShowImmediatly = false, string actionWatchLog = "other", UnityAction actionIniterClose = null, string level = null)
-    // {
-    //     lockShowOpenAppAds = true;
-    //     if (IsLoadedInterstitial())
-    //     {
-    //         this.actionInterstitialClose = actionIniterClose;
-    //         MaxSdk.ShowInterstitial(InterstitialAdUnitId, actionWatchLog);
-
-    //         if (!isShowImmediatly)
-    //             countdownAds = 0;
-
-    //         //GameController.Instance.AnalyticsController.LogInterShow(actionWatchLog);
-    //         GameController.Instance.AnalyticsController.LogInterShow();
-    //         //UseProfile.NumberOfAdsInDay = UseProfile.NumberOfAdsInDay + 1;
-    //         //UseProfile.NumberOfAdsInPlay = UseProfile.NumberOfAdsInPlay + 1;
-
-    //     }
-    //     else
-    //     {
-    //         if (actionIniterClose != null)
-    //             actionIniterClose();
-    //         RequestInterstitial();
-
-    //     }
+        AdsXGame.ShowInterstitial(actionWatchLog, actionIniterClose); 
 
     }
 
@@ -265,58 +167,11 @@ public class AdmobAds : MonoBehaviour
     //     return !result ? IsLoadedInterstitial() : result;
     // }
 
-    public bool ShowVideoReward(UnityAction actionReward, UnityAction actionNotLoadedVideo, UnityAction actionClose, ActionWatchVideo actionType, string level)
+    public bool ShowVideoReward(Action actionReward, Action actionNotLoadedVideo, Action actionClose, ActionWatchVideo actionType, string level)
     {
-        actionClose?.Invoke();
-        actionReward?.Invoke();
-        // lockShowOpenAppAds = true;
-        // if (Application.internetReachability == NetworkReachability.NotReachable)
-        // {
-        //     actionNotLoadedVideo?.Invoke();
-        //     GameController.Instance.AnalyticsController.LogWatchVideo(actionType, true, false, level);
-        //     return false;
-        // }
-        // actionWatchVideo = actionType;
-        // GameController.Instance.AnalyticsController.LogRequestVideoReward(actionType.ToString());
-     
-        // if (IsLoadedVideoReward())
-        // {
-
-        //     countdownAds = 0;
-        //     this._actionNotLoadedVideo = actionNotLoadedVideo;
-        //     this._actionClose = actionClose;
-        //     this._actionRewardVideo = actionReward;
-
-        //     MaxSdk.ShowRewardedAd(RewardedAdUnitId, actionType.ToString());
-        //     GameController.Instance.AnalyticsController.LogWatchVideo(actionType, true, true, level);
-        //     GameController.Instance.AnalyticsController.LogVideoRewardShow(actionWatchVideo.ToString());
-        //     GameController.Instance.AnalyticsController.LogVideoRewardShow();
-
-        // }
-        // else
-        // {
-        //     if (IsLoadedInterstitial())
-        //     {
-        //         this._actionNotLoadedVideo = actionNotLoadedVideo;
-        //         this._actionClose = actionClose;
-        //         this._actionRewardVideo = actionReward;
-
-        //         ShowInterstitial(isShowImmediatly: true, actionType.ToString(), actionIniterClose: () => { }, level);
-        //         GameController.Instance.AnalyticsController.LogWatchVideo(actionType, true, true, level);
-        //         Debug.Log("ShowInterstitial !!!");
-        //         countdownAds = 0;
-        //         return true;
-        //     }
-        //     else
-        //     {
-        //         //ConfirmBox.Setup().AddMessageYes(Localization.Get("s_noti"), Localization.Get("s_TryAgain"), () => { });
-        //         Debug.Log("No ads !!!");
-        //         actionNotLoadedVideo?.Invoke();
-        //         GameController.Instance.AnalyticsController.LogWatchVideo(actionType, false, true, level);
-        //         return false;
-        //     }
-        // }
-
+        //actionClose?.Invoke();
+        //actionReward?.Invoke();
+        AdsXGame.ShowVideoAds(actionType.ToString(), actionReward, actionNotLoadedVideo);
         return true;
     }
 
@@ -575,19 +430,13 @@ public class AdmobAds : MonoBehaviour
         //     reloadBannerCoru = null;
         // }
         // MaxSdk.HideBanner(BanerAdUnitId);
+        AdsXGame.HideBanner();
     }
 
     public void ShowBanner()
-    {
-        //if (UseProfile.IsRemoveAds)
-        //{
-        //    return;
-        //}
+    { 
 
-        // if (wasShowMer)
-        // {
-        //     return;
-        // }
+        AdsXGame.ShowBanner();
 
 
 
