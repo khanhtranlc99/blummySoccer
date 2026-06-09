@@ -29,7 +29,7 @@ public class MatchBox : BaseBox
     public Transform postDecor;
     public Transform lableAi;
     public Transform decor;
-    public Image decorVs;
+    public CanvasGroup  decorVs;
 
     public Text nameUser;
     public Text nameAi;
