@@ -233,9 +233,37 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2834358782211674673, guid: 4b9fa245fc45081479d462be077d5448, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 4694248439500899893, guid: 586252b1dc7871446b310ae7b3e39a33, type: 3}
+    - target: {fileID: 3164166551169552940, guid: 4b9fa245fc45081479d462be077d5448, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 3164166551169552940, guid: 4b9fa245fc45081479d462be077d5448, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.66055804
+      objectReference: {fileID: 0}
+    - target: {fileID: 3164166551169552940, guid: 4b9fa245fc45081479d462be077d5448, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.66055804
+      objectReference: {fileID: 0}
+    - target: {fileID: 3164166551169552940, guid: 4b9fa245fc45081479d462be077d5448, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.17
+      objectReference: {fileID: 0}
+    - target: {fileID: 3164166551169552940, guid: 4b9fa245fc45081479d462be077d5448, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.7
+      objectReference: {fileID: 0}
     - target: {fileID: 4336558204333378454, guid: 4b9fa245fc45081479d462be077d5448, type: 3}
       propertyPath: m_Name
       value: BackGround
+      objectReference: {fileID: 0}
+    - target: {fileID: 6730564332864422416, guid: 4b9fa245fc45081479d462be077d5448, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8081095466602000153, guid: 4b9fa245fc45081479d462be077d5448, type: 3}
       propertyPath: m_LocalPosition.x

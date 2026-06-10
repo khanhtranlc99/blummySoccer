@@ -319,4 +319,10 @@ public class PlayerController : Singleton<PlayerController>
         }
     }
 
+    public void HandleNotiOutBall()
+    {
+        //objCanvas.transform.position = firstPost;
+        //objCanvas.SetActive(true);
+    }    
+
 }

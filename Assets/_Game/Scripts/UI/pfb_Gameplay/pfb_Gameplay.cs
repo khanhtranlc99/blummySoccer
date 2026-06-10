@@ -50,40 +50,37 @@ public class pfb_Gameplay : UIBehavior
     protected void OnReplay()
     {
         //AdsManager.Instance.ShowAds(AdsNetwork.Max, AdsType.Interstitial);
-        GameController.Instance.admobAds.ShowInterstitial(false, actionIniterClose: () => { Next(); }, actionWatchLog: "Retry");
-        void Next()
-        {
-            GameManager.Instance.Replay();
-        }
-    
+        //GameController.Instance.admobAds.ShowInterstitial(false, actionIniterClose: () => { Next(); }, actionWatchLog: "Retry");
+        //void Next()
+        //{
+        //    GameManager.Instance.Replay();
+        //}
 
+        GameManager.Instance.Replay();
     }
     protected void OnSkip()
     {
-        //AdsManager.Instance.ShowAds(AdsNetwork.Max, AdsType.Rewarded, () =>
-        //{
-        //    GameManager.Instance.Nextlevel();
-        //}, "SkipLevel");
+     
+        GameManager.Instance.Nextlevel();
+        //GameController.Instance.admobAds.ShowVideoReward(
+        //               actionReward: () =>
+        //               {
+        //                   GameManager.Instance.Nextlevel();
+        //               },
+        //               actionNotLoadedVideo: () =>
+        //               {
+        //                   GameController.Instance.effectController.SpawnEffectText_FlyUp
+        //                    (
 
-        GameController.Instance.admobAds.ShowVideoReward(
-                       actionReward: () =>
-                       {
-                           GameManager.Instance.Nextlevel();
-                       },
-                       actionNotLoadedVideo: () =>
-                       {
-                           GameController.Instance.effectController.SpawnEffectText_FlyUp
-                            (
-
-                            btnSkip.transform.position,
-                            "No video at the moment!",
-                            Color.white,
-                            isSpawnItemPlayer: true
-                            );
-                       },
-                       actionClose: null,
-                         ActionWatchVideo.Skip_level,
-                       Facade.Instance.PlayerPrefManager.CurrentLevel.ToString());
+        //                    btnSkip.transform.position,
+        //                    "No video at the moment!",
+        //                    Color.white,
+        //                    isSpawnItemPlayer: true
+        //                    );
+        //               },
+        //               actionClose: null,
+        //                 ActionWatchVideo.Skip_level,
+        //               Facade.Instance.PlayerPrefManager.CurrentLevel.ToString());
     }
     protected void OnSounds()
     {
@@ -129,7 +126,12 @@ public class pfb_Gameplay : UIBehavior
         try
         {
           UIManager.Instance.pfb_Gameplay.handReset.SetActive(ballCount == 0);
-          PlayerController.Instance.objCanvas.SetActive(ballCount == 0);
+         
+            if(ballCount == 0)
+            {
+
+                txtLevel.text = "";
+            }    
         }
         catch
         {
@@ -164,7 +166,7 @@ public class pfb_Gameplay : UIBehavior
     public void HandleChangeScenePvP()
     {
         GlobalAudioPlayer.PlaySFX(eAudioType.CLICK);
-        if ( Facade.Instance.PlayerPrefManager.CurrentLevel >= 8)
+        if ( Facade.Instance.PlayerPrefManager.CurrentLevel >= 3)
         {
             Initiate.Fade("HomePvP", Color.black, 2f);
             ActiveNormalPopup(false);
@@ -172,7 +174,7 @@ public class pfb_Gameplay : UIBehavior
         else
         {
             
-            GameController.Instance.effectController.SpawnEffectText_FlyUp(vec, "Pass" + "\n" + "level 8", Color.white);
+            GameController.Instance.effectController.SpawnEffectText_FlyUp(vec, "Pass" + "\n" + "level 3", Color.white);
 
         }
  
@@ -181,13 +183,13 @@ public class pfb_Gameplay : UIBehavior
     }
     public  void HandleShowTutPvP()
     {
-       if(UseProfile.WasClickPvP == 0 && Facade.Instance.PlayerPrefManager.CurrentLevel >= 8)
+       if(UseProfile.WasClickPvP == 0 && Facade.Instance.PlayerPrefManager.CurrentLevel >= 3)
         {
             handTut.SetActive(true);
            
         } 
     
-            if(Facade.Instance.PlayerPrefManager.CurrentLevel >= 8)
+            if(Facade.Instance.PlayerPrefManager.CurrentLevel >= 3)
         {
             objBlind.SetActive(false);
         }
