@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
-
+using Example9;
 public class PlayerController : Singleton<PlayerController>
 {
     [Header("Components")]
@@ -36,6 +36,9 @@ public class PlayerController : Singleton<PlayerController>
     protected const string ANIMATION_SHOOTLOW = "ShootLow";
     protected const string ANIMATION_SHOOTMED = "ShootMed";
     protected const string ANIMATION_SHOOTMAX = "ShootMax";
+
+    private Vector3 firstPost;  
+    public GameObject objCanvas; 
  
     private void Start()
     {
@@ -54,7 +57,7 @@ public class PlayerController : Singleton<PlayerController>
         sensitivity = 100f;
 #endif
 
-
+        firstPost = this.transform.position;
     }
     public bool IsPointerOverUI()
     {
@@ -306,6 +309,14 @@ public class PlayerController : Singleton<PlayerController>
         fakeArrow.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
 
 
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if(collision.gameObject.GetComponent<WaterSpring>() != null)
+        {
+            this.transform.position = firstPost;
+        }
     }
 
 }

@@ -21,6 +21,7 @@ public class pfb_Gameplay : UIBehavior
 
     [SerializeField] protected List<GameObject> ListBalls = new();
     [SerializeField] protected TMP_InputField levelInputField;
+    public GameObject handReset;
 
     public Button btnPVP;
     public Vector3 vec;
@@ -125,6 +126,16 @@ public class pfb_Gameplay : UIBehavior
         {
             ListBalls[i].SetActive(true);
         }
+        try
+        {
+          UIManager.Instance.pfb_Gameplay.handReset.SetActive(ballCount == 0);
+          PlayerController.Instance.objCanvas.SetActive(ballCount == 0);
+        }
+        catch
+        {
+
+        }
+       
         //if(ballCount == 0)
         //{
         //    StartCoroutine(HandleCountLose());
