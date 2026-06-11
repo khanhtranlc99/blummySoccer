@@ -24,6 +24,7 @@ public class pfb_Gameplay : UIBehavior
     public GameObject handReset;
 
     public Button btnPVP;
+    public Button btnHome;
     public Vector3 vec;
     public GameObject handTut;
     public GameObject objBlind;
@@ -37,8 +38,17 @@ public class pfb_Gameplay : UIBehavior
         btnSelectLevel.onClick.AddListener(OnSelectLevel);
         btnPVP.onClick.AddListener(delegate { HandleChangeScenePvP(); });
         CheckSoundStatus();
+        btnHome.onClick.AddListener(delegate { HandleHomeChange();   });
 
     }
+
+    private void HandleHomeChange()
+    {
+        UIManager.Instance.pfb_Gameplay.gameObject.SetActive(false);
+        GlobalAudioPlayer.PlaySFX(eAudioType.CLICK);
+        Initiate.Fade("Home", Color.black, 2f);
+    }
+
     protected override void OnEnable()
     {
         base.OnEnable();
@@ -188,6 +198,7 @@ public class pfb_Gameplay : UIBehavior
             handTut.SetActive(true);
            
         } 
+
     
             if(Facade.Instance.PlayerPrefManager.CurrentLevel >= 3)
         {
