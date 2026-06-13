@@ -51,7 +51,7 @@ public class AutoAdjustColliderGround : MonoBehaviour
         spriteRendererTop.size = this.GetComponent<SpriteRenderer>().size;
         spriteRendererMid.size = this.GetComponent<SpriteRenderer>().size;
         spriteRendererBot.size = this.GetComponent<SpriteRenderer>().size;
-        Debug.LogError("spriteRendererTop.size: " );
+        //Debug.LogError("spriteRendererTop.size: " );
 
 
     }

@@ -325,8 +325,8 @@ public class RemoteConfigController : MonoBehaviour
 
             }
 
-                Debug.LogError(GetFloatConfig("Inter_time", 55));
-                Debug.LogError(RemoteConfigController.GetFloatConfig("level_start_show_initstial", 1));
+               // Debug.LogError(GetFloatConfig("Inter_time", 55));
+             //   Debug.LogError(RemoteConfigController.GetFloatConfig("level_start_show_initstial", 1));
                 AnalyticsController.firebaseInitialized = true;
             }
         });

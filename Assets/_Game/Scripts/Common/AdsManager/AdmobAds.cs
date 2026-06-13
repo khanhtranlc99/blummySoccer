@@ -32,7 +32,7 @@ public class AdmobAds : MonoBehaviour
  
     public void Init()
     {
-        AdsXGame.Init();
+       // AdsXGame.Init();
     }
 
     #region Interstitial

@@ -51,7 +51,7 @@ public class UseProfile : MonoBehaviour
             PlayFabClientAPI.UpdateUserTitleDisplayName(
                 new UpdateUserTitleDisplayNameRequest { DisplayName = value }, s => { }, e => { });
             PlayerPrefs.Save();
-            Debug.LogError(UseProfile.NamePlayer);
+          //  Debug.LogError(UseProfile.NamePlayer);
         }
     }
 
