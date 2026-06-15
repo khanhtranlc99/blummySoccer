@@ -59,38 +59,38 @@ public class pfb_Gameplay : UIBehavior
     }
     protected void OnReplay()
     {
-        //AdsManager.Instance.ShowAds(AdsNetwork.Max, AdsType.Interstitial);
-        //GameController.Instance.admobAds.ShowInterstitial(false, actionIniterClose: () => { Next(); }, actionWatchLog: "Retry");
-        //void Next()
-        //{
-        //    GameManager.Instance.Replay();
-        //}
+    
+        GameController.Instance.admobAds.ShowInterstitial(false, actionIniterClose: () => { Next(); }, actionWatchLog: "Retry");
+        void Next()
+        {
+            GameManager.Instance.Replay();
+        }
 
-        GameManager.Instance.Replay();
+        //  GameManager.Instance.Replay();
     }
     protected void OnSkip()
     {
-     
-        GameManager.Instance.Nextlevel();
-        //GameController.Instance.admobAds.ShowVideoReward(
-        //               actionReward: () =>
-        //               {
-        //                   GameManager.Instance.Nextlevel();
-        //               },
-        //               actionNotLoadedVideo: () =>
-        //               {
-        //                   GameController.Instance.effectController.SpawnEffectText_FlyUp
-        //                    (
 
-        //                    btnSkip.transform.position,
-        //                    "No video at the moment!",
-        //                    Color.white,
-        //                    isSpawnItemPlayer: true
-        //                    );
-        //               },
-        //               actionClose: null,
-        //                 ActionWatchVideo.Skip_level,
-        //               Facade.Instance.PlayerPrefManager.CurrentLevel.ToString());
+        //    GameManager.Instance.Nextlevel();
+        GameController.Instance.admobAds.ShowVideoReward(
+                       actionReward: () =>
+                       {
+                           GameManager.Instance.Nextlevel();
+                       },
+                       actionNotLoadedVideo: () =>
+                       {
+                           GameController.Instance.effectController.SpawnEffectText_FlyUp
+                            (
+
+                            btnSkip.transform.position,
+                            "No video at the moment!",
+                            Color.white,
+                            isSpawnItemPlayer: true
+                            );
+                       },
+                       actionClose: null,
+                         ActionWatchVideo.Skip_level,
+                       Facade.Instance.PlayerPrefManager.CurrentLevel.ToString());
     }
     protected void OnSounds()
     {

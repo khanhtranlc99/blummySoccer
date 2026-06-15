@@ -7,6 +7,7 @@ using UnityEngine.UI;
 using UnityEngine.Events;
 // using static MaxSdkBase;
 using Newtonsoft.Json.Linq;
+using Org.BouncyCastle.Math.Field;
 //using com.adjust.sdk;
 
 public class AdmobAds : MonoBehaviour
@@ -32,7 +33,8 @@ public class AdmobAds : MonoBehaviour
  
     public void Init()
     {
-       // AdsXGame.Init();
+        Debug.LogError("AdmobAds");
+        AdsXGame.Init();
     }
 
     #region Interstitial
@@ -109,8 +111,15 @@ public class AdmobAds : MonoBehaviour
 
     public void ShowInterstitial(bool isShowImmediatly = false, string actionWatchLog = "other", Action actionIniterClose = null, string level = null)
     {
-
-        AdsXGame.ShowInterstitial(actionWatchLog, actionIniterClose); 
+        if(RemoteConfigController.GetBoolConfig("Show_Ads_XGame", false) == true)
+        {
+            AdsXGame.ShowInterstitial(actionWatchLog, actionIniterClose);
+        }
+        else
+        {
+            actionIniterClose?.Invoke();
+        }
+      
 
     }
 
@@ -171,7 +180,15 @@ public class AdmobAds : MonoBehaviour
     {
         //actionClose?.Invoke();
         //actionReward?.Invoke();
-        AdsXGame.ShowVideoAds(actionType.ToString(), actionReward, actionNotLoadedVideo);
+        if (RemoteConfigController.GetBoolConfig("Show_Ads_XGame", false) == true)
+        {
+            AdsXGame.ShowVideoAds(actionType.ToString(), actionReward, actionNotLoadedVideo);
+        }
+        else
+        {
+            actionReward?.Invoke();
+        }
+         
         return true;
     }
 
@@ -434,9 +451,13 @@ public class AdmobAds : MonoBehaviour
     }
 
     public void ShowBanner()
-    { 
-
-        AdsXGame.ShowBanner();
+    {
+        if (RemoteConfigController.GetBoolConfig("Show_Ads_XGame", false) == true)
+        {
+            AdsXGame.ShowBanner();
+        }
+    
+  
 
 
 

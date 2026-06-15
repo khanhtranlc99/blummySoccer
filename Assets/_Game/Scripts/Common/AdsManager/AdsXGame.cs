@@ -8,17 +8,17 @@ public class AdsXGame : MonoBehaviour
 
     public void Init()
     {
-        Debug.LogError("Start_Call_Init_XGame");
+    
         XGameSdk.Instance.InitSdk(() => {
 
             Debug.LogError("InitSuccet");
+            Login();
           
-            ShowBanner();
 
         }, () => {
             Debug.LogError("InitFailed");       
         });
-        Debug.LogError("End_Call_Init_XGame");
+      
     }    
 
     public void Login()
@@ -26,6 +26,7 @@ public class AdsXGame : MonoBehaviour
         XGameSdk.Instance.Login(() =>
         {
             Debug.Log("Login successful");
+            ShowBanner();
         }, () =>
         {
             Debug.Log("Login failed");
@@ -42,9 +43,12 @@ public class AdsXGame : MonoBehaviour
     #region Banner
     public void ShowBanner()
     {
-        Debug.LogError("Start_Call_ShowBanner");
-        XGameSdk.Instance.ShowBanner(BannerType.Bottom);
-        Debug.LogError("End_Call_ShowBanner");
+        if (RemoteConfigController.GetBoolConfig("Show_Ads_XGame", false) == true)
+        {
+            XGameSdk.Instance.ShowBanner(BannerType.Bottom);
+        }
+      
+     
     }    
     public void HideBanner()
     {
@@ -56,20 +60,20 @@ public class AdsXGame : MonoBehaviour
     #region Interstitial
     public void ShowInterstitial(string name ,Action CallBack )
     {
-        Debug.LogError("Start_Call_ShowInterstitial");
+        
         var flag = XGameSdk.Instance.GetIntersFlag();
         if (flag)
         {
             XGameSdk.Instance.ShowInters(name, CallBack);
         }
-        Debug.LogError("End_Call_ShowInterstitial");
+     
     }
     #endregion
 
     #region Video
     public void ShowVideoAds(string name, Action CallBackComplete, Action CallBackFalse)
     {
-        Debug.LogError("Start_Call_ShowVideoAds");
+       
         var flag = XGameSdk.Instance.GetVideoFlag();
         if (flag)
         {
@@ -79,7 +83,7 @@ public class AdsXGame : MonoBehaviour
                 CallBackFalse?.Invoke();
             });
         }
-        Debug.LogError("End_Call_ShowVideoAds");
+     
     }
     #endregion
 

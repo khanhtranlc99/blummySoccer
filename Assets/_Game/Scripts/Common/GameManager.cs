@@ -115,8 +115,8 @@ public class GameManager : MonoSingleton<GameManager>
         //if (Facade.Instance.PlayerPrefManager.CurrentLevel >= 1)
         //  AdsManager.Instance.ShowAds(AdsNetwork.Max, AdsType.Interstitial, delegate { Next(); });
 
-        // GameController.Instance.admobAds.ShowInterstitial(false, actionIniterClose: () => { Next(); }, actionWatchLog: "Retry");
-        Next();
+         GameController.Instance.admobAds.ShowInterstitial(false, actionIniterClose: () => { Next(); }, actionWatchLog: "Retry");
+     
 
         void Next()
         {

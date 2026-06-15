@@ -1,0 +1,2 @@
+-keep class com.union.sdk.unity.helper.** { *; }
+-keep class com.ey.sdk.base.** { *; }
