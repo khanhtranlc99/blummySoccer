@@ -20,7 +20,7 @@ public class GameController : MonoBehaviour
         loginController.Init();
         playerData = new PlayerData();
         admobAds.Init();
-        RemoteConfigController.RemoteConfigFirebaseInit();
+      //  RemoteConfigController.RemoteConfigFirebaseInit();
     }
     
     private void Update()

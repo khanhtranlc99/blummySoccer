@@ -56,5 +56,5 @@
         "temp/": true,
         "Temp/": true
     },
-    "dotnet.defaultSolution": "BlummySoccer.sln"
+    "dotnet.defaultSolution": "blumgi-soccer-main.sln"
 }

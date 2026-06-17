@@ -43,10 +43,10 @@ public class AdsXGame : MonoBehaviour
     #region Banner
     public void ShowBanner()
     {
-        if (RemoteConfigController.GetBoolConfig("Show_Ads_XGame", false) == true)
-        {
-            XGameSdk.Instance.ShowBanner(BannerType.Bottom);
-        }
+        // if (RemoteConfigController.GetBoolConfig("Show_Ads_XGame", false) == true)
+        // {
+           XGameSdk.Instance.ShowBanner(BannerType.Bottom);
+        // }
       
      
     }    

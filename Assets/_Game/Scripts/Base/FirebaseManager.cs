@@ -1,4 +1,4 @@
-using Firebase.Analytics;
+// using Firebase.Analytics;
 //using GoogleMobileAds.Api;
 using MoonlightFramework;
 using System.Collections.Generic;
@@ -11,11 +11,11 @@ public static class FirebaseManager
     private static List<string> Constraints = new List<string>();
     public static void LogEvent(string eventName)
     {
-        FirebaseAnalytics.LogEvent(eventName);
+        // FirebaseAnalytics.LogEvent(eventName);
     }
     public static void LogEvent(string eventName, string ParameterName, string ParameterValue)
     {
-        FirebaseAnalytics.LogEvent(eventName, ParameterName, ParameterValue);
+      //  FirebaseAnalytics.LogEvent(eventName, ParameterName, ParameterValue);
     }
 
     /// <summary>

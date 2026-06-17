@@ -32,44 +32,6 @@
       },
       "hash": "fd8ff1fb700caf062eb5cce364c1d0a85f99ebe6"
     },
-    "com.google.external-dependency-manager": {
-      "version": "file:D:/ProjectUniy/osMeta/Assets/Base/3Party/Third/com.google.external-dependency-manager-1.2.186.tgz",
-      "depth": 0,
-      "source": "local-tarball",
-      "dependencies": {}
-    },
-    "com.google.firebase.analytics": {
-      "version": "file:D:/ProjectUniy/osMeta/Assets/Base/3Party/Third/com.google.firebase.analytics-13.1.0.tgz",
-      "depth": 0,
-      "source": "local-tarball",
-      "dependencies": {
-        "com.google.firebase.app": "13.1.0"
-      }
-    },
-    "com.google.firebase.app": {
-      "version": "file:D:/ProjectUniy/osMeta/Assets/Base/3Party/Third/com.google.firebase.app-13.1.0.tgz",
-      "depth": 0,
-      "source": "local-tarball",
-      "dependencies": {
-        "com.google.external-dependency-manager": "1.2.186"
-      }
-    },
-    "com.google.firebase.crashlytics": {
-      "version": "file:D:/ProjectUniy/osMeta/Assets/Base/3Party/Third/com.google.firebase.crashlytics-13.1.0.tgz",
-      "depth": 0,
-      "source": "local-tarball",
-      "dependencies": {
-        "com.google.firebase.app": "13.1.0"
-      }
-    },
-    "com.google.firebase.remote-config": {
-      "version": "file:D:/ProjectUniy/osMeta/Assets/Base/3Party/Third/com.google.firebase.remote-config-13.1.0.tgz",
-      "depth": 0,
-      "source": "local-tarball",
-      "dependencies": {
-        "com.google.firebase.app": "13.1.0"
-      }
-    },
     "com.unity.2d.animation": {
       "version": "11.0.0",
       "depth": 1,
@@ -319,19 +281,6 @@
       "dependencies": {},
       "url": "https://packages.unity.com"
     },
-    "com.unity.purchasing": {
-      "version": "4.13.0",
-      "depth": 0,
-      "source": "registry",
-      "dependencies": {
-        "com.unity.ugui": "1.0.0",
-        "com.unity.services.core": "1.12.5",
-        "com.unity.modules.androidjni": "1.0.0",
-        "com.unity.modules.jsonserialize": "1.0.0",
-        "com.unity.modules.unitywebrequest": "1.0.0"
-      },
-      "url": "https://packages.unity.com"
-    },
     "com.unity.scriptablebuildpipeline": {
       "version": "2.4.1",
       "depth": 1,
@@ -349,17 +298,6 @@
       "dependencies": {
         "com.unity.burst": "1.7.2",
         "com.unity.collections": "2.4.2"
-      },
-      "url": "https://packages.unity.com"
-    },
-    "com.unity.services.core": {
-      "version": "1.14.0",
-      "depth": 1,
-      "source": "registry",
-      "dependencies": {
-        "com.unity.modules.androidjni": "1.0.0",
-        "com.unity.nuget.newtonsoft-json": "3.2.1",
-        "com.unity.modules.unitywebrequest": "1.0.0"
       },
       "url": "https://packages.unity.com"
     },

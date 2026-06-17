@@ -5,11 +5,11 @@ using System;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
-using Firebase.RemoteConfig;
+//using Firebase.RemoteConfig;
 using System.Threading.Tasks;
 using System.Globalization;
 using Newtonsoft.Json;
-using Firebase.Extensions;
+//using Firebase.Extensions;
 
 public class RemoteConfigController : MonoBehaviour
 {
@@ -30,7 +30,7 @@ public class RemoteConfigController : MonoBehaviour
     public static async Task FetchData()
     {
         //Context.Waiting.ShowWaiting("Fetching data...");
-        DebugLog("Fetching data...");
+        // DebugLog("Fetching data...");
         // FetchAsync only fetches new data if the current data is older than the provided
         // timespan.  Otherwise it assumes the data is "recent enough", and does nothing.
         // By default the timespan is 12 hours, and for production apps, this is a good
@@ -40,98 +40,98 @@ public class RemoteConfigController : MonoBehaviour
         System.Threading.Tasks.Task fetchTask = FirebaseRemoteConfig.DefaultInstance.FetchAsync(
             TimeSpan.FromSeconds(30));
 #else
-        System.Threading.Tasks.Task fetchTask = FirebaseRemoteConfig.DefaultInstance.FetchAsync(
-            TimeSpan.FromHours(6));
+        // System.Threading.Tasks.Task fetchTask = FirebaseRemoteConfig.DefaultInstance.FetchAsync(
+        //     TimeSpan.FromHours(6));
 #endif
-        await fetchTask.ContinueWith(FetchComplete);
+       // await fetchTask.ContinueWith(FetchComplete);
     }
 
     public static void FetchDataNow()
     {
         //Context.Waiting.ShowWaiting("Fetching data...");
-        DebugLog("Fetching data Now...");
+        // DebugLog("Fetching data Now...");
         // FetchAsync only fetches new data if the current data is older than the provided
         // timespan.  Otherwise it assumes the data is "recent enough", and does nothing.
         // By default the timespan is 12 hours, and for production apps, this is a good
         // number.  For this example though, it's set to a timespan of zero, so that
         // changes in the console will always show up immediately.
 
-        System.Threading.Tasks.Task fetchTask = FirebaseRemoteConfig.DefaultInstance.FetchAsync(
-            TimeSpan.FromSeconds(0));
-        fetchTask.ContinueWith(FetchComplete);
+        // System.Threading.Tasks.Task fetchTask = FirebaseRemoteConfig.DefaultInstance.FetchAsync(
+        //     TimeSpan.FromSeconds(0));
+        // fetchTask.ContinueWith(FetchComplete);
     }
 
 
-    public static string GetStringConfig(string key, string defaultValue)
-    {
+    // public static string GetStringConfig(string key, string defaultValue)
+    // {
 
-        if (!firebaseRemoteKeys.Contains(key))
-            return defaultValue;
-        //if (!defaults.ContainsKey(key)) return defaultValue;+
-        return FirebaseRemoteConfig.DefaultInstance.GetValue(key).StringValue;
-    }
-
-
-    public static bool GetBoolConfig(string key, bool defaultValue)
-    {
-
-        if (!firebaseRemoteKeys.Contains(key)) return defaultValue;
-        return FirebaseRemoteConfig.DefaultInstance.GetValue(key).BooleanValue;
-    }
+    //     if (!firebaseRemoteKeys.Contains(key))
+    //         return defaultValue;
+    //     //if (!defaults.ContainsKey(key)) return defaultValue;+
+    //     return FirebaseRemoteConfig.DefaultInstance.GetValue(key).StringValue;
+    // }
 
 
-    public static float GetFloatConfig(string key, float defaultValue)
-    {
-        if (!firebaseRemoteKeys.Contains(key)) return defaultValue;
-        string val = FirebaseRemoteConfig.DefaultInstance.GetValue(key).StringValue;
-        try
-        {
-            return float.Parse(val, CultureInfo.InvariantCulture);
-        }
-        catch (Exception)
-        {
-            return defaultValue;
-        }
-    }
+    // public static bool GetBoolConfig(string key, bool defaultValue)
+    // {
+
+    //     if (!firebaseRemoteKeys.Contains(key)) return defaultValue;
+    //     return FirebaseRemoteConfig.DefaultInstance.GetValue(key).BooleanValue;
+    // }
 
 
-    public static int GetIntConfig(string key, int defaultValue)
-    {
-        if (!firebaseRemoteKeys.Contains(key)) return defaultValue;
-        string val = FirebaseRemoteConfig.DefaultInstance.GetValue(key).StringValue;
-        try
-        {
-            return int.Parse(val);
-        }
-        catch (Exception)
-        {
-            return defaultValue;
-        }
-    }
+    // public static float GetFloatConfig(string key, float defaultValue)
+    // {
+    //     if (!firebaseRemoteKeys.Contains(key)) return defaultValue;
+    //     string val = FirebaseRemoteConfig.DefaultInstance.GetValue(key).StringValue;
+    //     try
+    //     {
+    //         return float.Parse(val, CultureInfo.InvariantCulture);
+    //     }
+    //     catch (Exception)
+    //     {
+    //         return defaultValue;
+    //     }
+    // }
 
-    public static bool GetJsonConfig<T>(string key, out T result)
-    {
-        string input;
-        if (!firebaseRemoteKeys.Contains(key) ||
-            string.IsNullOrEmpty(input = FirebaseRemoteConfig.DefaultInstance.GetValue(key).StringValue))
-        {
-            result = default;
-            return false;
 
-        }
+    // public static int GetIntConfig(string key, int defaultValue)
+    // {
+    //     if (!firebaseRemoteKeys.Contains(key)) return defaultValue;
+    //     string val = FirebaseRemoteConfig.DefaultInstance.GetValue(key).StringValue;
+    //     try
+    //     {
+    //         return int.Parse(val);
+    //     }
+    //     catch (Exception)
+    //     {
+    //         return defaultValue;
+    //     }
+    // }
 
-        try
-        {
-            result = JsonUtility.FromJson<T>(input);
-            return true;
-        }
-        catch (Exception ex)
-        {
-            Debug.LogError($"GetJsonConfig {typeof(T)} , key {key}, exception: {ex.Message}");
-            result = default;
-            return false;
-        }
-    }
+    // public static bool GetJsonConfig<T>(string key, out T result)
+    // {
+    //     string input;
+    //     if (!firebaseRemoteKeys.Contains(key) ||
+    //         string.IsNullOrEmpty(input = FirebaseRemoteConfig.DefaultInstance.GetValue(key).StringValue))
+    //     {
+    //         result = default;
+    //         return false;
+
+    //     }
+
+    //     try
+    //     {
+    //         result = JsonUtility.FromJson<T>(input);
+    //         return true;
+    //     }
+    //     catch (Exception ex)
+    //     {
+    //         Debug.LogError($"GetJsonConfig {typeof(T)} , key {key}, exception: {ex.Message}");
+    //         result = default;
+    //         return false;
+    //     }
+    // }
 
     public static bool PlayfabJsonConfig<T>(string key, out T result)
     {
@@ -252,85 +252,85 @@ public class RemoteConfigController : MonoBehaviour
             Debug.Log("Fetch completed successfully!");
         }
         //Context.Waiting.HideWaiting();
-        var info = FirebaseRemoteConfig.DefaultInstance.Info;
-        switch (info.LastFetchStatus)
-        {
-            case LastFetchStatus.Success:
-                FetchAndActivateAsync(fetchTask, info);
+        // var info = FirebaseRemoteConfig.DefaultInstance.Info;
+        // switch (info.LastFetchStatus)
+        // {
+        //     case LastFetchStatus.Success:
+        //         FetchAndActivateAsync(fetchTask, info);
 
-                break;
+        //         break;
 
-            case LastFetchStatus.Failure:
-                switch (info.LastFetchFailureReason)
-                {
-                    case FetchFailureReason.Error:
-                        Debug.LogError("Fetch failed for unknown reason");
-                        break;
+        //     case LastFetchStatus.Failure:
+        //         switch (info.LastFetchFailureReason)
+        //         {
+        //             case FetchFailureReason.Error:
+        //                 Debug.LogError("Fetch failed for unknown reason");
+        //                 break;
 
-                    case FetchFailureReason.Throttled:
-                        Debug.LogError("Fetch throttled until " + info.ThrottledEndTime);
-                        break;
-                }
-                break;
+        //             case FetchFailureReason.Throttled:
+        //                 Debug.LogError("Fetch throttled until " + info.ThrottledEndTime);
+        //                 break;
+        //         }
+        //         break;
 
-            case LastFetchStatus.Pending:
-                Debug.LogError("Latest Fetch call still pending.");
-                break;
-        }
+        //     case LastFetchStatus.Pending:
+        //         Debug.LogError("Latest Fetch call still pending.");
+        //         break;
+        // }
 
         //AdmobAds.Instance.Init();
     }
 
-    public static async void FetchAndActivateAsync(Task fetchTask, ConfigInfo info)
-    {
-        await FirebaseRemoteConfig.DefaultInstance.FetchAndActivateAsync();
-        if (!fetchTask.IsFaulted && fetchTask.IsCompleted)
-        {
-            ReloadFirebaseKeys();
-        }
+    // public static async void FetchAndActivateAsync(Task fetchTask, ConfigInfo info)
+    // {
+    //     await FirebaseRemoteConfig.DefaultInstance.FetchAndActivateAsync();
+    //     if (!fetchTask.IsFaulted && fetchTask.IsCompleted)
+    //     {
+    //         ReloadFirebaseKeys();
+    //     }
 
 
-        DebugLog(String.Format("Remote data loaded and ready (last fetch time {0}).", info.FetchTime));
-    }
+    //     DebugLog(String.Format("Remote data loaded and ready (last fetch time {0}).", info.FetchTime));
+    // }
 
-    public static void ReloadFirebaseKeys()
-    {
-        firebaseRemoteKeys.Clear();
-        foreach (var key in FirebaseRemoteConfig.DefaultInstance.Keys)
-        {
-            firebaseRemoteKeys.Add(key);
-        }
-    }
+    // public static void ReloadFirebaseKeys()
+    // {
+    //     firebaseRemoteKeys.Clear();
+    //     foreach (var key in FirebaseRemoteConfig.DefaultInstance.Keys)
+    //     {
+    //         firebaseRemoteKeys.Add(key);
+    //     }
+    // }
 
-    //static Dictionary<string, object> defaults = new Dictionary<string, object>();
-    public static void RemoteConfigFirebaseInit()
-    {
-        if (isInit) return;
-        isInit = true;
-        InitSuccess = true;
+    // //static Dictionary<string, object> defaults = new Dictionary<string, object>();
+    // public static void RemoteConfigFirebaseInit()
+    // {
+    //     if (isInit) return;
+    //     isInit = true;
+    //     InitSuccess = true;
 
 
-        TimeSpan time = new TimeSpan(0, 0, 10);
-        FirebaseRemoteConfig.DefaultInstance.FetchAsync(time).ContinueWithOnMainThread(task =>
-        {
-        var info = FirebaseRemoteConfig.DefaultInstance.Info;
-        if (info.LastFetchStatus == LastFetchStatus.Success)
-        {
-            FirebaseRemoteConfig.DefaultInstance.ActivateAsync();
-            firebaseRemoteKeys.Clear();
-            foreach (var key in FirebaseRemoteConfig.DefaultInstance.Keys)
-            {
+    //     TimeSpan time = new TimeSpan(0, 0, 10);
+    //     FirebaseRemoteConfig.DefaultInstance.FetchAsync(time).ContinueWithOnMainThread(task =>
+    //     {
+    //     var info = FirebaseRemoteConfig.DefaultInstance.Info;
+    //     if (info.LastFetchStatus == LastFetchStatus.Success)
+    //     {
+    //         FirebaseRemoteConfig.DefaultInstance.ActivateAsync();
+    //         firebaseRemoteKeys.Clear();
+    //         foreach (var key in FirebaseRemoteConfig.DefaultInstance.Keys)
+    //         {
 
-                firebaseRemoteKeys.Add(key);
+    //             firebaseRemoteKeys.Add(key);
 
-            }
+    //         }
 
-                //Debug.LogError(GetFloatConfig("Inter_time", 55));
-                //Debug.LogError(GetBoolConfig("Show_Ads_XGame", true));
-                //   Debug.LogError(RemoteConfigController.GetFloatConfig("level_start_show_initstial", 1));
-                AnalyticsController.firebaseInitialized = true;
-            }
-        });
+    //             //Debug.LogError(GetFloatConfig("Inter_time", 55));
+    //             //Debug.LogError(GetBoolConfig("Show_Ads_XGame", true));
+    //             //   Debug.LogError(RemoteConfigController.GetFloatConfig("level_start_show_initstial", 1));
+    //             AnalyticsController.firebaseInitialized = true;
+    //         }
+    //     });
 
 
 
@@ -358,12 +358,12 @@ public class RemoteConfigController : MonoBehaviour
         //{
         //    DebugManager.LogError(ex.Message);
         //}
-    }
+    // }
 
-    private static void DebugLog(string s)
-    {
-        Debug.Log(s);
-    }
+    // private static void DebugLog(string s)
+    // {
+    //     Debug.Log(s);
+    // }
 
     #endregion Private Methods
 }

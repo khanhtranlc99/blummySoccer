@@ -111,14 +111,14 @@ public class AdmobAds : MonoBehaviour
 
     public void ShowInterstitial(bool isShowImmediatly = false, string actionWatchLog = "other", Action actionIniterClose = null, string level = null)
     {
-        if(RemoteConfigController.GetBoolConfig("Show_Ads_XGame", false) == true)
-        {
+        // if(RemoteConfigController.GetBoolConfig("Show_Ads_XGame", false) == true)
+        // {
             AdsXGame.ShowInterstitial(actionWatchLog, actionIniterClose);
-        }
-        else
-        {
-            actionIniterClose?.Invoke();
-        }
+        // }
+        // else
+        // {
+        //     actionIniterClose?.Invoke();
+        // }
       
 
     }
@@ -180,14 +180,14 @@ public class AdmobAds : MonoBehaviour
     {
         //actionClose?.Invoke();
         //actionReward?.Invoke();
-        if (RemoteConfigController.GetBoolConfig("Show_Ads_XGame", false) == true)
-        {
+        // if (RemoteConfigController.GetBoolConfig("Show_Ads_XGame", false) == true)
+        // {
             AdsXGame.ShowVideoAds(actionType.ToString(), actionReward, actionNotLoadedVideo);
-        }
-        else
-        {
-            actionReward?.Invoke();
-        }
+        // }
+        // else
+        // {
+        //     actionReward?.Invoke();
+        // }
          
         return true;
     }
@@ -452,10 +452,10 @@ public class AdmobAds : MonoBehaviour
 
     public void ShowBanner()
     {
-        if (RemoteConfigController.GetBoolConfig("Show_Ads_XGame", false) == true)
-        {
+        // if (RemoteConfigController.GetBoolConfig("Show_Ads_XGame", false) == true)
+        // {
             AdsXGame.ShowBanner();
-        }
+        // }
     
   
 

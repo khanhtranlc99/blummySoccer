@@ -1,4 +1,4 @@
-using UnityEngine.Purchasing;
+// using UnityEngine.Purchasing;
 public sealed class Purchaser : MonoSingleton<Purchaser>
 {
     public readonly string m_pack01_unlock_slots = "pack01_unlock_slots",
@@ -21,11 +21,11 @@ public sealed class Purchaser : MonoSingleton<Purchaser>
 
     private void Start()
     {
-        IAP_Manager.Initialize(
-            new ProductDefinition(m_pack01_unlock_slots, ProductType.NonConsumable),
-              new ProductDefinition(normal_tickit_pack, ProductType.Consumable),
-                new ProductDefinition(big_tickit_pack, ProductType.Consumable)
-        );
+        // IAP_Manager.Initialize(
+        //     new ProductDefinition(m_pack01_unlock_slots, ProductType.NonConsumable),
+        //       new ProductDefinition(normal_tickit_pack, ProductType.Consumable),
+        //         new ProductDefinition(big_tickit_pack, ProductType.Consumable)
+        // );
 
 
     }

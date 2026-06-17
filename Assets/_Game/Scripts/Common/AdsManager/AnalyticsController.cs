@@ -2,10 +2,9 @@
 using System.Collections;
 using UnityEngine.SceneManagement;
 using System.Collections.Generic;
-using Firebase.Analytics;
-using Firebase;
-
-using Firebase.Analytics;
+// using Firebase.Analytics;
+// using Firebase;
+// using Firebase.Analytics;
 using System;
 using System.Collections.Generic;
 using UnityEngine;
@@ -48,22 +47,22 @@ public class AnalyticsController : MonoBehaviour
 
     }
 
-    public static void LogEventFirebase(string eventName, Parameter[] parameters)
-    {
+    // public static void LogEventFirebase(string eventName, Parameter[] parameters)
+    // {
 
-        if (firebaseInitialized)
-        {
+    //     if (firebaseInitialized)
+    //     {
 
-            FirebaseAnalytics.LogEvent(eventName, parameters);
-        }
-        else
-        {
-            onFinishFirebaseInit.AddListener(() =>
-            {
-                FirebaseAnalytics.LogEvent(eventName, parameters);
-            });
-        }
-    }
+    //         FirebaseAnalytics.LogEvent(eventName, parameters);
+    //     }
+    //     else
+    //     {
+    //         onFinishFirebaseInit.AddListener(() =>
+    //         {
+    //             FirebaseAnalytics.LogEvent(eventName, parameters);
+    //         });
+    //     }
+    // }
 
     public static void LogEventFacebook(string eventName, Dictionary<string, object> parameters)
     {
@@ -102,323 +101,323 @@ public class AnalyticsController : MonoBehaviour
 
 
     }
-    public void LoseLevel(int param)
-    {
-        if (!firebaseInitialized) return;
-        if (param < 10)
-        {
-            FirebaseAnalytics.LogEvent("Lose_Level_" + "0" + param);
-        }
-        else
-        {
-            FirebaseAnalytics.LogEvent("Lose_Level_" + param);
-        }
+    // public void LoseLevel(int param)
+    // {
+    //     if (!firebaseInitialized) return;
+    //     if (param < 10)
+    //     {
+    //         FirebaseAnalytics.LogEvent("Lose_Level_" + "0" + param);
+    //     }
+    //     else
+    //     {
+    //         FirebaseAnalytics.LogEvent("Lose_Level_" + param);
+    //     }
 
-    }
-    public void WinLevel(int param)
-    {
-        if (!firebaseInitialized) return;
-        if (param < 10)
-        {
-            FirebaseAnalytics.LogEvent("win_level_" + "0" + param);
-        }
-        else
-        {
-            FirebaseAnalytics.LogEvent("win_level_" + param);
-        }
+    // }
+    // public void WinLevel(int param)
+    // {
+    //     if (!firebaseInitialized) return;
+    //     if (param < 10)
+    //     {
+    //         FirebaseAnalytics.LogEvent("win_level_" + "0" + param);
+    //     }
+    //     else
+    //     {
+    //         FirebaseAnalytics.LogEvent("win_level_" + param);
+    //     }
 
-    }
-    public void StartLevel(int param)
-    {
+    // }
+    // public void StartLevel(int param)
+    // {
     
-        if (!firebaseInitialized) return;
-        if (param < 10)
-        {
-            FirebaseAnalytics.LogEvent("Start_level_" + "0" + param);
-            //Debug.LogError("Start_level_" + "0" + param);
-        }
-        else
-        {
-            FirebaseAnalytics.LogEvent("Start_level_" + param);
-            //Debug.LogError("Start_level_" + param);
-        }
+    //     if (!firebaseInitialized) return;
+    //     if (param < 10)
+    //     {
+    //         FirebaseAnalytics.LogEvent("Start_level_" + "0" + param);
+    //         //Debug.LogError("Start_level_" + "0" + param);
+    //     }
+    //     else
+    //     {
+    //         FirebaseAnalytics.LogEvent("Start_level_" + param);
+    //         //Debug.LogError("Start_level_" + param);
+    //     }
  
-    }
+    // }
 
 
  
-    public void LogWatchVideo(ActionWatchVideo action, bool isHasVideo, bool isHasInternet, string level)
-    {
-        if (!firebaseInitialized) return;
-        Parameter[] parameters = new Parameter[4]
-        {
-            new Parameter("actionWatch", action.ToString()) ,
-             new Parameter("has_ads", isHasVideo.ToString()) ,
-              new Parameter("has_internet", isHasInternet.ToString()) ,
-               new Parameter("level", level)
-        };
+    // public void LogWatchVideo(ActionWatchVideo action, bool isHasVideo, bool isHasInternet, string level)
+    // {
+    //     if (!firebaseInitialized) return;
+    //     Parameter[] parameters = new Parameter[4]
+    //     {
+    //         new Parameter("actionWatch", action.ToString()) ,
+    //          new Parameter("has_ads", isHasVideo.ToString()) ,
+    //           new Parameter("has_internet", isHasInternet.ToString()) ,
+    //            new Parameter("level", level)
+    //     };
 
-        FirebaseAnalytics.LogEvent("watch_video_game", parameters);
-    }
+    //     FirebaseAnalytics.LogEvent("watch_video_game", parameters);
+    // }
 
-    public void LogWatchInter(string action, bool isHasVideo, bool isHasInternet, string level)
-    {
-        if (!firebaseInitialized) return;
-        Parameter[] parameters = new Parameter[4]
-        {
-            new Parameter("actionWatch", action.ToString()) ,
-             new Parameter("has_ads", isHasVideo.ToString()) ,
-              new Parameter("has_internet", isHasInternet.ToString()) ,
-              new Parameter("level", level)
-        };
+    // public void LogWatchInter(string action, bool isHasVideo, bool isHasInternet, string level)
+    // {
+    //     if (!firebaseInitialized) return;
+    //     Parameter[] parameters = new Parameter[4]
+    //     {
+    //         new Parameter("actionWatch", action.ToString()) ,
+    //          new Parameter("has_ads", isHasVideo.ToString()) ,
+    //           new Parameter("has_internet", isHasInternet.ToString()) ,
+    //           new Parameter("level", level)
+    //     };
 
-        FirebaseAnalytics.LogEvent("show_inter", parameters);
-    }
+    //     FirebaseAnalytics.LogEvent("show_inter", parameters);
+    // }
 
-    public static void LogBuyInapp(string inappID, string trancstionID)
-    {
-        try
-        {
-            LogBuyInappAdjust(inappID, trancstionID);
-        }
-        catch
-        {
+    // public static void LogBuyInapp(string inappID, string trancstionID)
+    // {
+    //     try
+    //     {
+    //         LogBuyInappAdjust(inappID, trancstionID);
+    //     }
+    //     catch
+    //     {
 
-        }
-        try
-        {
-            if (firebaseInitialized)
-            {
-                Parameter[] parameters = new Parameter[1]
-                {
-                new Parameter("id", inappID),
-                };
-                LogEventFirebase("inapp_event", parameters);
-            }
-        }
-        catch
-        {
+    //     }
+    //     try
+    //     {
+    //         if (firebaseInitialized)
+    //         {
+    //             Parameter[] parameters = new Parameter[1]
+    //             {
+    //             new Parameter("id", inappID),
+    //             };
+    //             LogEventFirebase("inapp_event", parameters);
+    //         }
+    //     }
+    //     catch
+    //     {
 
-        }
-    }
+    //     }
+    // }
 
-    public void LogStartLevel(int level)
-    {
-        try
-        {
-            if (!firebaseInitialized) return;
+    // public void LogStartLevel(int level)
+    // {
+    //     try
+    //     {
+    //         if (!firebaseInitialized) return;
 
-            Parameter[] parameters = new Parameter[1]
-            {
-            new Parameter("level", level.ToString())
-            };
-
-
-            FirebaseAnalytics.LogEvent("level_start", parameters);
-        }
-        catch
-        {
-
-        }
-    }
-
-    public void LogLevelComplet(int level)
-    {
-        try
-        {
-            if (firebaseInitialized)
-            {
-                Parameter[] parameters = new Parameter[1]
-           {
-            new Parameter("level", level.ToString())
-           };
+    //         Parameter[] parameters = new Parameter[1]
+    //         {
+    //         new Parameter("level", level.ToString())
+    //         };
 
 
-                FirebaseAnalytics.LogEvent("level_complete", parameters);
-            }
-        }
-        catch
-        {
+    //         FirebaseAnalytics.LogEvent("level_start", parameters);
+    //     }
+    //     catch
+    //     {
 
-        }
+    //     }
+    // }
 
-
-    }
-
-    public void LogLevelFail(int level)
-    {
-        if (!firebaseInitialized) return;
-        Parameter[] parameters = new Parameter[1]
-       {
-            new Parameter("level", level.ToString())
-       };
-
-
-        FirebaseAnalytics.LogEvent("level_fail", parameters);
-    }
-
-    public void LogRequestVideoReward(string placement)
-    {
-        try
-        {
-            if (firebaseInitialized)
-            {
-                Parameter[] parameters = new Parameter[1]
-               {
-            new Parameter("placement", placement.ToString())
-               };
+    // public void LogLevelComplet(int level)
+    // {
+    //     try
+    //     {
+    //         if (firebaseInitialized)
+    //         {
+    //             Parameter[] parameters = new Parameter[1]
+    //        {
+    //         new Parameter("level", level.ToString())
+    //        };
 
 
-                FirebaseAnalytics.LogEvent("ads_reward_offer", parameters);
-            }
-        }
-        catch
-        {
+    //             FirebaseAnalytics.LogEvent("level_complete", parameters);
+    //         }
+    //     }
+    //     catch
+    //     {
 
-        }
-    }
+    //     }
 
-    public void LogVideoRewardShow()
-    {
-        try
-        {
-            if (firebaseInitialized)
-            {
-                FirebaseAnalytics.LogEvent("Rewardshow");
-            }
-        }
-        catch
-        {
 
-        }
+    // }
+
+    // public void LogLevelFail(int level)
+    // {
+    //     if (!firebaseInitialized) return;
+    //     Parameter[] parameters = new Parameter[1]
+    //    {
+    //         new Parameter("level", level.ToString())
+    //    };
+
+
+    //     FirebaseAnalytics.LogEvent("level_fail", parameters);
+    // }
+
+    // public void LogRequestVideoReward(string placement)
+    // {
+    //     try
+    //     {
+    //         if (firebaseInitialized)
+    //         {
+    //             Parameter[] parameters = new Parameter[1]
+    //            {
+    //         new Parameter("placement", placement.ToString())
+    //            };
+
+
+    //             FirebaseAnalytics.LogEvent("ads_reward_offer", parameters);
+    //         }
+    //     }
+    //     catch
+    //     {
+
+    //     }
+    // }
+
+    // public void LogVideoRewardShow()
+    // {
+    //     try
+    //     {
+    //         if (firebaseInitialized)
+    //         {
+    //             FirebaseAnalytics.LogEvent("Rewardshow");
+    //         }
+    //     }
+    //     catch
+    //     {
+
+    //     }
     
       
-    }
+    // }
 
-    public void LogClickToVideoReward(string placement)
-    {
-        if (!firebaseInitialized) return;
-        Parameter[] parameters = new Parameter[1]
-       {
-            new Parameter("placement", placement.ToString())
-       };
-
-
-        FirebaseAnalytics.LogEvent("ads_reward_click", parameters);
-    }
-
-    public void LogVideoRewardShow(string placement)
-    {
-        try
-        {
-            if (firebaseInitialized)
-            {
-                Parameter[] parameters = new Parameter[1]
-               {
-            new Parameter("placement", placement.ToString())
-               };
+    // public void LogClickToVideoReward(string placement)
+    // {
+    //     if (!firebaseInitialized) return;
+    //     Parameter[] parameters = new Parameter[1]
+    //    {
+    //         new Parameter("placement", placement.ToString())
+    //    };
 
 
-                FirebaseAnalytics.LogEvent("ads_reward_show", parameters);
-            }
-        }
-        catch
-        {
+    //     FirebaseAnalytics.LogEvent("ads_reward_click", parameters);
+    // }
 
-        }
-
-
-    }
-
-    public void LogVideoRewardLoadFail(string placement, string errormsg)
-    {
-        if (!firebaseInitialized) return;
-        Parameter[] parameters = new Parameter[2]
-       {
-            new Parameter("placement", placement.ToString()),
-            new Parameter("errormsg", errormsg.ToString())
-       };
+    // public void LogVideoRewardShow(string placement)
+    // {
+    //     try
+    //     {
+    //         if (firebaseInitialized)
+    //         {
+    //             Parameter[] parameters = new Parameter[1]
+    //            {
+    //         new Parameter("placement", placement.ToString())
+    //            };
 
 
-        FirebaseAnalytics.LogEvent("ads_reward_fail", parameters);
-    }
+    //             FirebaseAnalytics.LogEvent("ads_reward_show", parameters);
+    //         }
+    //     }
+    //     catch
+    //     {
 
-    public void LogVideoRewardShowDone(string placement)
-    {
-        try
-        {
-            if (firebaseInitialized)
-            {
-                Parameter[] parameters = new Parameter[1]
-               {
-            new Parameter("placement", placement.ToString()),
-               };
+    //     }
 
 
-                FirebaseAnalytics.LogEvent("ads_reward_complete", parameters);
-            }
-        }
-        catch
-        {
+    // }
 
-        }
-
-
-    }
-
-    public void LogInterLoadFail(string errormsg)
-    {
-        if (!firebaseInitialized) return;
-        Parameter[] parameters = new Parameter[1]
-       {
-            new Parameter("errormsg", errormsg.ToString())
-       };
+    // public void LogVideoRewardLoadFail(string placement, string errormsg)
+    // {
+    //     if (!firebaseInitialized) return;
+    //     Parameter[] parameters = new Parameter[2]
+    //    {
+    //         new Parameter("placement", placement.ToString()),
+    //         new Parameter("errormsg", errormsg.ToString())
+    //    };
 
 
-        FirebaseAnalytics.LogEvent("ad_inter_fail", parameters);
-    }
+    //     FirebaseAnalytics.LogEvent("ads_reward_fail", parameters);
+    // }
 
-    public void LogInterLoad()
-    {
-        try
-        {
-            if (firebaseInitialized)
-                FirebaseAnalytics.LogEvent("ad_inter_load");
-        }
-        catch
-        {
-
-        }
-
-
-    }
-
-    public void LoadInterEligible()
-    {
-
-    }
-
-    public void LogInterShow()
-    {
-        try
-        {
-            if (firebaseInitialized)
-                FirebaseAnalytics.LogEvent("Intershow");
-
-        }
-        catch
-        {
-
-        }
+    // public void LogVideoRewardShowDone(string placement)
+    // {
+    //     try
+    //     {
+    //         if (firebaseInitialized)
+    //         {
+    //             Parameter[] parameters = new Parameter[1]
+    //            {
+    //         new Parameter("placement", placement.ToString()),
+    //            };
 
 
-    }
+    //             FirebaseAnalytics.LogEvent("ads_reward_complete", parameters);
+    //         }
+    //     }
+    //     catch
+    //     {
 
-    public void LogInterClick()
-    {
-        if (!firebaseInitialized) return;
-        FirebaseAnalytics.LogEvent("ad_inter_click");
-    }
+    //     }
+
+
+    // }
+
+    // public void LogInterLoadFail(string errormsg)
+    // {
+    //     if (!firebaseInitialized) return;
+    //     Parameter[] parameters = new Parameter[1]
+    //    {
+    //         new Parameter("errormsg", errormsg.ToString())
+    //    };
+
+
+    //     FirebaseAnalytics.LogEvent("ad_inter_fail", parameters);
+    // }
+
+    // public void LogInterLoad()
+    // {
+    //     try
+    //     {
+    //         if (firebaseInitialized)
+    //             FirebaseAnalytics.LogEvent("ad_inter_load");
+    //     }
+    //     catch
+    //     {
+
+    //     }
+
+
+    // }
+
+    // public void LoadInterEligible()
+    // {
+
+    // }
+
+    // public void LogInterShow()
+    // {
+    //     try
+    //     {
+    //         if (firebaseInitialized)
+    //             FirebaseAnalytics.LogEvent("Intershow");
+
+    //     }
+    //     catch
+    //     {
+
+    //     }
+
+
+    // }
+
+    // public void LogInterClick()
+    // {
+    //     if (!firebaseInitialized) return;
+    //     FirebaseAnalytics.LogEvent("ad_inter_click");
+    // }
 
     public void LogInterReady()
     {
@@ -429,35 +428,35 @@ public class AnalyticsController : MonoBehaviour
 
     }
 
-    public void LogTutLevelStart(int level)
-    {
-        try
-        {
-            if (firebaseInitialized)
-                FirebaseAnalytics.LogEvent(string.Format("tutorial_start_{0}", level));
+    // public void LogTutLevelStart(int level)
+    // {
+    //     try
+    //     {
+    //         if (firebaseInitialized)
+    //             FirebaseAnalytics.LogEvent(string.Format("tutorial_start_{0}", level));
 
-        }
-        catch
-        {
+    //     }
+    //     catch
+    //     {
 
-        }
-    }
+    //     }
+    // }
 
-    public void LogTutLevelEnd(int level)
-    {
-        try
-        {
-            if (firebaseInitialized)
-                FirebaseAnalytics.LogEvent(string.Format("tutorial_end_{0}", level));
+    // public void LogTutLevelEnd(int level)
+    // {
+    //     try
+    //     {
+    //         if (firebaseInitialized)
+    //             FirebaseAnalytics.LogEvent(string.Format("tutorial_end_{0}", level));
 
-        }
-        catch
-        {
+    //     }
+    //     catch
+    //     {
 
-        }
+    //     }
 
 
-    }
+    // }
 
     public static void LogIAP(int level, string productID, string price, string currency)
     {
@@ -475,19 +474,19 @@ public class AnalyticsController : MonoBehaviour
         SetUserProperties();
     }
 
-    public void HandleFireEvent_Total_Inter_Count()
-    {
-        int count = GetCount("new_total_inter_count");
-        FirebaseAnalytics.SetUserProperty("Intershow_", count.ToString());
-        //FirebaseAnalytics.LogEvent("Intershow_" +  count.ToString());
-    }
+    // public void HandleFireEvent_Total_Inter_Count()
+    // {
+    //     int count = GetCount("new_total_inter_count");
+    //     FirebaseAnalytics.SetUserProperty("Intershow_", count.ToString());
+    //     //FirebaseAnalytics.LogEvent("Intershow_" +  count.ToString());
+    // }
 
-    public void HandleFireEvent_Total_Reward_Count()
-    {
-        int count = GetCount("new_total_reward_count");
-        FirebaseAnalytics.SetUserProperty("Rewardshow_", count.ToString());
-        //FirebaseAnalytics.LogEvent("Rewardshow_" +  count.ToString());
-    }
+    // public void HandleFireEvent_Total_Reward_Count()
+    // {
+    //     int count = GetCount("new_total_reward_count");
+    //     FirebaseAnalytics.SetUserProperty("Rewardshow_", count.ToString());
+    //     //FirebaseAnalytics.LogEvent("Rewardshow_" +  count.ToString());
+    // }
 
     public int GetCount(string s)
     {
