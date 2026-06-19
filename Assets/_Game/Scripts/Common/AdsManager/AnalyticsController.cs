@@ -11,7 +11,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using System.Threading.Tasks;
 //using com.adjust.sdk;
-
+using XGame;
 public class AnalyticsController : MonoBehaviour
 {
     #region Init
@@ -42,10 +42,27 @@ public class AnalyticsController : MonoBehaviour
 
 
 
-    private static void LogBuyInappAdjust(string inappID, string trancstionID)
-    {
-
+    public  void StartLevel()
+    { 
+           Debug.LogError("Start_Level_" + Facade.Instance.PlayerPrefManager.CurrentLevel);
+      XGameSdk.Instance.Track("Start_Level_" + Facade.Instance.PlayerPrefManager.CurrentLevel, new KVItems()
+      {
+         {"level", Facade.Instance.PlayerPrefManager.CurrentLevel},
+      });
+  
     }
+
+    public  void WinLevel()
+    {
+             Debug.LogError("Win_Level_" + Facade.Instance.PlayerPrefManager.CurrentLevel);
+      XGameSdk.Instance.Track("Win_Level_" + Facade.Instance.PlayerPrefManager.CurrentLevel, new KVItems()
+      {
+         {"level", Facade.Instance.PlayerPrefManager.CurrentLevel},
+      });
+ 
+    }
+
+    
 
     // public static void LogEventFirebase(string eventName, Parameter[] parameters)
     // {
@@ -86,377 +103,9 @@ public class AnalyticsController : MonoBehaviour
 
     #region Event
 
-    public void LoadingComplete()
-    {
-
-        //Debug.LogError("111111111111");
-        if (!firebaseInitialized) return;
-
-        //if (!UseProfile.FirstLoading)
-        //{
-        //    FirebaseAnalytics.LogEvent("first_loading_complete");
-        //    UseProfile.FirstLoading = true;
-        //    //Debug.LogError("first_loading_complete");
-        //}
-
-
-    }
-    // public void LoseLevel(int param)
-    // {
-    //     if (!firebaseInitialized) return;
-    //     if (param < 10)
-    //     {
-    //         FirebaseAnalytics.LogEvent("Lose_Level_" + "0" + param);
-    //     }
-    //     else
-    //     {
-    //         FirebaseAnalytics.LogEvent("Lose_Level_" + param);
-    //     }
-
-    // }
-    // public void WinLevel(int param)
-    // {
-    //     if (!firebaseInitialized) return;
-    //     if (param < 10)
-    //     {
-    //         FirebaseAnalytics.LogEvent("win_level_" + "0" + param);
-    //     }
-    //     else
-    //     {
-    //         FirebaseAnalytics.LogEvent("win_level_" + param);
-    //     }
-
-    // }
-    // public void StartLevel(int param)
-    // {
-    
-    //     if (!firebaseInitialized) return;
-    //     if (param < 10)
-    //     {
-    //         FirebaseAnalytics.LogEvent("Start_level_" + "0" + param);
-    //         //Debug.LogError("Start_level_" + "0" + param);
-    //     }
-    //     else
-    //     {
-    //         FirebaseAnalytics.LogEvent("Start_level_" + param);
-    //         //Debug.LogError("Start_level_" + param);
-    //     }
  
-    // }
 
-
- 
-    // public void LogWatchVideo(ActionWatchVideo action, bool isHasVideo, bool isHasInternet, string level)
-    // {
-    //     if (!firebaseInitialized) return;
-    //     Parameter[] parameters = new Parameter[4]
-    //     {
-    //         new Parameter("actionWatch", action.ToString()) ,
-    //          new Parameter("has_ads", isHasVideo.ToString()) ,
-    //           new Parameter("has_internet", isHasInternet.ToString()) ,
-    //            new Parameter("level", level)
-    //     };
-
-    //     FirebaseAnalytics.LogEvent("watch_video_game", parameters);
-    // }
-
-    // public void LogWatchInter(string action, bool isHasVideo, bool isHasInternet, string level)
-    // {
-    //     if (!firebaseInitialized) return;
-    //     Parameter[] parameters = new Parameter[4]
-    //     {
-    //         new Parameter("actionWatch", action.ToString()) ,
-    //          new Parameter("has_ads", isHasVideo.ToString()) ,
-    //           new Parameter("has_internet", isHasInternet.ToString()) ,
-    //           new Parameter("level", level)
-    //     };
-
-    //     FirebaseAnalytics.LogEvent("show_inter", parameters);
-    // }
-
-    // public static void LogBuyInapp(string inappID, string trancstionID)
-    // {
-    //     try
-    //     {
-    //         LogBuyInappAdjust(inappID, trancstionID);
-    //     }
-    //     catch
-    //     {
-
-    //     }
-    //     try
-    //     {
-    //         if (firebaseInitialized)
-    //         {
-    //             Parameter[] parameters = new Parameter[1]
-    //             {
-    //             new Parameter("id", inappID),
-    //             };
-    //             LogEventFirebase("inapp_event", parameters);
-    //         }
-    //     }
-    //     catch
-    //     {
-
-    //     }
-    // }
-
-    // public void LogStartLevel(int level)
-    // {
-    //     try
-    //     {
-    //         if (!firebaseInitialized) return;
-
-    //         Parameter[] parameters = new Parameter[1]
-    //         {
-    //         new Parameter("level", level.ToString())
-    //         };
-
-
-    //         FirebaseAnalytics.LogEvent("level_start", parameters);
-    //     }
-    //     catch
-    //     {
-
-    //     }
-    // }
-
-    // public void LogLevelComplet(int level)
-    // {
-    //     try
-    //     {
-    //         if (firebaseInitialized)
-    //         {
-    //             Parameter[] parameters = new Parameter[1]
-    //        {
-    //         new Parameter("level", level.ToString())
-    //        };
-
-
-    //             FirebaseAnalytics.LogEvent("level_complete", parameters);
-    //         }
-    //     }
-    //     catch
-    //     {
-
-    //     }
-
-
-    // }
-
-    // public void LogLevelFail(int level)
-    // {
-    //     if (!firebaseInitialized) return;
-    //     Parameter[] parameters = new Parameter[1]
-    //    {
-    //         new Parameter("level", level.ToString())
-    //    };
-
-
-    //     FirebaseAnalytics.LogEvent("level_fail", parameters);
-    // }
-
-    // public void LogRequestVideoReward(string placement)
-    // {
-    //     try
-    //     {
-    //         if (firebaseInitialized)
-    //         {
-    //             Parameter[] parameters = new Parameter[1]
-    //            {
-    //         new Parameter("placement", placement.ToString())
-    //            };
-
-
-    //             FirebaseAnalytics.LogEvent("ads_reward_offer", parameters);
-    //         }
-    //     }
-    //     catch
-    //     {
-
-    //     }
-    // }
-
-    // public void LogVideoRewardShow()
-    // {
-    //     try
-    //     {
-    //         if (firebaseInitialized)
-    //         {
-    //             FirebaseAnalytics.LogEvent("Rewardshow");
-    //         }
-    //     }
-    //     catch
-    //     {
-
-    //     }
-    
-      
-    // }
-
-    // public void LogClickToVideoReward(string placement)
-    // {
-    //     if (!firebaseInitialized) return;
-    //     Parameter[] parameters = new Parameter[1]
-    //    {
-    //         new Parameter("placement", placement.ToString())
-    //    };
-
-
-    //     FirebaseAnalytics.LogEvent("ads_reward_click", parameters);
-    // }
-
-    // public void LogVideoRewardShow(string placement)
-    // {
-    //     try
-    //     {
-    //         if (firebaseInitialized)
-    //         {
-    //             Parameter[] parameters = new Parameter[1]
-    //            {
-    //         new Parameter("placement", placement.ToString())
-    //            };
-
-
-    //             FirebaseAnalytics.LogEvent("ads_reward_show", parameters);
-    //         }
-    //     }
-    //     catch
-    //     {
-
-    //     }
-
-
-    // }
-
-    // public void LogVideoRewardLoadFail(string placement, string errormsg)
-    // {
-    //     if (!firebaseInitialized) return;
-    //     Parameter[] parameters = new Parameter[2]
-    //    {
-    //         new Parameter("placement", placement.ToString()),
-    //         new Parameter("errormsg", errormsg.ToString())
-    //    };
-
-
-    //     FirebaseAnalytics.LogEvent("ads_reward_fail", parameters);
-    // }
-
-    // public void LogVideoRewardShowDone(string placement)
-    // {
-    //     try
-    //     {
-    //         if (firebaseInitialized)
-    //         {
-    //             Parameter[] parameters = new Parameter[1]
-    //            {
-    //         new Parameter("placement", placement.ToString()),
-    //            };
-
-
-    //             FirebaseAnalytics.LogEvent("ads_reward_complete", parameters);
-    //         }
-    //     }
-    //     catch
-    //     {
-
-    //     }
-
-
-    // }
-
-    // public void LogInterLoadFail(string errormsg)
-    // {
-    //     if (!firebaseInitialized) return;
-    //     Parameter[] parameters = new Parameter[1]
-    //    {
-    //         new Parameter("errormsg", errormsg.ToString())
-    //    };
-
-
-    //     FirebaseAnalytics.LogEvent("ad_inter_fail", parameters);
-    // }
-
-    // public void LogInterLoad()
-    // {
-    //     try
-    //     {
-    //         if (firebaseInitialized)
-    //             FirebaseAnalytics.LogEvent("ad_inter_load");
-    //     }
-    //     catch
-    //     {
-
-    //     }
-
-
-    // }
-
-    // public void LoadInterEligible()
-    // {
-
-    // }
-
-    // public void LogInterShow()
-    // {
-    //     try
-    //     {
-    //         if (firebaseInitialized)
-    //             FirebaseAnalytics.LogEvent("Intershow");
-
-    //     }
-    //     catch
-    //     {
-
-    //     }
-
-
-    // }
-
-    // public void LogInterClick()
-    // {
-    //     if (!firebaseInitialized) return;
-    //     FirebaseAnalytics.LogEvent("ad_inter_click");
-    // }
-
-    public void LogInterReady()
-    {
-    }
-
-    public void LogVideoRewardReady()
-    {
-
-    }
-
-    // public void LogTutLevelStart(int level)
-    // {
-    //     try
-    //     {
-    //         if (firebaseInitialized)
-    //             FirebaseAnalytics.LogEvent(string.Format("tutorial_start_{0}", level));
-
-    //     }
-    //     catch
-    //     {
-
-    //     }
-    // }
-
-    // public void LogTutLevelEnd(int level)
-    // {
-    //     try
-    //     {
-    //         if (firebaseInitialized)
-    //             FirebaseAnalytics.LogEvent(string.Format("tutorial_end_{0}", level));
-
-    //     }
-    //     catch
-    //     {
-
-    //     }
-
-
-    // }
+       
 
     public static void LogIAP(int level, string productID, string price, string currency)
     {

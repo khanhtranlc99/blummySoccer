@@ -1,8 +1,7 @@
 // using UnityEngine.Purchasing;
 public sealed class Purchaser : MonoSingleton<Purchaser>
 {
-    public readonly string m_pack01_unlock_slots = "pack01_unlock_slots",
-                    m_pack02_unlock_base = "pack02_unlock_base",
+    public readonly string  
                     normal_tickit_pack = "normal_tickit_pack",
                     big_tickit_pack = "big_tickit_pack"
 

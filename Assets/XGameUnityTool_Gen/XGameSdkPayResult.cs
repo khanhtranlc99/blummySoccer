@@ -14,7 +14,20 @@ namespace XGame
             {
 
                 Debug.Log($"支付失败，productId={payResult.productId}，failedCode={payResult.failedCode}，failedMsg={payResult.failedMsg}");
-            
+
+
+                     if (payResult.productId == Purchaser.Instance.normal_tickit_pack)
+                     {
+                        ShopTickitBox.Setup().HandleShowReward(10);
+                     }
+                     if (payResult.productId == Purchaser.Instance.big_tickit_pack)
+                     {
+                         ShopTickitBox.Setup().HandleShowReward(30);
+                     }
+                   
+
+
+
                 return;
             }
 

@@ -32,12 +32,14 @@ public class GameManager : MonoSingleton<GameManager>
             {
                 case GAME_STATE.INTRO:
                     Debug.Log("Intro");
+                         GameController.Instance.AnalyticsController.StartLevel();
                     break;
                 case GAME_STATE.PLAYING:
                     Debug.Log("Playing");
                     break;
                 case GAME_STATE.END:
                     Debug.Log("End");
+                    GameController.Instance.AnalyticsController.WinLevel();
                     break;
                 default:
                     break;

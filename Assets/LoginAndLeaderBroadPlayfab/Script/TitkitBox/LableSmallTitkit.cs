@@ -8,12 +8,14 @@ public class LableSmallTitkit : LableTitkit
         shopTickitBox = param;
       //  Purchaser.Instance.IAP_Manager.OnPurchaseCompleted += HandleBuy;
         btnBuy.onClick.AddListener(HandleOnclick);
-
+      
 
     }
     public void HandleOnclick()
     {
         GlobalAudioPlayer.PlaySFX(eAudioType.CLICK);
+        IAPManager.Instance.HandleBuy(20,Purchaser.Instance.normal_tickit_pack);
+
       //  Purchaser.Instance.IAP_Manager.Purchase(Purchaser.Instance.normal_tickit_pack);
     }    
     // private void HandleBuy(Product product)

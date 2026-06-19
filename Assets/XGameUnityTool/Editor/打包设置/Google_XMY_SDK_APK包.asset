@@ -28,13 +28,13 @@ MonoBehaviour:
   ManagedStrippingLevel: 1
   RemoveFolders: []
   CopySettings: []
-  VersionString: 1.0.3
+  VersionString: 1.1.0
   BuildType: 4
   PublishMode: 0
   MinApiVersion: 23
   TargetApiVersion: 0
   targetArchitectures: 4294967283
-  PackageName: com.eskimo.goalhero.penaltymaster
+  PackageName: com.eskimo.goalhero.penalty.master
   EnableSignature: 0
   KeystoreName: 
   KeystorePassword: 

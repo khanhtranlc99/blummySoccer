@@ -1,21 +1,21 @@
 {
   "project_info": {
-    "project_number": "653553769197",
-    "project_id": "penaltymaster-7ce82",
-    "storage_bucket": "penaltymaster-7ce82.firebasestorage.app"
+    "project_number": "911868053998",
+    "project_id": "newpenaltymas",
+    "storage_bucket": "newpenaltymas.firebasestorage.app"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:653553769197:android:e06f0c887a0538658fcae4",
+        "mobilesdk_app_id": "1:911868053998:android:547458613bf05e745366ff",
         "android_client_info": {
-          "package_name": "com.eskimo.goalhero.penaltymaster"
+          "package_name": "com.eskimo.goalhero.penalty.master"
         }
       },
       "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyDmFwEt6bhDSFGS-jBl1gpkheOfoUNMHl0"
+          "current_key": "AIzaSyCOPcwx9C12lkOLG9YDaq-uw2leEaVqOjA"
         }
       ],
       "services": {

@@ -48,8 +48,12 @@ public class ShopTickitBox : BaseBox
 
     public void HandleShowReward(int param)
     {
+         UseProfile.Titkit += param;
         rewardTitkit.transform.DOScale(Vector3.one, 0.5f);
         panelReward.SetActive(true);
         tvReward.text = param.ToString();
+          LeaderBoardPvPBox.Instance.InitState();
+
+   
     }
 }

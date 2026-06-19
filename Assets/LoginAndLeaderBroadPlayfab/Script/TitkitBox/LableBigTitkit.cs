@@ -16,6 +16,7 @@ public class LableBigTitkit : LableTitkit
     public void HandleOnclick()
     {
         GlobalAudioPlayer.PlaySFX(eAudioType.CLICK);
+        IAPManager.Instance.HandleBuy(67,Purchaser.Instance.big_tickit_pack);
         //Purchaser.Instance.IAP_Manager.Purchase(Purchaser.Instance.big_tickit_pack);
     }
     // private void HandleBuy(Product product)

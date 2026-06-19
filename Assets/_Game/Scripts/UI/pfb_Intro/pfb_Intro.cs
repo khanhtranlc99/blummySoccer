@@ -33,12 +33,13 @@ public class pfb_Intro : UIBehavior
     }
     private void Nextlevel()
     {
+     
         rotateObj.rotate = 5;
         btnNext.gameObject.SetActive(true);
         btnNext.transform.DOScale(new Vector3(1,1,1), 0.5f);
 
 
-        Debug.LogError("12346Nextlevel");
+ 
     //    Winbox.Setup().Show();
     }
     private void Ready()
@@ -53,6 +54,7 @@ public class pfb_Intro : UIBehavior
         // SoundManager.Instance.PlayAudioClip(SoundType.GO);
         GameManager.Instance.GAME_STATE = GAME_STATE.PLAYING;
         CameraManager.Instance?.ShakeMainCam(true, CAMERA_SHAKE_TYPE.INTRO_SHAKE);
+    
     }
     private void ToggleOff()
     {

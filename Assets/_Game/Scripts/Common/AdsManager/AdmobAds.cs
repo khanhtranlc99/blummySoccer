@@ -9,7 +9,7 @@ using UnityEngine.Events;
 using Newtonsoft.Json.Linq;
 using Org.BouncyCastle.Math.Field;
 //using com.adjust.sdk;
-
+using XGame;
 public class AdmobAds : MonoBehaviour
 {
     public bool offBanner;
@@ -114,6 +114,10 @@ public class AdmobAds : MonoBehaviour
         // if(RemoteConfigController.GetBoolConfig("Show_Ads_XGame", false) == true)
         // {
             AdsXGame.ShowInterstitial(actionWatchLog, actionIniterClose);
+               XGameSdk.Instance.Track("InterShow" + Facade.Instance.PlayerPrefManager.CurrentLevel, new KVItems()
+             {
+               {"InterShow", actionWatchLog},
+             });
         // }
         // else
         // {
@@ -183,6 +187,10 @@ public class AdmobAds : MonoBehaviour
         // if (RemoteConfigController.GetBoolConfig("Show_Ads_XGame", false) == true)
         // {
             AdsXGame.ShowVideoAds(actionType.ToString(), actionReward, actionNotLoadedVideo);
+             XGameSdk.Instance.Track("Video_Show" + Facade.Instance.PlayerPrefManager.CurrentLevel, new KVItems()
+             {
+               {"Video_Show", actionType.ToString()},
+             });
         // }
         // else
         // {
