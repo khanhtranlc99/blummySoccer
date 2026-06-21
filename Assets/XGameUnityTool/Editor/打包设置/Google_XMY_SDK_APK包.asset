@@ -28,7 +28,7 @@ MonoBehaviour:
   ManagedStrippingLevel: 1
   RemoveFolders: []
   CopySettings: []
-  VersionString: 1.1.0
+  VersionString: 1.1.1
   BuildType: 4
   PublishMode: 0
   MinApiVersion: 23

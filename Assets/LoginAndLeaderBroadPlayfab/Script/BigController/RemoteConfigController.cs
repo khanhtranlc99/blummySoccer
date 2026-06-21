@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 using System.Globalization;
 using Newtonsoft.Json;
 //using Firebase.Extensions;
-
+using XGame;
 public class RemoteConfigController : MonoBehaviour
 {
     #region Variables
@@ -281,90 +281,35 @@ public class RemoteConfigController : MonoBehaviour
         //AdmobAds.Instance.Init();
     }
 
-    // public static async void FetchAndActivateAsync(Task fetchTask, ConfigInfo info)
-    // {
-    //     await FirebaseRemoteConfig.DefaultInstance.FetchAndActivateAsync();
-    //     if (!fetchTask.IsFaulted && fetchTask.IsCompleted)
-    //     {
-    //         ReloadFirebaseKeys();
-    //     }
-
-
-    //     DebugLog(String.Format("Remote data loaded and ready (last fetch time {0}).", info.FetchTime));
-    // }
-
-    // public static void ReloadFirebaseKeys()
-    // {
-    //     firebaseRemoteKeys.Clear();
-    //     foreach (var key in FirebaseRemoteConfig.DefaultInstance.Keys)
-    //     {
-    //         firebaseRemoteKeys.Add(key);
-    //     }
-    // }
-
-    // //static Dictionary<string, object> defaults = new Dictionary<string, object>();
-    // public static void RemoteConfigFirebaseInit()
-    // {
-    //     if (isInit) return;
-    //     isInit = true;
-    //     InitSuccess = true;
-
-
-    //     TimeSpan time = new TimeSpan(0, 0, 10);
-    //     FirebaseRemoteConfig.DefaultInstance.FetchAsync(time).ContinueWithOnMainThread(task =>
-    //     {
-    //     var info = FirebaseRemoteConfig.DefaultInstance.Info;
-    //     if (info.LastFetchStatus == LastFetchStatus.Success)
-    //     {
-    //         FirebaseRemoteConfig.DefaultInstance.ActivateAsync();
-    //         firebaseRemoteKeys.Clear();
-    //         foreach (var key in FirebaseRemoteConfig.DefaultInstance.Keys)
-    //         {
-
-    //             firebaseRemoteKeys.Add(key);
-
-    //         }
-
-    //             //Debug.LogError(GetFloatConfig("Inter_time", 55));
-    //             //Debug.LogError(GetBoolConfig("Show_Ads_XGame", true));
-    //             //   Debug.LogError(RemoteConfigController.GetFloatConfig("level_start_show_initstial", 1));
-    //             AnalyticsController.firebaseInitialized = true;
-    //         }
-    //     });
-
-
-
-
-
-
-
-        // These are the values that are used if we haven't fetched data from the
-        // server
-        // yet, or if we ask for values that the server doesn't have:
-
-        //  FirebaseRemoteConfig.SetDefaults(defaults);
-        //DebugLog("RemoteConfig configured and ready!");
-
-        //try
-        //{
-        //    string config_cached = PlayerPrefs.GetString("CONFIG_CACHED", string.Empty);
-        //    if (!string.IsNullOrEmpty(config_cached))
-        //    {
-        //        Debug.Log("RemoteConfigFirebaseInit" + config_cached);
-        //        playfabConfig = JsonUtility.FromJson<Dictionary<string, string>>(config_cached);
-        //    }
-        //}
-        //catch (Exception ex)
-        //{
-        //    DebugManager.LogError(ex.Message);
-        //}
-    // }
-
-    // private static void DebugLog(string s)
-    // {
-    //     Debug.Log(s);
-    // }
-
+    public void GetConfig()
+    {
+     XGameSdk.Instance.RequestRemoteConfig((json) =>
+    {
+        Debug.Log($"RemoteConfig: {json}");
+        if (string.IsNullOrEmpty(json))
+        {
+            Debug.LogWarning("RemoteConfig rỗng");
+            return;
+        }
+        try
+        {
+            var config = JsonConvert.DeserializeObject<Dictionary<string, string>>(json);
+            // Lấy config "alo"
+            if (config != null && config.TryGetValue("alo", out var aloJson))
+            {
+                Debug.Log($"alo: {aloJson}");
+                // Nếu alo là JSON object, deserialize tiếp:
+                // var aloData = JsonConvert.DeserializeObject<AloConfig>(aloJson);
+            }
+            // Lấy config "ala"
+           
+        }
+        catch (Exception ex)
+        {
+            Debug.LogError($"Parse RemoteConfig lỗi: {ex.Message}");
+        }
+    });
+    }
     #endregion Private Methods
 }
 
