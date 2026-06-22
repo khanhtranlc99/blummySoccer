@@ -8,6 +8,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using XGame;
 
 public class pfb_Gameplay : UIBehavior
 {
@@ -47,6 +48,13 @@ public class pfb_Gameplay : UIBehavior
         UIManager.Instance.pfb_Gameplay.gameObject.SetActive(false);
         GlobalAudioPlayer.PlaySFX(eAudioType.CLICK);
         Initiate.Fade("Home", Color.black, 2f);
+
+
+             XGameSdk.Instance.Track("UE", new KVItems()
+            {
+                {"button", "home"},
+                {"level_id", Facade.Instance.PlayerPrefManager.CurrentLevel},
+            });
     }
 
     protected override void OnEnable()
@@ -64,12 +72,32 @@ public class pfb_Gameplay : UIBehavior
         void Next()
         {
             GameManager.Instance.Replay();
+
+               XGameSdk.Instance.Track("UE", new KVItems()
+            {
+               {"button", "replay_level"},
+               {"level_id", Facade.Instance.PlayerPrefManager.CurrentLevel},
+            });
+
+            XGameSdk.Instance.Track("level", new KVItems()
+            {
+                {"level_status", "replay"},
+            });
+
+
+
+
         }
 
         //  GameManager.Instance.Replay();
     }
     protected void OnSkip()
     {
+        XGameSdk.Instance.Track("UE", new KVItems()
+        {
+            {"button", "skip"},
+            {"level_id", Facade.Instance.PlayerPrefManager.CurrentLevel.ToString()},
+        });
 
         //    GameManager.Instance.Nextlevel();
         GameController.Instance.admobAds.ShowVideoReward(
@@ -180,6 +208,11 @@ public class pfb_Gameplay : UIBehavior
         {
             Initiate.Fade("HomePvP", Color.black, 2f);
             ActiveNormalPopup(false);
+            XGameSdk.Instance.Track("UE", new KVItems()
+            {
+                {"button", "pvp"},
+                {"level_id", Facade.Instance.PlayerPrefManager.CurrentLevel},
+            });
         }
         else
         {

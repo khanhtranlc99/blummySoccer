@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using System;
 using DG.Tweening;
+using XGame;
 
 public enum EndGameType
 {
@@ -42,7 +43,15 @@ public class EndGameBox : BaseBox
 
     private void Init()
     {
-        btnBack.onClick.AddListener(delegate { GlobalAudioPlayer.PlaySFX(eAudioType.CLICK); Initiate.Fade("HomePvP", Color.black, 2f); });
+        btnBack.onClick.AddListener(delegate { GlobalAudioPlayer.PlaySFX(eAudioType.CLICK); 
+        Initiate.Fade("HomePvP", Color.black, 2f); 
+        
+        XGameSdk.Instance.Track("UE", new KVItems()
+        {
+            {"button", "back"}
+ 
+        });
+        });
         btnContinue.onClick.AddListener(delegate { HandleButtonContinue(); });
     }
 
@@ -106,5 +115,10 @@ public class EndGameBox : BaseBox
         {
             ShopTickitBox.Setup().Show(); 
         }
+        XGameSdk.Instance.Track("UE", new KVItems()
+        {
+            {"button", "continue"} 
+        
+        });
     }    
 }

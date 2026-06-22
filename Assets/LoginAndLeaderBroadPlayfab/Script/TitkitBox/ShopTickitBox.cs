@@ -5,6 +5,7 @@ using System;
 using UnityEngine.UI;
 using Sirenix.Serialization;
 using DG.Tweening;
+using XGame;
 
 public class ShopTickitBox : BaseBox 
 {
@@ -31,6 +32,8 @@ public class ShopTickitBox : BaseBox
     public Text tvReward;
     public Button btnOK;
     public Transform rewardTitkit;
+    
+
     private void Init()
     {
         btnBack.onClick.AddListener(delegate { GlobalAudioPlayer.PlaySFX(eAudioType.CLICK); Close(); });
@@ -43,7 +46,11 @@ public class ShopTickitBox : BaseBox
     }
     private void InitState()
     {
-        
+           XGameSdk.Instance.Track("UE", new KVItems()
+            {
+               {"view_show", "pvp_shop"},
+              
+            });
     }
 
     public void HandleShowReward(int param)

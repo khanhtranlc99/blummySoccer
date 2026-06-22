@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityExtensions;
-
+using XGame;
 public class pfb_Intro : UIBehavior
 {
     [SerializeField] Animator animator;
@@ -45,6 +45,10 @@ public class pfb_Intro : UIBehavior
     private void Ready()
     {
         GlobalAudioPlayer.PlaySFX(eAudioType.READY);
+        XGameSdk.Instance.Track("level", new KVItems()
+        {
+            {"level_status", "start"},
+        });
         // SoundManager.Instance.PlayAudioClip(SoundType.READY);
     }
 
@@ -58,9 +62,15 @@ public class pfb_Intro : UIBehavior
     }
     private void ToggleOff()
     {
+        XGameSdk.Instance.Track("level", new KVItems()
+        {
+            {"level_id", Facade.Instance.PlayerPrefManager.CurrentLevel},
+        });
         canvasGroup.alpha = 0;
         canvasGroup.interactable = false;
         gameObject.SetActive(false);
+
+
     }
 
 }

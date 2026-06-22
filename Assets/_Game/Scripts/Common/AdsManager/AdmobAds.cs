@@ -1,15 +1,16 @@
 ﻿//using com.adjust.sdk;
+// using static MaxSdkBase;
+using Newtonsoft.Json.Linq;
+using Org.BouncyCastle.Math.Field;
 using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 using UnityEngine.Events;
-// using static MaxSdkBase;
-using Newtonsoft.Json.Linq;
-using Org.BouncyCastle.Math.Field;
+using UnityEngine.UI;
 //using com.adjust.sdk;
 using XGame;
+using static Dreamteck.Splines.ParticleController;
 public class AdmobAds : MonoBehaviour
 {
     public bool offBanner;
@@ -111,19 +112,37 @@ public class AdmobAds : MonoBehaviour
 
     public void ShowInterstitial(bool isShowImmediatly = false, string actionWatchLog = "other", Action actionIniterClose = null, string level = null)
     {
-        // if(RemoteConfigController.GetBoolConfig("Show_Ads_XGame", false) == true)
-        // {
+
+        if (GameController.Instance.wasGetData)
+        {
+            if (GameController.Instance.dataAll.Show_Ads_Inter)
+            {
+                AdsXGame.ShowInterstitial(actionWatchLog, actionIniterClose);
+                XGameSdk.Instance.Track("InterShow" + Facade.Instance.PlayerPrefManager.CurrentLevel, new KVItems()
+                {
+                   {"InterShow", actionWatchLog},
+                });
+            }
+
+        }
+        else
+        {
             AdsXGame.ShowInterstitial(actionWatchLog, actionIniterClose);
-               XGameSdk.Instance.Track("InterShow" + Facade.Instance.PlayerPrefManager.CurrentLevel, new KVItems()
+            XGameSdk.Instance.Track("InterShow" + Facade.Instance.PlayerPrefManager.CurrentLevel, new KVItems()
              {
                {"InterShow", actionWatchLog},
              });
-        // }
-        // else
-        // {
-        //     actionIniterClose?.Invoke();
-        // }
-      
+            Debug.LogError("1234556");
+        }
+
+
+
+
+   
+
+
+
+ 
 
     }
 
@@ -134,6 +153,11 @@ public class AdmobAds : MonoBehaviour
         // MaxSdk.LoadInterstitial(InterstitialAdUnitId);
         // GameController.Instance.AnalyticsController.LogInterLoad();
         // _isLoading = true;
+        
+        //  XGameSdk.Instance.Track("InterShow" + Facade.Instance.PlayerPrefManager.CurrentLevel, new KVItems()
+        //         {
+        //            {"InterShow", actionWatchLog},
+        //         });
     }
 
     #endregion
@@ -184,13 +208,29 @@ public class AdmobAds : MonoBehaviour
     {
         //actionClose?.Invoke();
         //actionReward?.Invoke();
-        // if (RemoteConfigController.GetBoolConfig("Show_Ads_XGame", false) == true)
-        // {
-            AdsXGame.ShowVideoAds(actionType.ToString(), actionReward, actionNotLoadedVideo);
-             XGameSdk.Instance.Track("Video_Show" + Facade.Instance.PlayerPrefManager.CurrentLevel, new KVItems()
+        if (GameController.Instance.wasGetData)
+        {
+            if(GameController.Instance.dataAll.Show_Ads_Video)
+            {
+                AdsXGame.ShowVideoAds(actionType.ToString(), actionReward, actionNotLoadedVideo);
+                XGameSdk.Instance.Track("Video_Show" + Facade.Instance.PlayerPrefManager.CurrentLevel, new KVItems()
              {
                {"Video_Show", actionType.ToString()},
              });
+            }
+
+        }
+        else
+        {
+            AdsXGame.ShowVideoAds(actionType.ToString(), actionReward, actionNotLoadedVideo);
+            XGameSdk.Instance.Track("Video_Show" + Facade.Instance.PlayerPrefManager.CurrentLevel, new KVItems()
+             {
+               {"Video_Show", actionType.ToString()},
+             });
+        }
+
+
+          
         // }
         // else
         // {
@@ -505,37 +545,37 @@ public class AdmobAds : MonoBehaviour
     }
     #endregion
 
-//     private void OnAdRevenuePaidEvent(string adUnitId, MaxSdkBase.AdInfo impressionData)
-//     {
-    
+    //     private void OnAdRevenuePaidEvent(string adUnitId, MaxSdkBase.AdInfo impressionData)
+    //     {
 
-//         double revenue = impressionData.Revenue;
-//         var impressionParameters = new[] {
-//     new Firebase.Analytics.Parameter("ad_platform", "AppLovin"),
-//     new Firebase.Analytics.Parameter("ad_source", impressionData.NetworkName),
-//     new Firebase.Analytics.Parameter("ad_unit_name", impressionData.AdUnitIdentifier),
-//     new Firebase.Analytics.Parameter("value", revenue),
-//     new Firebase.Analytics.Parameter("currency", "USD"), // All AppLovin revenue is sent in USD
-// };
-//         Firebase.Analytics.FirebaseAnalytics.LogEvent("ad_max", impressionParameters);
-//         Firebase.Analytics.FirebaseAnalytics.LogEvent("ad_impression", impressionParameters);
-    
 
- 
-//     }
+    //         double revenue = impressionData.Revenue;
+    //         var impressionParameters = new[] {
+    //     new Firebase.Analytics.Parameter("ad_platform", "AppLovin"),
+    //     new Firebase.Analytics.Parameter("ad_source", impressionData.NetworkName),
+    //     new Firebase.Analytics.Parameter("ad_unit_name", impressionData.AdUnitIdentifier),
+    //     new Firebase.Analytics.Parameter("value", revenue),
+    //     new Firebase.Analytics.Parameter("currency", "USD"), // All AppLovin revenue is sent in USD
+    // };
+    //         Firebase.Analytics.FirebaseAnalytics.LogEvent("ad_max", impressionParameters);
+    //         Firebase.Analytics.FirebaseAnalytics.LogEvent("ad_impression", impressionParameters);
 
-//     private void OnLevelWasLoaded(int level)
-//     {
-//         _actionRewardVideo = null;
-//         _actionClose = null;
-//         actionInterstitialClose = null;
-//     }
 
-//     private void Update()
-//     {
-//         countdownAds += Time.unscaledDeltaTime;
-//         countdownAdsOpenAppAds += Time.unscaledTime;
-//     }
+
+    //     }
+
+    //     private void OnLevelWasLoaded(int level)
+    //     {
+    //         _actionRewardVideo = null;
+    //         _actionClose = null;
+    //         actionInterstitialClose = null;
+    //     }
+
+    private void Update()
+    {
+        countdownAds += Time.unscaledDeltaTime;
+       // countdownAdsOpenAppAds += Time.unscaledTime;
+    }
 
     //public bool IsOpenAdsReady
     //{

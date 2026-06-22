@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using XGame;
 public class HomeScene : MonoBehaviour
 {
 
@@ -10,6 +11,12 @@ public class HomeScene : MonoBehaviour
    
     void Start()
     {
+
+        XGameSdk.Instance.Track("UE", new KVItems()
+        {
+            {"view_show", "homepage"},
+        });
+
         tmp.text = "Level " +  Facade.Instance.PlayerPrefManager.CurrentLevel.ToString();
         btnGameplay.onClick.AddListener(delegate {
             HandleGamePlay();
@@ -24,6 +31,11 @@ public class HomeScene : MonoBehaviour
     {
         GlobalAudioPlayer.PlaySFX(eAudioType.CLICK);
         Initiate.Fade("Main", Color.black, 2f);
+        XGameSdk.Instance.Track("UE", new KVItems()
+        {
+            {"button", "start_game"},
+        });
+
     }
     public void HandlePvP()
     {

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
- 
+using XGame;
 public class LeaderBoardPvPBox : Singleton<LeaderBoardPvPBox>
 {
    
@@ -38,6 +38,11 @@ public class LeaderBoardPvPBox : Singleton<LeaderBoardPvPBox>
         {
             GlobalAudioPlayer.PlaySFX(eAudioType.CLICK);
             ShopTickitBox.Setup().Show();
+            XGameSdk.Instance.Track("UE", new KVItems()
+            {
+                {"button", "buy_tickit"} 
+            
+            });
         });
         btnShowChangeName.onClick.AddListener(delegate
         {
@@ -63,7 +68,12 @@ public class LeaderBoardPvPBox : Singleton<LeaderBoardPvPBox>
     {
         GlobalAudioPlayer.PlaySFX(eAudioType.CLICK);
         GameController.Instance.admobAds.ShowInterstitial(false, actionIniterClose: () => { Next(); }, actionWatchLog: "Retry");
-
+        XGameSdk.Instance.Track("UE", new KVItems()
+        {
+            {"button", "back_to_gamepage"},
+            {"level_id", Facade.Instance.PlayerPrefManager.CurrentLevel.ToString()},
+       
+        });
 
         void Next()
         {

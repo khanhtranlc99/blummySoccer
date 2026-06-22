@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using DG.Tweening;
 using UnityEngine.SceneManagement;
+using XGame;
 
 public class Winbox : BaseBox
 {
@@ -51,41 +52,20 @@ public class Winbox : BaseBox
             Close();
             GameManager.Instance.NextlevelWin();
 
+            //  XGameSdk.Instance.Track("UE", new KVItems()
+            //  {
+            //     {"button", "next_level"},
+            //     {"level_id", Facade.Instance.PlayerPrefManager.CurrentLevel},
+            //  });
+
+
+             XGameSdk.Instance.Track("UE", new KVItems()
+             {
+                {"button", "next_level"},
+                {"level_id", Facade.Instance.PlayerPrefManager.CurrentLevel},
+             });
+
         }
     }
-    //private void HandleReward()
-    //{
-    //    GameController.Instance.musicManager.PlayClickSound();
-    //    //GameController.Instance.admobAds.ShowVideoReward(
-    //    //           actionReward: () =>
-    //    //           {
-    //    //               Close();
-    //    //               //GameController.Instance.admobAds.HandleHideMerec();
-
-    //    //               List<GiftRewardShow> giftRewardShows = new List<GiftRewardShow>();
-    //    //               giftRewardShows.Add(new GiftRewardShow() { amount = 1, type = GiftType.Coin });
-    //    //               PopupRewardBase.Setup(false).Show(giftRewardShows, delegate {
-    //    //                   PopupRewardBase.Setup(false).Close();
-    //    //                   Initiate.Fade("GamePlay", Color.black, 2f);
-    //    //               });
-
-    //    //           },
-    //    //           actionNotLoadedVideo: () =>
-    //    //           {
-    //    //               GameController.Instance.moneyEffectController.SpawnEffectText_FlyUp_UI
-    //    //                (rewardButton.transform,
-    //    //                rewardButton.transform.position,
-    //    //                "No video at the moment!",
-    //    //                Color.white,
-    //    //                isSpawnItemPlayer: true
-    //    //                );
-    //    //           },
-    //    //           actionClose: null,
-    //    //           ActionWatchVideo.WinBox_Claim_Coin,
-    //    //           UseProfile.CurrentLevel.ToString());
-    //}
-    //private void OnDestroy()
-    //{
-
-    //}
+ 
 }

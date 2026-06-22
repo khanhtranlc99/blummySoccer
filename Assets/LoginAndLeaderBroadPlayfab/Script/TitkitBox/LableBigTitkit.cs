@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using XGame;
 // using UnityEngine.Purchasing;
 
 public class LableBigTitkit : LableTitkit
@@ -17,6 +18,11 @@ public class LableBigTitkit : LableTitkit
     {
         GlobalAudioPlayer.PlaySFX(eAudioType.CLICK);
         IAPManager.Instance.HandleBuy(67,Purchaser.Instance.big_tickit_pack);
+         XGameSdk.Instance.Track("UE", new KVItems()
+        {
+            {"button", "shop"},
+            {"tickit", "30"},
+        });
         //Purchaser.Instance.IAP_Manager.Purchase(Purchaser.Instance.big_tickit_pack);
     }
     // private void HandleBuy(Product product)

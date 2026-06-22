@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using MoonlightFramework;
 using UnityEngine;
+using XGame;
 
 public class LableAds : LableTitkit
 {
@@ -13,12 +14,8 @@ public class LableAds : LableTitkit
     private void HandleWatchAds()
     {
         GlobalAudioPlayer.PlaySFX(eAudioType.CLICK);
-        //AdsManager.Instance.ShowAds(AdsNetwork.Max, AdsType.Rewarded, () =>
-        //{
-        //    UseProfile.Titkit += 3;
-        //    shopTickitBox.HandleShowReward(3);
-        //    LeaderBoardPvPBox.Instance.InitState();
-        //}, "Titkit");
+        
+       
         GameController.Instance.admobAds.ShowVideoReward(
                     actionReward: () =>
                     {
@@ -40,5 +37,11 @@ public class LableAds : LableTitkit
                     actionClose: null,
                       ActionWatchVideo.HeartInHearPopup,
                      "100");
+
+         XGameSdk.Instance.Track("UE", new KVItems()
+        {
+            {"button", "shop"},
+            {"tickit", "3"},
+        });
     }
 }

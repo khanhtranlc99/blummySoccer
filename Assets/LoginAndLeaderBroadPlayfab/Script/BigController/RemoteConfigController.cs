@@ -281,7 +281,7 @@ public class RemoteConfigController : MonoBehaviour
         //AdmobAds.Instance.Init();
     }
 
-    public void GetConfig()
+    public static void GetConfig()
     {
      XGameSdk.Instance.RequestRemoteConfig((json) =>
     {
@@ -293,13 +293,17 @@ public class RemoteConfigController : MonoBehaviour
         }
         try
         {
-            var config = JsonConvert.DeserializeObject<Dictionary<string, string>>(json);
+            var config = JsonConvert.DeserializeObject<DataAll>(json);
             // Lấy config "alo"
-            if (config != null && config.TryGetValue("alo", out var aloJson))
+            if (config != null  )
             {
-                Debug.Log($"alo: {aloJson}");
-                // Nếu alo là JSON object, deserialize tiếp:
-                // var aloData = JsonConvert.DeserializeObject<AloConfig>(aloJson);
+                Debug.Log($"ConfigAll: {config}");
+
+                GameController.Instance.dataAll = new DataAll();
+                GameController.Instance.dataAll = config;
+                GameController.Instance.wasGetData = true;
+                Debug.Log("wasGetData=true");
+
             }
             // Lấy config "ala"
            

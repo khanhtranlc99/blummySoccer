@@ -216,7 +216,7 @@ public class GameManager : MonoSingleton<GameManager>
     {
         if (GAME_STATE != GAME_STATE.PLAYING) return;
 
-        FirebaseManager.LogEvent("replay_level_" + Facade.Instance.PlayerPrefManager.CurrentLevel);
+     
         GAME_STATE = GAME_STATE.PLAYING;
         SpawnMap(Facade.Instance.PlayerPrefManager.CurrentLevel);
     }
@@ -238,7 +238,7 @@ public class GameManager : MonoSingleton<GameManager>
     }
     public void ActiveOutro()
     {
-        FirebaseManager.LogEvent("win_level_" + Facade.Instance.PlayerPrefManager.CurrentLevel);
+      //  FirebaseManager.LogEvent("win_level_" + Facade.Instance.PlayerPrefManager.CurrentLevel);
         GlobalAudioPlayer.PlaySFX(eAudioType.WIN);
        // Winbox.Setup().Show();
         UIManager.Instance.pfb_Intro.ActiveNormalPopup();

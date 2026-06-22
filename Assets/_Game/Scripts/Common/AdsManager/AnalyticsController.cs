@@ -44,21 +44,29 @@ public class AnalyticsController : MonoBehaviour
 
     public  void StartLevel()
     { 
-           Debug.LogError("Start_Level_" + Facade.Instance.PlayerPrefManager.CurrentLevel);
-      XGameSdk.Instance.Track("Start_Level_" + Facade.Instance.PlayerPrefManager.CurrentLevel, new KVItems()
-      {
-         {"level", Facade.Instance.PlayerPrefManager.CurrentLevel},
-      });
+      Debug.LogError("Start_Level_" + Facade.Instance.PlayerPrefManager.CurrentLevel);
+    
   
     }
 
     public  void WinLevel()
     {
              Debug.LogError("Win_Level_" + Facade.Instance.PlayerPrefManager.CurrentLevel);
-      XGameSdk.Instance.Track("Win_Level_" + Facade.Instance.PlayerPrefManager.CurrentLevel, new KVItems()
-      {
-         {"level", Facade.Instance.PlayerPrefManager.CurrentLevel},
-      });
+     
+
+          XGameSdk.Instance.Track("UE", new KVItems()
+            {
+               {"view_show", "victory"},
+               {"level_id", Facade.Instance.PlayerPrefManager.CurrentLevel.ToString()},
+            });
+
+         XGameSdk.Instance.Track("level", new KVItems()
+        {
+            {"level_status", "victory"},
+        });
+
+
+      
  
     }
 
@@ -115,12 +123,25 @@ public class AnalyticsController : MonoBehaviour
 
     private void OnApplicationQuit()
     {
-        SetUserProperties();
+       
         //UseProfile.WinStreak = 0;
     }
     private void OnApplicationPause(bool pause)
     {
-        SetUserProperties();
+        if (pause)
+        {
+            XGameSdk.Instance.Track("UE", new KVItems()
+            {
+                {"view_state", "back_to_background"},
+            });
+        }
+        else
+        {
+            XGameSdk.Instance.Track("UE", new KVItems()
+            {
+                {"view_state", "return_to_game"},
+            });
+        }
     }
 
     // public void HandleFireEvent_Total_Inter_Count()
