@@ -52,17 +52,13 @@ public class Winbox : BaseBox
             Close();
             GameManager.Instance.NextlevelWin();
 
-            //  XGameSdk.Instance.Track("UE", new KVItems()
-            //  {
-            //     {"button", "next_level"},
-            //     {"level_id", Facade.Instance.PlayerPrefManager.CurrentLevel},
-            //  });
+          ;
 
 
              XGameSdk.Instance.Track("UE", new KVItems()
              {
                 {"button", "next_level"},
-                {"level_id", Facade.Instance.PlayerPrefManager.CurrentLevel},
+                {"level_id", Facade.Instance.PlayerPrefManager.CurrentLevel.ToString()},
              });
 
         }

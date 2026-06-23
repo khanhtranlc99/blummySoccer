@@ -1,12 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+ 
 
 public class PlayerPrefManager : MonoBehaviour
 {
     private bool m_IsUserAuthen = false;
     private bool m_IsRateUs = false;
-    protected int m_CurrentLevel;
+    public int m_CurrentLevel;
     private bool m_IsSoundOn;
     private bool m_IsMusicOn;
     private bool m_IsVibrateOn;

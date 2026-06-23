@@ -5,7 +5,8 @@ using UnityEngine;
 public enum TypeBallPvP
 {
     Ai,
-    User
+    User,
+    
 }
 public class BallPvP : MonoBehaviour
 {
@@ -90,7 +91,7 @@ public class BallPvP : MonoBehaviour
 
             GameManager.Instance.GAME_STATE = GAME_STATE.END;
             TestAI.Instance.StopAI();
-            PvPController.Instance.playerContain.HandleGoals();
+            PvPController.Instance.playerContain.HandleGoals(typeBallPvP);
             GlobalAudioPlayer.PlaySFX(eAudioType.WIN);
             //   OnWin();
             //cho cam chạy anim win

@@ -53,6 +53,13 @@ public class EndGameBox : BaseBox
         });
         });
         btnContinue.onClick.AddListener(delegate { HandleButtonContinue(); });
+
+        XGameSdk.Instance.Track("pvp", new KVItems()
+               {
+
+                    {"pvp_time", PvPController.Instance.GetTotalTime},
+
+               });
     }
 
     private void InitState(EndGameType endGameType, int score)
@@ -65,16 +72,30 @@ public class EndGameBox : BaseBox
             case EndGameType.Win:
                 lableWin.gameObject.SetActive(true);
                 lableWin.Init(delegate { canvasGroupBtn.DOFade(1, 0.5f); });
-             
+               XGameSdk.Instance.Track("pvp", new KVItems()
+               {
+                   {"pvp_status", "victory"},
+         
+               });
                 break;
             case EndGameType.Lose:
                 lableLose.gameObject.SetActive(true);
                 lableLose.Init(delegate { canvasGroupBtn.DOFade(1, 0.5f); });
-     
+                  XGameSdk.Instance.Track("pvp", new KVItems()
+               {
+                   {"pvp_status", "failed"},
+         
+               });
                 break;
             case EndGameType.Draw:
                 lableDraw.gameObject.SetActive(true);
                 lableDraw.Init(delegate { canvasGroupBtn.DOFade(1, 0.5f); });
+
+                  XGameSdk.Instance.Track("pvp", new KVItems()
+               {
+                   {"pvp_status", "draw"},
+         
+               });
                 break;
         }
         foreach(var item in lsTvNameUser)

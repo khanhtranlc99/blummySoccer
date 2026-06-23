@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
 using UnityEngine.UI;
-using UnityEngine.Experimental.GlobalIllumination;
+ 
 using System.Linq;
 using UnityEditor;
-using UnityEngine.SocialPlatforms.Impl;
+using XGame;
 
 public class PvP_PlayerContain : MonoBehaviour
 {
@@ -22,6 +22,7 @@ public class PvP_PlayerContain : MonoBehaviour
     public List<MapController> ListMaps;
     public List<MapController> mapControllersWasUse;
     public List<BallPvP> lsBallPvP;
+    public TypeBallPvP typeBallPvP;
  //   public MapController test;
     public MapController getRandomMap
     {
@@ -72,13 +73,29 @@ public class PvP_PlayerContain : MonoBehaviour
                     TestAI.Instance.StartAI();
                     PlayerControllerPvP.Instance.Init();
                     GameManager.Instance.GAME_STATE = GAME_STATE.PLAYING;
+
+                    
                 });
             });
         });
+         XGameSdk.Instance.Track("pvp", new KVItems()
+        {
+            {"pvp_round status", "start"},
+         
+        });
+
+             XGameSdk.Instance.Track("pvp", new KVItems()
+        {
+            {"pvp_id", PvPController.Instance.pvpScene.round },
+         
+        });
+        
+        
        
     }
-    public void HandleGoals()
+    public void HandleGoals(TypeBallPvP paramTypeBallPvP)
     {
+        typeBallPvP = paramTypeBallPvP;
         goals.transform.localScale = Vector3.zero;
         goals.SetActive(true);
         goals.transform.DOScale(Vector3.one, 1.5f).SetEase(Ease.OutBack).OnComplete(delegate
@@ -110,6 +127,9 @@ public class PvP_PlayerContain : MonoBehaviour
 
 
         });
+        CheckingRound(true);
+       
+
     }
 
     public void HandleDraw()
@@ -144,6 +164,44 @@ public class PvP_PlayerContain : MonoBehaviour
 
 
         });
+        CheckingRound(false);
+    }
+
+    public void CheckingRound(bool isGoals)
+    {
+        if(isGoals)
+        {
+            switch(typeBallPvP)
+            {
+                case TypeBallPvP.User:
+                    XGameSdk.Instance.Track("pvp", new KVItems()
+                    {
+                        {"pvp_round status", "goals"},
+                        {"winer", "user"},
+                    });
+                    break;
+                case TypeBallPvP.Ai:
+                    XGameSdk.Instance.Track("pvp", new KVItems()
+                    {
+                        {"pvp_round status", "goals"},
+                         {"winer", "opponent"},
+                    });
+                    break;
+            }
+           
+        }
+        else
+        {
+                XGameSdk.Instance.Track("pvp", new KVItems()
+            {
+               {"pvp_round status", "draw"},
+         
+            });
+   
+        }
+         
+
+      
     }
 
     private void HandlePushScore()

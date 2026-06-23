@@ -37,10 +37,14 @@ public class pfb_Intro : UIBehavior
         rotateObj.rotate = 5;
         btnNext.gameObject.SetActive(true);
         btnNext.transform.DOScale(new Vector3(1,1,1), 0.5f);
+        XGameSdk.Instance.Track("level", new KVItems()
+        {
+            {"level_time",  GameController.Instance.GetTotalTime},
+        });
+        Debug.LogError("level_time_" + GameController.Instance.GetTotalTime);
 
 
- 
-    //    Winbox.Setup().Show();
+        //    Winbox.Setup().Show();
     }
     private void Ready()
     {
@@ -49,6 +53,17 @@ public class pfb_Intro : UIBehavior
         {
             {"level_status", "start"},
         });
+        GameController.Instance.AddPlay(Facade.Instance.PlayerPrefManager.CurrentLevel);
+       
+
+
+        XGameSdk.Instance.Track("level", new KVItems()
+        {
+            {"game_level_number",  GameController.Instance.GetPlayCount(Facade.Instance.PlayerPrefManager.CurrentLevel)},
+        });
+
+
+
         // SoundManager.Instance.PlayAudioClip(SoundType.READY);
     }
 
@@ -72,5 +87,8 @@ public class pfb_Intro : UIBehavior
 
 
     }
+
+
+    
 
 }

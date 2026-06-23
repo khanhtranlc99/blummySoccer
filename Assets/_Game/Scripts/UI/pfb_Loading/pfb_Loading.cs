@@ -1,22 +1,43 @@
 ﻿using DG.Tweening;
 using MoonlightFramework;
+using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using XGame;
 
 public class pfb_Loading : UIBehavior
 {
    // public SlicedFilledImage Progress;
     public Slider progress;
     public GameObject NotiTrackingIOSObject;
+    public float loadingTime;
     protected override void Awake()
     {
         this.NotiTrackingIOSObject.SetActive(false);
+        loadingTime = Time.time;
     }
     private void Start()
     {
-        Play();
+        try
+        {
+            Play();
+            XGameSdk.Instance.Track("startAPP_loading", new KVItems()
+            {
+             {"view_state", "first_frame"},
+
+            });
+        }
+        catch(Exception Error)
+        {
+            XGameSdk.Instance.Track("startAPP_loading", new KVItems()
+            {
+              {"error_reason:", "first_frame"},
+
+            });
+        }
+   
     }
     public void Play()
     {
@@ -36,6 +57,19 @@ public class pfb_Loading : UIBehavior
             ActiveNormalPopup(false);
             GameManager.Instance.DoneLoading();
             LoadingDone();
+            XGameSdk.Instance.Track("startAPP_loading", new KVItems()
+        {
+            {"view_state", "last_frame"},
+
+        });
+            var temp = Time.time - loadingTime;
+
+            XGameSdk.Instance.Track("startAPP_loading", new KVItems()
+        {
+            {"loading_time", temp },
+
+        });
+
         });
     }
 

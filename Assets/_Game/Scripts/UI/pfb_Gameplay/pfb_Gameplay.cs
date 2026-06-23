@@ -53,7 +53,7 @@ public class pfb_Gameplay : UIBehavior
              XGameSdk.Instance.Track("UE", new KVItems()
             {
                 {"button", "home"},
-                {"level_id", Facade.Instance.PlayerPrefManager.CurrentLevel},
+                {"level_id", Facade.Instance.PlayerPrefManager.CurrentLevel.ToString()},
             });
     }
 
@@ -76,7 +76,7 @@ public class pfb_Gameplay : UIBehavior
                XGameSdk.Instance.Track("UE", new KVItems()
             {
                {"button", "replay_level"},
-               {"level_id", Facade.Instance.PlayerPrefManager.CurrentLevel},
+               {"level_id", Facade.Instance.PlayerPrefManager.CurrentLevel.ToString()},
             });
 
             XGameSdk.Instance.Track("level", new KVItems()
@@ -211,7 +211,7 @@ public class pfb_Gameplay : UIBehavior
             XGameSdk.Instance.Track("UE", new KVItems()
             {
                 {"button", "pvp"},
-                {"level_id", Facade.Instance.PlayerPrefManager.CurrentLevel},
+                {"level_id", Facade.Instance.PlayerPrefManager.CurrentLevel.ToString()},
             });
         }
         else
