@@ -77,6 +77,8 @@ public class EndGameBox : BaseBox
                    
                    {"pvp_status", "victory"},
                    {"pvp_time",  PvPController.Instance.GetTotalTime},
+                       {"winner", "user"},
+
                });
                 break;
             case EndGameType.Lose:
@@ -86,6 +88,7 @@ public class EndGameBox : BaseBox
                {  
                    {"pvp_status", "failed"},
                    {"pvp_time",  PvPController.Instance.GetTotalTime},
+                       {"winner", "system"},
 
                });
                 break;
@@ -97,6 +100,7 @@ public class EndGameBox : BaseBox
                {  
                    {"pvp_status", "draw"},
                    {"pvp_time",  PvPController.Instance.GetTotalTime},
+                    
 
                });
                 break;

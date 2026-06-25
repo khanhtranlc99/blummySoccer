@@ -51,22 +51,32 @@ public class AnalyticsController : MonoBehaviour
 
     public  void WinLevel()
     {
-             Debug.LogError("Win_Level_" + Facade.Instance.PlayerPrefManager.CurrentLevel);
+           
      
-
-          XGameSdk.Instance.Track("UE", new KVItems()
+        if(PvPController.Instance == null)
+        {
+           XGameSdk.Instance.Track("UE", new KVItems()
             {
                {"view_show", "victory"},
                {"level_id", Facade.Instance.PlayerPrefManager.CurrentLevel.ToString()},
             });
 
-         XGameSdk.Instance.Track("level", new KVItems()
-        {
+            XGameSdk.Instance.Track("level", new KVItems()
+          {
              {"level_id", Facade.Instance.PlayerPrefManager.CurrentLevel},
              {"level_status", "victory"},
              {"level_time", GameController.Instance.GetTotalTime} 
-        });
+          });
 
+
+           Debug.LogError("PvPController.Instance == null"  );
+        }
+        else
+        {
+            Debug.LogError("PvPController.Instance !!!!!= null"  );
+        }
+
+      
 
       
  
