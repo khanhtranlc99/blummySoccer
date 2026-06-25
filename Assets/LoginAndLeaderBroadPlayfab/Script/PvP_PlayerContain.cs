@@ -80,15 +80,12 @@ public class PvP_PlayerContain : MonoBehaviour
         });
          XGameSdk.Instance.Track("pvp", new KVItems()
         {
-            {"pvp_round status", "start"},
+            {"pvp_id", PvPController.Instance.pvpScene.round },
+            {"pvp_round_status", "start"},
          
         });
 
-             XGameSdk.Instance.Track("pvp", new KVItems()
-        {
-            {"pvp_id", PvPController.Instance.pvpScene.round },
-         
-        });
+      
         
         
        
@@ -176,15 +173,17 @@ public class PvP_PlayerContain : MonoBehaviour
                 case TypeBallPvP.User:
                     XGameSdk.Instance.Track("pvp", new KVItems()
                     {
-                        {"pvp_round status", "goals"},
-                        {"winer", "user"},
+                        {"pvp_id", PvPController.Instance.pvpScene.round },
+                        {"pvp_round_status", "goals"},
+                        {"winner", "user"},
                     });
                     break;
                 case TypeBallPvP.Ai:
                     XGameSdk.Instance.Track("pvp", new KVItems()
                     {
-                        {"pvp_round status", "goals"},
-                         {"winer", "opponent"},
+                         {"pvp_id", PvPController.Instance.pvpScene.round },
+                         {"pvp_round_status", "goals"},
+                         {"winner", "system"},
                     });
                     break;
             }
@@ -194,7 +193,8 @@ public class PvP_PlayerContain : MonoBehaviour
         {
                 XGameSdk.Instance.Track("pvp", new KVItems()
             {
-               {"pvp_round status", "draw"},
+                   {"pvp_id", PvPController.Instance.pvpScene.round },
+                  {"pvp_round_status", "draw"},
          
             });
    

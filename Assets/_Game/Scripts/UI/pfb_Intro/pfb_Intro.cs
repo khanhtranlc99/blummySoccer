@@ -50,8 +50,10 @@ public class pfb_Intro : UIBehavior
     {
         GlobalAudioPlayer.PlaySFX(eAudioType.READY);
         XGameSdk.Instance.Track("level", new KVItems()
-        {
+        {    
+            {"level_id", Facade.Instance.PlayerPrefManager.CurrentLevel},
             {"level_status", "start"},
+            {"game_level_number", GameController.Instance.GetPlayCount(Facade.Instance.PlayerPrefManager.CurrentLevel)}
         });
         GameController.Instance.AddPlay(Facade.Instance.PlayerPrefManager.CurrentLevel);
        

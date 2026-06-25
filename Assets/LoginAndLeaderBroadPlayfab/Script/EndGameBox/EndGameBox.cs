@@ -74,17 +74,19 @@ public class EndGameBox : BaseBox
                 lableWin.Init(delegate { canvasGroupBtn.DOFade(1, 0.5f); });
                XGameSdk.Instance.Track("pvp", new KVItems()
                {
+                   
                    {"pvp_status", "victory"},
-         
+                   {"pvp_time",  PvPController.Instance.GetTotalTime},
                });
                 break;
             case EndGameType.Lose:
                 lableLose.gameObject.SetActive(true);
                 lableLose.Init(delegate { canvasGroupBtn.DOFade(1, 0.5f); });
                   XGameSdk.Instance.Track("pvp", new KVItems()
-               {
+               {  
                    {"pvp_status", "failed"},
-         
+                   {"pvp_time",  PvPController.Instance.GetTotalTime},
+
                });
                 break;
             case EndGameType.Draw:
@@ -92,9 +94,10 @@ public class EndGameBox : BaseBox
                 lableDraw.Init(delegate { canvasGroupBtn.DOFade(1, 0.5f); });
 
                   XGameSdk.Instance.Track("pvp", new KVItems()
-               {
+               {  
                    {"pvp_status", "draw"},
-         
+                   {"pvp_time",  PvPController.Instance.GetTotalTime},
+
                });
                 break;
         }

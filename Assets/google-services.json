@@ -1,13 +1,13 @@
 {
   "project_info": {
-    "project_number": "911868053998",
-    "project_id": "newpenaltymas",
-    "storage_bucket": "newpenaltymas.firebasestorage.app"
+    "project_number": "374541039065",
+    "project_id": "survival-456-but-it-s-se-2696f",
+    "storage_bucket": "survival-456-but-it-s-se-2696f.firebasestorage.app"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:911868053998:android:547458613bf05e745366ff",
+        "mobilesdk_app_id": "1:374541039065:android:b57803c31a4aea0fa915c8",
         "android_client_info": {
           "package_name": "com.eskimo.goalhero.penalty.master"
         }
@@ -15,7 +15,7 @@
       "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyCOPcwx9C12lkOLG9YDaq-uw2leEaVqOjA"
+          "current_key": "AIzaSyAWxYwwz3Rjg6GjtydAGGQgljX2GhkSz4s"
         }
       ],
       "services": {

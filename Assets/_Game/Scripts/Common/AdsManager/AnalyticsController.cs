@@ -62,7 +62,9 @@ public class AnalyticsController : MonoBehaviour
 
          XGameSdk.Instance.Track("level", new KVItems()
         {
-            {"level_status", "victory"},
+             {"level_id", Facade.Instance.PlayerPrefManager.CurrentLevel},
+             {"level_status", "victory"},
+             {"level_time", GameController.Instance.GetTotalTime} 
         });
 
 
